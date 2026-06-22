@@ -1,0 +1,129 @@
+2026-06-16 14:07:37,848 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 14:07:37,848 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 14:07:37,849 [INFO] Strategies: ['two_stage_entropy_balance', 'curriculum_penalty_entropy']
+2026-06-16 14:07:37,849 [INFO] Seeds: [42]
+2026-06-16 14:07:37,849 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 14:07:37,849 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 14:07:37,849 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-16 14:07:37,887 [INFO] Device: cuda
+2026-06-16 14:07:47,095 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-16 14:07:47,095 [INFO] 
+--- Strategy: two_stage_entropy_balance ---
+2026-06-16 14:07:52,026 [INFO]   [two_stage_entropy_balance] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.1s GPU=172MB SSL+0
+2026-06-16 14:07:56,146 [INFO]   [two_stage_entropy_balance] Seed=42 R2/10 F1=0.1037 Acc=0.1978 Labeled=300 QueryTime=0.1s GPU=210MB SSL+6
+2026-06-16 14:08:00,420 [INFO]   [two_stage_entropy_balance] Seed=42 R3/10 F1=0.1495 Acc=0.2184 Labeled=400 QueryTime=0.1s GPU=229MB SSL+32
+2026-06-16 14:08:04,364 [INFO]   [two_stage_entropy_balance] Seed=42 R4/10 F1=0.1590 Acc=0.2174 Labeled=500 QueryTime=0.1s GPU=229MB SSL+8
+2026-06-16 14:08:08,841 [INFO]   [two_stage_entropy_balance] Seed=42 R5/10 F1=0.1779 Acc=0.2586 Labeled=600 QueryTime=0.1s GPU=229MB SSL+9
+2026-06-16 14:08:14,885 [INFO]   [two_stage_entropy_balance] Seed=42 R6/10 F1=0.1857 Acc=0.2758 Labeled=700 QueryTime=0.1s GPU=229MB SSL+31
+2026-06-16 14:08:21,559 [INFO]   [two_stage_entropy_balance] Seed=42 R7/10 F1=0.1842 Acc=0.2721 Labeled=800 QueryTime=0.3s GPU=229MB SSL+78
+2026-06-16 14:08:29,356 [INFO]   [two_stage_entropy_balance] Seed=42 R8/10 F1=0.2321 Acc=0.3127 Labeled=900 QueryTime=0.2s GPU=229MB SSL+86
+2026-06-16 14:08:36,899 [INFO]   [two_stage_entropy_balance] Seed=42 R9/10 F1=0.2340 Acc=0.3139 Labeled=1000 QueryTime=0.2s GPU=229MB SSL+194
+2026-06-16 14:08:44,218 [INFO] 
+--- Strategy: curriculum_penalty_entropy ---
+2026-06-16 14:08:48,033 [INFO]   [curriculum_penalty_entropy] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-16 14:08:51,799 [INFO]   [curriculum_penalty_entropy] Seed=42 R2/10 F1=0.0954 Acc=0.1885 Labeled=300 QueryTime=0.0s GPU=208MB SSL+1
+2026-06-16 14:08:55,602 [INFO]   [curriculum_penalty_entropy] Seed=42 R3/10 F1=0.0876 Acc=0.1880 Labeled=400 QueryTime=0.0s GPU=229MB SSL+4
+2026-06-16 14:08:59,822 [INFO]   [curriculum_penalty_entropy] Seed=42 R4/10 F1=0.0972 Acc=0.1964 Labeled=500 QueryTime=0.1s GPU=229MB SSL+25
+2026-06-16 14:09:03,704 [INFO]   [curriculum_penalty_entropy] Seed=42 R5/10 F1=0.1339 Acc=0.2294 Labeled=600 QueryTime=0.1s GPU=229MB SSL+31
+2026-06-16 14:09:10,351 [INFO]   [curriculum_penalty_entropy] Seed=42 R6/10 F1=0.1613 Acc=0.2486 Labeled=700 QueryTime=0.2s GPU=229MB SSL+16
+2026-06-16 14:09:16,537 [INFO]   [curriculum_penalty_entropy] Seed=42 R7/10 F1=0.1714 Acc=0.2530 Labeled=800 QueryTime=0.2s GPU=229MB SSL+69
+2026-06-16 14:09:24,448 [INFO]   [curriculum_penalty_entropy] Seed=42 R8/10 F1=0.2265 Acc=0.3098 Labeled=900 QueryTime=0.2s GPU=229MB SSL+72
+2026-06-16 14:09:32,630 [INFO]   [curriculum_penalty_entropy] Seed=42 R9/10 F1=0.2467 Acc=0.3231 Labeled=1000 QueryTime=0.1s GPU=229MB SSL+107
+2026-06-16 14:09:39,899 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-16 14:12:15,315 [INFO] Full Supervised: Acc=0.6166, F1=0.5797 (epochs=50, time=154.2s)
+2026-06-16 14:12:15,733 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\v3_extended\rho100 ===
+2026-06-16 14:12:15,733 [INFO] 
+Summary:
+2026-06-16 14:12:15,733 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-16 14:12:15,733 [INFO] ------------------------------------------------------------
+2026-06-16 14:12:15,733 [INFO] curriculum_penalty_entropy       0.2469   0.0000                   
+2026-06-16 14:12:15,733 [INFO] two_stage_entropy_balance       0.2499   0.0000                   
+2026-06-16 14:12:15,733 [INFO] Full Supervised            0.5797
+2026-06-16 14:12:20,396 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 14:12:20,396 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 14:12:20,396 [INFO] Strategies: ['two_stage_entropy_balance', 'curriculum_penalty_entropy']
+2026-06-16 14:12:20,396 [INFO] Seeds: [123]
+2026-06-16 14:12:20,396 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 14:12:20,396 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 14:12:20,396 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-16 14:12:20,423 [INFO] Device: cuda
+2026-06-16 14:12:29,038 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-16 14:12:29,038 [INFO] 
+--- Strategy: two_stage_entropy_balance ---
+2026-06-16 14:12:33,098 [INFO]   [two_stage_entropy_balance] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.1s GPU=172MB SSL+18
+2026-06-16 14:12:36,316 [INFO]   [two_stage_entropy_balance] Seed=123 R2/10 F1=0.0577 Acc=0.1662 Labeled=300 QueryTime=0.1s GPU=210MB SSL+26
+2026-06-16 14:12:39,806 [INFO]   [two_stage_entropy_balance] Seed=123 R3/10 F1=0.0672 Acc=0.1773 Labeled=400 QueryTime=0.1s GPU=229MB SSL+34
+2026-06-16 14:12:43,366 [INFO]   [two_stage_entropy_balance] Seed=123 R4/10 F1=0.0758 Acc=0.1730 Labeled=500 QueryTime=0.1s GPU=229MB SSL+57
+2026-06-16 14:12:47,163 [INFO]   [two_stage_entropy_balance] Seed=123 R5/10 F1=0.1007 Acc=0.2062 Labeled=600 QueryTime=0.1s GPU=229MB SSL+12
+2026-06-16 14:12:52,848 [INFO]   [two_stage_entropy_balance] Seed=123 R6/10 F1=0.1101 Acc=0.1919 Labeled=700 QueryTime=0.1s GPU=229MB SSL+143
+2026-06-16 14:12:58,485 [INFO]   [two_stage_entropy_balance] Seed=123 R7/10 F1=0.1734 Acc=0.2537 Labeled=800 QueryTime=0.1s GPU=229MB SSL+45
+2026-06-16 14:13:05,923 [INFO]   [two_stage_entropy_balance] Seed=123 R8/10 F1=0.2189 Acc=0.2838 Labeled=900 QueryTime=0.2s GPU=229MB SSL+162
+2026-06-16 14:13:13,655 [INFO]   [two_stage_entropy_balance] Seed=123 R9/10 F1=0.2110 Acc=0.2828 Labeled=1000 QueryTime=0.2s GPU=229MB SSL+100
+2026-06-16 14:13:20,511 [INFO] 
+--- Strategy: curriculum_penalty_entropy ---
+2026-06-16 14:13:24,102 [INFO]   [curriculum_penalty_entropy] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.0s GPU=171MB SSL+18
+2026-06-16 14:13:27,752 [INFO]   [curriculum_penalty_entropy] Seed=123 R2/10 F1=0.0604 Acc=0.1698 Labeled=300 QueryTime=0.0s GPU=208MB SSL+70
+2026-06-16 14:13:31,466 [INFO]   [curriculum_penalty_entropy] Seed=123 R3/10 F1=0.0906 Acc=0.1885 Labeled=400 QueryTime=0.0s GPU=229MB SSL+39
+2026-06-16 14:13:35,175 [INFO]   [curriculum_penalty_entropy] Seed=123 R4/10 F1=0.1234 Acc=0.1996 Labeled=500 QueryTime=0.1s GPU=229MB SSL+7
+2026-06-16 14:13:38,947 [INFO]   [curriculum_penalty_entropy] Seed=123 R5/10 F1=0.1277 Acc=0.2149 Labeled=600 QueryTime=0.1s GPU=229MB SSL+33
+2026-06-16 14:13:44,543 [INFO]   [curriculum_penalty_entropy] Seed=123 R6/10 F1=0.1573 Acc=0.2486 Labeled=700 QueryTime=0.1s GPU=229MB SSL+9
+2026-06-16 14:13:50,310 [INFO]   [curriculum_penalty_entropy] Seed=123 R7/10 F1=0.2252 Acc=0.2917 Labeled=800 QueryTime=0.1s GPU=229MB SSL+33
+2026-06-16 14:13:57,553 [INFO]   [curriculum_penalty_entropy] Seed=123 R8/10 F1=0.2317 Acc=0.3026 Labeled=900 QueryTime=0.1s GPU=229MB SSL+33
+2026-06-16 14:14:04,943 [INFO]   [curriculum_penalty_entropy] Seed=123 R9/10 F1=0.2237 Acc=0.2929 Labeled=1000 QueryTime=0.1s GPU=229MB SSL+136
+2026-06-16 14:14:11,611 [INFO] 
+--- Full Supervised Baseline (reused from existing) ---
+2026-06-16 14:14:11,611 [INFO] Full Supervised: Acc=0.6166, F1=0.5797
+2026-06-16 14:14:12,018 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\v3_extended\rho100 ===
+2026-06-16 14:14:12,018 [INFO] 
+Summary:
+2026-06-16 14:14:12,018 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-16 14:14:12,018 [INFO] ------------------------------------------------------------
+2026-06-16 14:14:12,018 [INFO] curriculum_penalty_entropy       0.2321   0.0000                   
+2026-06-16 14:14:12,018 [INFO] two_stage_entropy_balance       0.2575   0.0000                   
+2026-06-16 14:14:12,018 [INFO] Full Supervised            0.5797
+2026-06-16 14:14:16,705 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 14:14:16,705 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 14:14:16,705 [INFO] Strategies: ['two_stage_entropy_balance', 'curriculum_penalty_entropy']
+2026-06-16 14:14:16,705 [INFO] Seeds: [456]
+2026-06-16 14:14:16,705 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 14:14:16,705 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 14:14:16,705 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-16 14:14:16,728 [INFO] Device: cuda
+2026-06-16 14:14:25,438 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-16 14:14:25,438 [INFO] 
+--- Strategy: two_stage_entropy_balance ---
+2026-06-16 14:14:29,483 [INFO]   [two_stage_entropy_balance] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.1s GPU=172MB SSL+7
+2026-06-16 14:14:32,640 [INFO]   [two_stage_entropy_balance] Seed=456 R2/10 F1=0.1005 Acc=0.1974 Labeled=300 QueryTime=0.1s GPU=210MB SSL+31
+2026-06-16 14:14:36,218 [INFO]   [two_stage_entropy_balance] Seed=456 R3/10 F1=0.1079 Acc=0.1981 Labeled=400 QueryTime=0.1s GPU=229MB SSL+21
+2026-06-16 14:14:39,836 [INFO]   [two_stage_entropy_balance] Seed=456 R4/10 F1=0.1540 Acc=0.2339 Labeled=500 QueryTime=0.1s GPU=229MB SSL+9
+2026-06-16 14:14:43,550 [INFO]   [two_stage_entropy_balance] Seed=456 R5/10 F1=0.1641 Acc=0.2420 Labeled=600 QueryTime=0.1s GPU=229MB SSL+6
+2026-06-16 14:14:48,938 [INFO]   [two_stage_entropy_balance] Seed=456 R6/10 F1=0.1537 Acc=0.2398 Labeled=700 QueryTime=0.1s GPU=229MB SSL+48
+2026-06-16 14:14:54,388 [INFO]   [two_stage_entropy_balance] Seed=456 R7/10 F1=0.1963 Acc=0.2754 Labeled=800 QueryTime=0.1s GPU=229MB SSL+63
+2026-06-16 14:15:01,603 [INFO]   [two_stage_entropy_balance] Seed=456 R8/10 F1=0.2075 Acc=0.2920 Labeled=900 QueryTime=0.2s GPU=229MB SSL+174
+2026-06-16 14:15:08,813 [INFO]   [two_stage_entropy_balance] Seed=456 R9/10 F1=0.2410 Acc=0.3259 Labeled=1000 QueryTime=0.2s GPU=229MB SSL+163
+2026-06-16 14:15:15,361 [INFO] 
+--- Strategy: curriculum_penalty_entropy ---
+2026-06-16 14:15:18,929 [INFO]   [curriculum_penalty_entropy] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.0s GPU=171MB SSL+7
+2026-06-16 14:15:22,475 [INFO]   [curriculum_penalty_entropy] Seed=456 R2/10 F1=0.1012 Acc=0.2057 Labeled=300 QueryTime=0.0s GPU=208MB SSL+33
+2026-06-16 14:15:26,052 [INFO]   [curriculum_penalty_entropy] Seed=456 R3/10 F1=0.1311 Acc=0.2236 Labeled=400 QueryTime=0.0s GPU=229MB SSL+9
+2026-06-16 14:15:29,665 [INFO]   [curriculum_penalty_entropy] Seed=456 R4/10 F1=0.1577 Acc=0.2366 Labeled=500 QueryTime=0.1s GPU=229MB SSL+29
+2026-06-16 14:15:33,220 [INFO]   [curriculum_penalty_entropy] Seed=456 R5/10 F1=0.1576 Acc=0.2388 Labeled=600 QueryTime=0.1s GPU=229MB SSL+20
+2026-06-16 14:15:38,567 [INFO]   [curriculum_penalty_entropy] Seed=456 R6/10 F1=0.2245 Acc=0.2993 Labeled=700 QueryTime=0.1s GPU=229MB SSL+27
+2026-06-16 14:15:43,871 [INFO]   [curriculum_penalty_entropy] Seed=456 R7/10 F1=0.2420 Acc=0.3036 Labeled=800 QueryTime=0.1s GPU=229MB SSL+50
+2026-06-16 14:15:50,967 [INFO]   [curriculum_penalty_entropy] Seed=456 R8/10 F1=0.2419 Acc=0.3098 Labeled=900 QueryTime=0.1s GPU=229MB SSL+136
+2026-06-16 14:15:58,142 [INFO]   [curriculum_penalty_entropy] Seed=456 R9/10 F1=0.2328 Acc=0.3028 Labeled=1000 QueryTime=0.1s GPU=229MB SSL+101
+2026-06-16 14:16:04,703 [INFO] 
+--- Full Supervised Baseline (reused from existing) ---
+2026-06-16 14:16:04,703 [INFO] Full Supervised: Acc=0.6166, F1=0.5797
+2026-06-16 14:16:05,137 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\v3_extended\rho100 ===
+2026-06-16 14:16:05,137 [INFO] 
+Summary:
+2026-06-16 14:16:05,137 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-16 14:16:05,138 [INFO] ------------------------------------------------------------
+2026-06-16 14:16:05,138 [INFO] curriculum_penalty_entropy       0.2994   0.0000                   
+2026-06-16 14:16:05,138 [INFO] two_stage_entropy_balance       0.2358   0.0000                   
+2026-06-16 14:16:05,138 [INFO] Full Supervised            0.5797

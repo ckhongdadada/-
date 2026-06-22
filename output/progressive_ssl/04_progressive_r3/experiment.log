@@ -1,0 +1,47 @@
+2026-06-14 17:59:23,672 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 17:59:23,672 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 17:59:23,672 [INFO] Strategies: ['entropy', 'class_aware_entropy']
+2026-06-14 17:59:23,672 [INFO] Seeds: [42]
+2026-06-14 17:59:23,672 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 17:59:23,672 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 17:59:23,672 [INFO] Imbalance mode: max/min class count ratio = 10
+2026-06-14 17:59:23,700 [INFO] Device: cuda
+2026-06-14 17:59:32,299 [INFO] Imbalance filter (Exponential): 50000 -> 20431 training samples
+2026-06-14 17:59:32,307 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 17:59:32,391 [INFO]   Progressive SSL: Base SSL for rounds 0-2, Innov SSL for round 3+
+2026-06-14 17:59:36,355 [INFO]   [entropy] Seed=42 R1/10 F1=0.0799 Acc=0.1441 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-14 17:59:39,931 [INFO]   [entropy] Seed=42 R2/10 F1=0.1672 Acc=0.2282 Labeled=300 QueryTime=0.0s GPU=217MB SSL+0
+2026-06-14 17:59:43,461 [INFO]   [entropy] Seed=42 R3/10 F1=0.2044 Acc=0.2573 Labeled=400 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 17:59:43,514 [INFO]   Progressive SSL: switched to Innov SSL at round 3
+2026-06-14 17:59:47,577 [INFO]   [entropy] Seed=42 R4/10 F1=0.2296 Acc=0.2835 Labeled=500 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 17:59:51,682 [INFO]   [entropy] Seed=42 R5/10 F1=0.2482 Acc=0.2916 Labeled=600 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 18:00:00,742 [INFO]   [entropy] Seed=42 R6/10 F1=0.2396 Acc=0.2987 Labeled=700 QueryTime=0.0s GPU=237MB SSL+100
+2026-06-14 18:00:07,673 [INFO]   [entropy] Seed=42 R7/10 F1=0.3199 Acc=0.3489 Labeled=800 QueryTime=0.0s GPU=237MB SSL+56
+2026-06-14 18:00:17,023 [INFO]   [entropy] Seed=42 R8/10 F1=0.3399 Acc=0.3754 Labeled=900 QueryTime=0.0s GPU=237MB SSL+377
+2026-06-14 18:00:26,669 [INFO]   [entropy] Seed=42 R9/10 F1=0.3661 Acc=0.4076 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+377
+2026-06-14 18:00:36,806 [INFO] 
+--- Strategy: class_aware_entropy ---
+2026-06-14 18:00:36,830 [INFO]   Progressive SSL: Base SSL for rounds 0-2, Innov SSL for round 3+
+2026-06-14 18:00:41,102 [INFO]   [class_aware_entropy] Seed=42 R1/10 F1=0.0799 Acc=0.1441 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-14 18:00:45,782 [INFO]   [class_aware_entropy] Seed=42 R2/10 F1=0.1595 Acc=0.2267 Labeled=300 QueryTime=0.1s GPU=221MB SSL+0
+2026-06-14 18:00:50,216 [INFO]   [class_aware_entropy] Seed=42 R3/10 F1=0.1895 Acc=0.2401 Labeled=400 QueryTime=0.0s GPU=241MB SSL+0
+2026-06-14 18:00:50,269 [INFO]   Progressive SSL: switched to Innov SSL at round 3
+2026-06-14 18:00:55,659 [INFO]   [class_aware_entropy] Seed=42 R4/10 F1=0.2190 Acc=0.2778 Labeled=500 QueryTime=0.1s GPU=241MB SSL+51
+2026-06-14 18:01:00,347 [INFO]   [class_aware_entropy] Seed=42 R5/10 F1=0.2447 Acc=0.2931 Labeled=600 QueryTime=0.1s GPU=241MB SSL+37
+2026-06-14 18:01:06,836 [INFO]   [class_aware_entropy] Seed=42 R6/10 F1=0.2792 Acc=0.3222 Labeled=700 QueryTime=0.1s GPU=241MB SSL+124
+2026-06-14 18:01:13,528 [INFO]   [class_aware_entropy] Seed=42 R7/10 F1=0.2805 Acc=0.3218 Labeled=800 QueryTime=0.1s GPU=241MB SSL+163
+2026-06-14 18:01:22,857 [INFO]   [class_aware_entropy] Seed=42 R8/10 F1=0.3574 Acc=0.3896 Labeled=900 QueryTime=0.1s GPU=241MB SSL+166
+2026-06-14 18:01:32,718 [INFO]   [class_aware_entropy] Seed=42 R9/10 F1=0.3579 Acc=0.3907 Labeled=1000 QueryTime=0.1s GPU=241MB SSL+141
+2026-06-14 18:01:43,091 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-14 18:05:36,243 [INFO] Full Supervised: Acc=0.7630, F1=0.7566 (epochs=50, time=232.0s)
+2026-06-14 18:05:36,650 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\progressive_ssl\04_progressive_r3 ===
+2026-06-14 18:05:36,650 [INFO] 
+Summary:
+2026-06-14 18:05:36,650 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-14 18:05:36,650 [INFO] ------------------------------------------------------------
+2026-06-14 18:05:36,650 [INFO] class_aware_entropy        0.3602   0.0000                   
+2026-06-14 18:05:36,650 [INFO] entropy                    0.3617   0.0000                   
+2026-06-14 18:05:36,651 [INFO] Full Supervised            0.7566

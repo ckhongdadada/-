@@ -1,0 +1,364 @@
+2026-06-13 16:28:03,978 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-13 16:28:03,978 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-13 16:28:03,978 [INFO] Strategies: ['random', 'entropy', 'margin', 'coreset', 'badge', 'qbc']
+2026-06-13 16:28:03,978 [INFO] Seeds: [42, 123, 456]
+2026-06-13 16:28:03,979 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-13 16:28:03,979 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-13 16:28:03,979 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-13 16:28:04,086 [INFO] Device: cuda
+2026-06-13 16:28:29,136 [INFO] Imbalance filter (Exponential): 50000 -> 50000 training samples
+2026-06-13 16:28:29,136 [INFO] 
+--- Strategy: random ---
+2026-06-13 16:28:40,884 [INFO]   [random] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-13 16:28:51,433 [INFO]   [random] Seed=42 R2/10 F1=0.1487 Acc=0.1889 Labeled=300 QueryTime=0.0s GPU=210MB SSL+0
+2026-06-13 16:28:59,278 [INFO]   [random] Seed=42 R3/10 F1=0.2211 Acc=0.2609 Labeled=400 QueryTime=0.0s GPU=229MB SSL+39
+2026-06-13 16:29:07,670 [INFO]   [random] Seed=42 R4/10 F1=0.2403 Acc=0.2691 Labeled=500 QueryTime=0.0s GPU=229MB SSL+32
+2026-06-13 16:29:15,317 [INFO]   [random] Seed=42 R5/10 F1=0.2919 Acc=0.3186 Labeled=600 QueryTime=0.0s GPU=229MB SSL+42
+2026-06-13 16:29:27,535 [INFO]   [random] Seed=42 R6/10 F1=0.3729 Acc=0.3894 Labeled=700 QueryTime=0.0s GPU=229MB SSL+108
+2026-06-13 16:29:39,960 [INFO]   [random] Seed=42 R7/10 F1=0.3958 Acc=0.4097 Labeled=800 QueryTime=0.0s GPU=229MB SSL+142
+2026-06-13 16:29:58,606 [INFO]   [random] Seed=42 R8/10 F1=0.4216 Acc=0.4271 Labeled=900 QueryTime=0.0s GPU=229MB SSL+269
+2026-06-13 16:30:17,596 [INFO]   [random] Seed=42 R9/10 F1=0.4463 Acc=0.4587 Labeled=1000 QueryTime=0.0s GPU=229MB SSL+278
+2026-06-13 16:30:43,607 [INFO]   [random] Seed=123 R1/10 F1=0.1335 Acc=0.1793 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-13 16:30:49,815 [INFO]   [random] Seed=123 R2/10 F1=0.2299 Acc=0.2502 Labeled=300 QueryTime=0.0s GPU=208MB SSL+0
+2026-06-13 16:30:56,923 [INFO]   [random] Seed=123 R3/10 F1=0.2439 Acc=0.2604 Labeled=400 QueryTime=0.0s GPU=229MB SSL+22
+2026-06-13 16:31:05,198 [INFO]   [random] Seed=123 R4/10 F1=0.2193 Acc=0.2626 Labeled=500 QueryTime=0.0s GPU=229MB SSL+54
+2026-06-13 16:31:13,061 [INFO]   [random] Seed=123 R5/10 F1=0.2832 Acc=0.3106 Labeled=600 QueryTime=0.0s GPU=229MB SSL+62
+2026-06-13 16:31:25,199 [INFO]   [random] Seed=123 R6/10 F1=0.3376 Acc=0.3495 Labeled=700 QueryTime=0.0s GPU=229MB SSL+86
+2026-06-13 16:31:38,119 [INFO]   [random] Seed=123 R7/10 F1=0.3478 Acc=0.3596 Labeled=800 QueryTime=0.0s GPU=229MB SSL+143
+2026-06-13 16:31:55,292 [INFO]   [random] Seed=123 R8/10 F1=0.3717 Acc=0.3936 Labeled=900 QueryTime=0.0s GPU=229MB SSL+223
+2026-06-13 16:32:15,115 [INFO]   [random] Seed=123 R9/10 F1=0.4058 Acc=0.4243 Labeled=1000 QueryTime=0.0s GPU=229MB SSL+190
+2026-06-13 16:32:40,229 [INFO]   [random] Seed=456 R1/10 F1=0.1068 Acc=0.1911 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-13 16:32:46,633 [INFO]   [random] Seed=456 R2/10 F1=0.1997 Acc=0.2475 Labeled=300 QueryTime=0.0s GPU=208MB SSL+0
+2026-06-13 16:32:53,667 [INFO]   [random] Seed=456 R3/10 F1=0.2771 Acc=0.3076 Labeled=400 QueryTime=0.0s GPU=229MB SSL+41
+2026-06-13 16:33:01,623 [INFO]   [random] Seed=456 R4/10 F1=0.2956 Acc=0.3257 Labeled=500 QueryTime=0.0s GPU=229MB SSL+43
+2026-06-13 16:33:10,163 [INFO]   [random] Seed=456 R5/10 F1=0.3031 Acc=0.3355 Labeled=600 QueryTime=0.0s GPU=229MB SSL+50
+2026-06-13 16:33:23,258 [INFO]   [random] Seed=456 R6/10 F1=0.3400 Acc=0.3608 Labeled=700 QueryTime=0.0s GPU=229MB SSL+124
+2026-06-13 16:33:36,073 [INFO]   [random] Seed=456 R7/10 F1=0.3847 Acc=0.3874 Labeled=800 QueryTime=0.0s GPU=229MB SSL+154
+2026-06-13 16:33:54,970 [INFO]   [random] Seed=456 R8/10 F1=0.4158 Acc=0.4249 Labeled=900 QueryTime=0.0s GPU=229MB SSL+181
+2026-06-13 16:34:15,366 [INFO]   [random] Seed=456 R9/10 F1=0.4035 Acc=0.4152 Labeled=1000 QueryTime=0.0s GPU=229MB SSL+249
+2026-06-13 16:34:37,518 [INFO] 
+--- Strategy: entropy ---
+2026-06-13 16:34:47,416 [INFO]   [entropy] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-13 16:34:56,790 [INFO]   [entropy] Seed=42 R2/10 F1=0.1705 Acc=0.2077 Labeled=300 QueryTime=0.0s GPU=217MB SSL+0
+2026-06-13 16:35:07,247 [INFO]   [entropy] Seed=42 R3/10 F1=0.1661 Acc=0.2081 Labeled=400 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 16:35:17,896 [INFO]   [entropy] Seed=42 R4/10 F1=0.2624 Acc=0.2778 Labeled=500 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 16:35:28,087 [INFO]   [entropy] Seed=42 R5/10 F1=0.2322 Acc=0.2620 Labeled=600 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 16:35:43,636 [INFO]   [entropy] Seed=42 R6/10 F1=0.3131 Acc=0.3466 Labeled=700 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 16:35:59,377 [INFO]   [entropy] Seed=42 R7/10 F1=0.3598 Acc=0.3790 Labeled=800 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 16:36:21,364 [INFO]   [entropy] Seed=42 R8/10 F1=0.3982 Acc=0.4023 Labeled=900 QueryTime=0.0s GPU=237MB SSL+2
+2026-06-13 16:36:42,611 [INFO]   [entropy] Seed=42 R9/10 F1=0.3690 Acc=0.3821 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+264
+2026-06-13 16:37:12,557 [INFO]   [entropy] Seed=123 R1/10 F1=0.1335 Acc=0.1793 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-13 16:37:21,826 [INFO]   [entropy] Seed=123 R2/10 F1=0.2352 Acc=0.2749 Labeled=300 QueryTime=0.0s GPU=231MB SSL+1
+2026-06-13 16:37:30,725 [INFO]   [entropy] Seed=123 R3/10 F1=0.2386 Acc=0.2844 Labeled=400 QueryTime=0.0s GPU=250MB SSL+31
+2026-06-13 16:37:39,691 [INFO]   [entropy] Seed=123 R4/10 F1=0.2481 Acc=0.2810 Labeled=500 QueryTime=0.0s GPU=249MB SSL+37
+2026-06-13 16:37:48,030 [INFO]   [entropy] Seed=123 R5/10 F1=0.3144 Acc=0.3294 Labeled=600 QueryTime=0.0s GPU=249MB SSL+29
+2026-06-13 16:38:02,391 [INFO]   [entropy] Seed=123 R6/10 F1=0.3424 Acc=0.3493 Labeled=700 QueryTime=0.0s GPU=250MB SSL+127
+2026-06-13 16:38:17,380 [INFO]   [entropy] Seed=123 R7/10 F1=0.3716 Acc=0.3830 Labeled=800 QueryTime=0.0s GPU=250MB SSL+121
+2026-06-13 16:38:37,241 [INFO]   [entropy] Seed=123 R8/10 F1=0.3623 Acc=0.3834 Labeled=900 QueryTime=0.0s GPU=250MB SSL+213
+2026-06-13 16:38:59,934 [INFO]   [entropy] Seed=123 R9/10 F1=0.3718 Acc=0.4083 Labeled=1000 QueryTime=0.0s GPU=250MB SSL+296
+2026-06-13 16:39:27,403 [INFO]   [entropy] Seed=456 R1/10 F1=0.1068 Acc=0.1911 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-13 16:39:37,185 [INFO]   [entropy] Seed=456 R2/10 F1=0.2877 Acc=0.3236 Labeled=300 QueryTime=0.0s GPU=231MB SSL+0
+2026-06-13 16:39:46,620 [INFO]   [entropy] Seed=456 R3/10 F1=0.3202 Acc=0.3366 Labeled=400 QueryTime=0.0s GPU=249MB SSL+0
+2026-06-13 16:39:56,098 [INFO]   [entropy] Seed=456 R4/10 F1=0.3046 Acc=0.3263 Labeled=500 QueryTime=0.0s GPU=249MB SSL+4
+2026-06-13 16:40:05,303 [INFO]   [entropy] Seed=456 R5/10 F1=0.3241 Acc=0.3548 Labeled=600 QueryTime=0.0s GPU=249MB SSL+80
+2026-06-13 16:40:19,828 [INFO]   [entropy] Seed=456 R6/10 F1=0.3177 Acc=0.3637 Labeled=700 QueryTime=0.0s GPU=249MB SSL+138
+2026-06-13 16:40:35,894 [INFO]   [entropy] Seed=456 R7/10 F1=0.3933 Acc=0.4093 Labeled=800 QueryTime=0.0s GPU=249MB SSL+138
+2026-06-13 16:40:57,945 [INFO]   [entropy] Seed=456 R8/10 F1=0.3352 Acc=0.3618 Labeled=900 QueryTime=0.0s GPU=249MB SSL+300
+2026-06-13 16:41:19,784 [INFO]   [entropy] Seed=456 R9/10 F1=0.3636 Acc=0.3887 Labeled=1000 QueryTime=0.0s GPU=249MB SSL+323
+2026-06-13 16:41:42,318 [INFO] 
+--- Strategy: margin ---
+2026-06-13 16:41:52,041 [INFO]   [margin] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=0.0s GPU=201MB SSL+0
+2026-06-13 16:42:02,694 [INFO]   [margin] Seed=42 R2/10 F1=0.1524 Acc=0.1987 Labeled=300 QueryTime=0.0s GPU=243MB SSL+0
+2026-06-13 16:42:14,456 [INFO]   [margin] Seed=42 R3/10 F1=0.1889 Acc=0.2248 Labeled=400 QueryTime=0.0s GPU=263MB SSL+0
+2026-06-13 16:42:24,627 [INFO]   [margin] Seed=42 R4/10 F1=0.2588 Acc=0.2762 Labeled=500 QueryTime=0.0s GPU=263MB SSL+0
+2026-06-13 16:42:36,430 [INFO]   [margin] Seed=42 R5/10 F1=0.2996 Acc=0.3100 Labeled=600 QueryTime=0.0s GPU=263MB SSL+35
+2026-06-13 16:42:54,222 [INFO]   [margin] Seed=42 R6/10 F1=0.3340 Acc=0.3566 Labeled=700 QueryTime=0.0s GPU=263MB SSL+87
+2026-06-13 16:43:14,078 [INFO]   [margin] Seed=42 R7/10 F1=0.3831 Acc=0.4001 Labeled=800 QueryTime=0.0s GPU=263MB SSL+141
+2026-06-13 16:43:40,439 [INFO]   [margin] Seed=42 R8/10 F1=0.4060 Acc=0.4166 Labeled=900 QueryTime=0.0s GPU=263MB SSL+252
+2026-06-13 16:44:07,550 [INFO]   [margin] Seed=42 R9/10 F1=0.4516 Acc=0.4630 Labeled=1000 QueryTime=0.0s GPU=263MB SSL+288
+2026-06-13 16:44:44,562 [INFO]   [margin] Seed=123 R1/10 F1=0.1335 Acc=0.1793 Labeled=200 QueryTime=0.0s GPU=213MB SSL+0
+2026-06-13 16:44:56,296 [INFO]   [margin] Seed=123 R2/10 F1=0.2052 Acc=0.2409 Labeled=300 QueryTime=0.0s GPU=255MB SSL+5
+2026-06-13 16:45:07,219 [INFO]   [margin] Seed=123 R3/10 F1=0.2668 Acc=0.2736 Labeled=400 QueryTime=0.0s GPU=275MB SSL+2
+2026-06-13 16:45:20,093 [INFO]   [margin] Seed=123 R4/10 F1=0.2601 Acc=0.2756 Labeled=500 QueryTime=0.0s GPU=275MB SSL+1
+2026-06-13 16:45:32,471 [INFO]   [margin] Seed=123 R5/10 F1=0.3121 Acc=0.3310 Labeled=600 QueryTime=0.0s GPU=275MB SSL+51
+2026-06-13 16:45:51,519 [INFO]   [margin] Seed=123 R6/10 F1=0.3753 Acc=0.3793 Labeled=700 QueryTime=0.0s GPU=276MB SSL+95
+2026-06-13 16:46:10,752 [INFO]   [margin] Seed=123 R7/10 F1=0.3660 Acc=0.3895 Labeled=800 QueryTime=0.0s GPU=276MB SSL+143
+2026-06-13 16:46:34,214 [INFO]   [margin] Seed=123 R8/10 F1=0.4047 Acc=0.4044 Labeled=900 QueryTime=0.0s GPU=276MB SSL+200
+2026-06-13 16:46:57,898 [INFO]   [margin] Seed=123 R9/10 F1=0.4078 Acc=0.4178 Labeled=1000 QueryTime=0.0s GPU=276MB SSL+268
+2026-06-13 16:47:30,421 [INFO]   [margin] Seed=456 R1/10 F1=0.1068 Acc=0.1911 Labeled=200 QueryTime=0.0s GPU=226MB SSL+0
+2026-06-13 16:47:39,914 [INFO]   [margin] Seed=456 R2/10 F1=0.2255 Acc=0.2678 Labeled=300 QueryTime=0.0s GPU=268MB SSL+1
+2026-06-13 16:47:51,196 [INFO]   [margin] Seed=456 R3/10 F1=0.2357 Acc=0.2790 Labeled=400 QueryTime=0.0s GPU=288MB SSL+37
+2026-06-13 16:48:02,597 [INFO]   [margin] Seed=456 R4/10 F1=0.3154 Acc=0.3471 Labeled=500 QueryTime=0.0s GPU=288MB SSL+29
+2026-06-13 16:48:15,519 [INFO]   [margin] Seed=456 R5/10 F1=0.3415 Acc=0.3563 Labeled=600 QueryTime=0.0s GPU=288MB SSL+42
+2026-06-13 16:48:34,185 [INFO]   [margin] Seed=456 R6/10 F1=0.3855 Acc=0.3988 Labeled=700 QueryTime=0.0s GPU=289MB SSL+114
+2026-06-13 16:48:52,674 [INFO]   [margin] Seed=456 R7/10 F1=0.3589 Acc=0.3794 Labeled=800 QueryTime=0.0s GPU=289MB SSL+108
+2026-06-13 16:49:18,207 [INFO]   [margin] Seed=456 R8/10 F1=0.3724 Acc=0.3989 Labeled=900 QueryTime=0.0s GPU=290MB SSL+191
+2026-06-13 16:49:44,360 [INFO]   [margin] Seed=456 R9/10 F1=0.4353 Acc=0.4515 Labeled=1000 QueryTime=0.0s GPU=290MB SSL+254
+2026-06-13 16:50:07,508 [INFO] 
+--- Strategy: coreset ---
+2026-06-13 16:50:25,484 [INFO]   [coreset] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=7.1s GPU=241MB SSL+0
+2026-06-13 16:50:46,888 [INFO]   [coreset] Seed=42 R2/10 F1=0.1174 Acc=0.1694 Labeled=300 QueryTime=11.3s GPU=274MB SSL+1
+2026-06-13 16:51:14,382 [INFO]   [coreset] Seed=42 R3/10 F1=0.1713 Acc=0.1935 Labeled=400 QueryTime=14.3s GPU=295MB SSL+14
+2026-06-13 16:51:46,025 [INFO]   [coreset] Seed=42 R4/10 F1=0.1717 Acc=0.2229 Labeled=500 QueryTime=18.8s GPU=295MB SSL+14
+2026-06-13 16:51:51,734 [ERROR]   ERROR [coreset] seed=42: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-06-13 16:51:53,301 [ERROR]   ERROR [coreset] seed=123: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-06-13 16:51:53,335 [ERROR]   ERROR [coreset] seed=456: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-06-13 16:51:53,338 [INFO] 
+--- Strategy: badge ---
+2026-06-13 16:51:53,340 [ERROR]   ERROR [badge] seed=42: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-06-13 16:51:53,342 [ERROR]   ERROR [badge] seed=123: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-06-13 16:51:53,345 [ERROR]   ERROR [badge] seed=456: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-06-13 16:51:53,347 [INFO] 
+--- Strategy: qbc ---
+2026-06-13 16:51:53,347 [ERROR]   ERROR [qbc] seed=42: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-06-13 16:51:53,352 [ERROR]   ERROR [qbc] seed=123: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-06-13 16:51:53,354 [ERROR]   ERROR [qbc] seed=456: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2026-06-13 16:51:53,357 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-13 19:52:29,263 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-13 19:52:29,263 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-13 19:52:29,264 [INFO] Strategies: ['random', 'entropy', 'margin', 'coreset', 'badge', 'qbc']
+2026-06-13 19:52:29,264 [INFO] Seeds: [42, 123, 456]
+2026-06-13 19:52:29,264 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-13 19:52:29,264 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-13 19:52:29,264 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-13 19:52:29,285 [INFO] Device: cuda
+2026-06-13 19:52:37,944 [INFO] Imbalance filter (Exponential): 50000 -> 50000 training samples
+2026-06-13 19:52:37,945 [INFO] 
+--- Strategy: random ---
+2026-06-13 19:52:41,964 [INFO]   [random] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-13 19:52:45,485 [INFO]   [random] Seed=42 R2/10 F1=0.1487 Acc=0.1889 Labeled=300 QueryTime=0.0s GPU=210MB SSL+0
+2026-06-13 19:52:49,404 [INFO]   [random] Seed=42 R3/10 F1=0.2211 Acc=0.2609 Labeled=400 QueryTime=0.0s GPU=229MB SSL+39
+2026-06-13 19:52:53,492 [INFO]   [random] Seed=42 R4/10 F1=0.2403 Acc=0.2691 Labeled=500 QueryTime=0.0s GPU=229MB SSL+32
+2026-06-13 19:52:57,577 [INFO]   [random] Seed=42 R5/10 F1=0.2919 Acc=0.3186 Labeled=600 QueryTime=0.0s GPU=229MB SSL+42
+2026-06-13 19:53:03,960 [INFO]   [random] Seed=42 R6/10 F1=0.3729 Acc=0.3894 Labeled=700 QueryTime=0.0s GPU=229MB SSL+108
+2026-06-13 19:53:10,609 [INFO]   [random] Seed=42 R7/10 F1=0.3958 Acc=0.4097 Labeled=800 QueryTime=0.0s GPU=229MB SSL+142
+2026-06-13 19:53:19,837 [INFO]   [random] Seed=42 R8/10 F1=0.4216 Acc=0.4271 Labeled=900 QueryTime=0.0s GPU=229MB SSL+269
+2026-06-13 19:53:29,706 [INFO]   [random] Seed=42 R9/10 F1=0.4463 Acc=0.4587 Labeled=1000 QueryTime=0.0s GPU=229MB SSL+278
+2026-06-13 19:53:43,420 [INFO]   [random] Seed=123 R1/10 F1=0.1335 Acc=0.1793 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-13 19:53:47,385 [INFO]   [random] Seed=123 R2/10 F1=0.2299 Acc=0.2502 Labeled=300 QueryTime=0.0s GPU=208MB SSL+0
+2026-06-13 19:53:51,519 [INFO]   [random] Seed=123 R3/10 F1=0.2439 Acc=0.2604 Labeled=400 QueryTime=0.0s GPU=229MB SSL+22
+2026-06-13 19:53:55,817 [INFO]   [random] Seed=123 R4/10 F1=0.2193 Acc=0.2626 Labeled=500 QueryTime=0.0s GPU=229MB SSL+54
+2026-06-13 19:54:00,301 [INFO]   [random] Seed=123 R5/10 F1=0.2832 Acc=0.3106 Labeled=600 QueryTime=0.0s GPU=229MB SSL+62
+2026-06-13 19:54:07,172 [INFO]   [random] Seed=123 R6/10 F1=0.3376 Acc=0.3495 Labeled=700 QueryTime=0.0s GPU=229MB SSL+86
+2026-06-13 19:54:14,165 [INFO]   [random] Seed=123 R7/10 F1=0.3478 Acc=0.3596 Labeled=800 QueryTime=0.0s GPU=229MB SSL+143
+2026-06-13 19:54:23,757 [INFO]   [random] Seed=123 R8/10 F1=0.3717 Acc=0.3936 Labeled=900 QueryTime=0.0s GPU=229MB SSL+223
+2026-06-13 19:54:38,661 [INFO]   [random] Seed=123 R9/10 F1=0.4058 Acc=0.4243 Labeled=1000 QueryTime=0.0s GPU=229MB SSL+190
+2026-06-13 19:54:55,918 [INFO]   [random] Seed=456 R1/10 F1=0.1068 Acc=0.1911 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-13 19:55:00,431 [INFO]   [random] Seed=456 R2/10 F1=0.1997 Acc=0.2475 Labeled=300 QueryTime=0.0s GPU=208MB SSL+0
+2026-06-13 19:55:04,603 [INFO]   [random] Seed=456 R3/10 F1=0.2771 Acc=0.3076 Labeled=400 QueryTime=0.0s GPU=229MB SSL+41
+2026-06-13 19:55:08,853 [INFO]   [random] Seed=456 R4/10 F1=0.2956 Acc=0.3257 Labeled=500 QueryTime=0.0s GPU=229MB SSL+43
+2026-06-13 19:55:13,225 [INFO]   [random] Seed=456 R5/10 F1=0.3031 Acc=0.3355 Labeled=600 QueryTime=0.0s GPU=229MB SSL+50
+2026-06-13 19:55:19,850 [INFO]   [random] Seed=456 R6/10 F1=0.3400 Acc=0.3608 Labeled=700 QueryTime=0.0s GPU=229MB SSL+124
+2026-06-13 19:55:26,780 [INFO]   [random] Seed=456 R7/10 F1=0.3847 Acc=0.3874 Labeled=800 QueryTime=0.0s GPU=229MB SSL+154
+2026-06-13 19:55:36,148 [INFO]   [random] Seed=456 R8/10 F1=0.4158 Acc=0.4249 Labeled=900 QueryTime=0.0s GPU=229MB SSL+181
+2026-06-13 19:55:45,829 [INFO]   [random] Seed=456 R9/10 F1=0.4035 Acc=0.4152 Labeled=1000 QueryTime=0.0s GPU=229MB SSL+249
+2026-06-13 19:55:55,793 [INFO] 
+--- Strategy: entropy ---
+2026-06-13 19:56:00,112 [INFO]   [entropy] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-13 19:56:04,450 [INFO]   [entropy] Seed=42 R2/10 F1=0.1705 Acc=0.2077 Labeled=300 QueryTime=0.0s GPU=217MB SSL+0
+2026-06-13 19:56:09,120 [INFO]   [entropy] Seed=42 R3/10 F1=0.1661 Acc=0.2081 Labeled=400 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 19:56:13,765 [INFO]   [entropy] Seed=42 R4/10 F1=0.2624 Acc=0.2778 Labeled=500 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 19:56:18,757 [INFO]   [entropy] Seed=42 R5/10 F1=0.2322 Acc=0.2620 Labeled=600 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 19:56:26,040 [INFO]   [entropy] Seed=42 R6/10 F1=0.3131 Acc=0.3466 Labeled=700 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 19:56:33,440 [INFO]   [entropy] Seed=42 R7/10 F1=0.3598 Acc=0.3790 Labeled=800 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-13 19:56:43,199 [INFO]   [entropy] Seed=42 R8/10 F1=0.3982 Acc=0.4023 Labeled=900 QueryTime=0.0s GPU=237MB SSL+2
+2026-06-13 19:56:53,452 [INFO]   [entropy] Seed=42 R9/10 F1=0.3690 Acc=0.3821 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+264
+2026-06-13 19:57:07,309 [INFO]   [entropy] Seed=123 R1/10 F1=0.1335 Acc=0.1793 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-13 19:57:11,700 [INFO]   [entropy] Seed=123 R2/10 F1=0.2352 Acc=0.2749 Labeled=300 QueryTime=0.0s GPU=231MB SSL+1
+2026-06-13 19:57:16,291 [INFO]   [entropy] Seed=123 R3/10 F1=0.2386 Acc=0.2844 Labeled=400 QueryTime=0.0s GPU=250MB SSL+31
+2026-06-13 19:57:21,017 [INFO]   [entropy] Seed=123 R4/10 F1=0.2481 Acc=0.2810 Labeled=500 QueryTime=0.0s GPU=249MB SSL+37
+2026-06-13 19:57:25,752 [INFO]   [entropy] Seed=123 R5/10 F1=0.3144 Acc=0.3294 Labeled=600 QueryTime=0.0s GPU=249MB SSL+29
+2026-06-13 19:57:32,973 [INFO]   [entropy] Seed=123 R6/10 F1=0.3424 Acc=0.3493 Labeled=700 QueryTime=0.0s GPU=250MB SSL+127
+2026-06-13 19:57:40,479 [INFO]   [entropy] Seed=123 R7/10 F1=0.3716 Acc=0.3830 Labeled=800 QueryTime=0.0s GPU=250MB SSL+121
+2026-06-13 19:57:50,721 [INFO]   [entropy] Seed=123 R8/10 F1=0.3623 Acc=0.3834 Labeled=900 QueryTime=0.0s GPU=250MB SSL+213
+2026-06-13 19:58:01,260 [INFO]   [entropy] Seed=123 R9/10 F1=0.3718 Acc=0.4083 Labeled=1000 QueryTime=0.0s GPU=250MB SSL+296
+2026-06-13 19:58:15,331 [INFO]   [entropy] Seed=456 R1/10 F1=0.1068 Acc=0.1911 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-13 19:58:19,773 [INFO]   [entropy] Seed=456 R2/10 F1=0.2877 Acc=0.3236 Labeled=300 QueryTime=0.0s GPU=231MB SSL+0
+2026-06-13 19:58:24,556 [INFO]   [entropy] Seed=456 R3/10 F1=0.3202 Acc=0.3366 Labeled=400 QueryTime=0.0s GPU=249MB SSL+0
+2026-06-13 19:58:29,252 [INFO]   [entropy] Seed=456 R4/10 F1=0.3046 Acc=0.3263 Labeled=500 QueryTime=0.0s GPU=249MB SSL+4
+2026-06-13 19:58:34,283 [INFO]   [entropy] Seed=456 R5/10 F1=0.3241 Acc=0.3548 Labeled=600 QueryTime=0.0s GPU=249MB SSL+80
+2026-06-13 19:58:41,571 [INFO]   [entropy] Seed=456 R6/10 F1=0.3177 Acc=0.3637 Labeled=700 QueryTime=0.0s GPU=249MB SSL+138
+2026-06-13 19:58:49,114 [INFO]   [entropy] Seed=456 R7/10 F1=0.3933 Acc=0.4093 Labeled=800 QueryTime=0.0s GPU=249MB SSL+138
+2026-06-13 19:58:59,057 [INFO]   [entropy] Seed=456 R8/10 F1=0.3352 Acc=0.3618 Labeled=900 QueryTime=0.0s GPU=249MB SSL+300
+2026-06-13 19:59:09,324 [INFO]   [entropy] Seed=456 R9/10 F1=0.3636 Acc=0.3887 Labeled=1000 QueryTime=0.0s GPU=249MB SSL+323
+2026-06-13 19:59:19,215 [INFO] 
+--- Strategy: margin ---
+2026-06-13 19:59:23,282 [INFO]   [margin] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=0.0s GPU=201MB SSL+0
+2026-06-13 19:59:27,683 [INFO]   [margin] Seed=42 R2/10 F1=0.1524 Acc=0.1987 Labeled=300 QueryTime=0.0s GPU=243MB SSL+0
+2026-06-13 19:59:32,375 [INFO]   [margin] Seed=42 R3/10 F1=0.1889 Acc=0.2248 Labeled=400 QueryTime=0.0s GPU=263MB SSL+0
+2026-06-13 19:59:37,165 [INFO]   [margin] Seed=42 R4/10 F1=0.2588 Acc=0.2762 Labeled=500 QueryTime=0.0s GPU=263MB SSL+0
+2026-06-13 19:59:42,025 [INFO]   [margin] Seed=42 R5/10 F1=0.2996 Acc=0.3100 Labeled=600 QueryTime=0.0s GPU=263MB SSL+35
+2026-06-13 19:59:49,216 [INFO]   [margin] Seed=42 R6/10 F1=0.3340 Acc=0.3566 Labeled=700 QueryTime=0.0s GPU=263MB SSL+87
+2026-06-13 19:59:56,581 [INFO]   [margin] Seed=42 R7/10 F1=0.3831 Acc=0.4001 Labeled=800 QueryTime=0.0s GPU=263MB SSL+141
+2026-06-13 20:00:06,585 [INFO]   [margin] Seed=42 R8/10 F1=0.4060 Acc=0.4166 Labeled=900 QueryTime=0.0s GPU=263MB SSL+252
+2026-06-13 20:00:16,862 [INFO]   [margin] Seed=42 R9/10 F1=0.4516 Acc=0.4630 Labeled=1000 QueryTime=0.0s GPU=263MB SSL+288
+2026-06-13 20:00:30,856 [INFO]   [margin] Seed=123 R1/10 F1=0.1335 Acc=0.1793 Labeled=200 QueryTime=0.0s GPU=213MB SSL+0
+2026-06-13 20:00:35,297 [INFO]   [margin] Seed=123 R2/10 F1=0.2052 Acc=0.2409 Labeled=300 QueryTime=0.0s GPU=255MB SSL+5
+2026-06-13 20:00:39,871 [INFO]   [margin] Seed=123 R3/10 F1=0.2668 Acc=0.2736 Labeled=400 QueryTime=0.0s GPU=275MB SSL+2
+2026-06-13 20:00:44,591 [INFO]   [margin] Seed=123 R4/10 F1=0.2601 Acc=0.2756 Labeled=500 QueryTime=0.0s GPU=275MB SSL+1
+2026-06-13 20:00:49,299 [INFO]   [margin] Seed=123 R5/10 F1=0.3121 Acc=0.3310 Labeled=600 QueryTime=0.0s GPU=275MB SSL+51
+2026-06-13 20:00:56,549 [INFO]   [margin] Seed=123 R6/10 F1=0.3753 Acc=0.3793 Labeled=700 QueryTime=0.0s GPU=276MB SSL+95
+2026-06-13 20:01:03,863 [INFO]   [margin] Seed=123 R7/10 F1=0.3660 Acc=0.3895 Labeled=800 QueryTime=0.0s GPU=276MB SSL+143
+2026-06-13 20:01:13,857 [INFO]   [margin] Seed=123 R8/10 F1=0.4047 Acc=0.4044 Labeled=900 QueryTime=0.0s GPU=276MB SSL+200
+2026-06-13 20:01:24,156 [INFO]   [margin] Seed=123 R9/10 F1=0.4078 Acc=0.4178 Labeled=1000 QueryTime=0.0s GPU=276MB SSL+268
+2026-06-13 20:01:38,251 [INFO]   [margin] Seed=456 R1/10 F1=0.1068 Acc=0.1911 Labeled=200 QueryTime=0.0s GPU=226MB SSL+0
+2026-06-13 20:01:42,639 [INFO]   [margin] Seed=456 R2/10 F1=0.2255 Acc=0.2678 Labeled=300 QueryTime=0.0s GPU=268MB SSL+1
+2026-06-13 20:01:47,213 [INFO]   [margin] Seed=456 R3/10 F1=0.2357 Acc=0.2790 Labeled=400 QueryTime=0.0s GPU=288MB SSL+37
+2026-06-13 20:01:51,927 [INFO]   [margin] Seed=456 R4/10 F1=0.3154 Acc=0.3471 Labeled=500 QueryTime=0.0s GPU=288MB SSL+29
+2026-06-13 20:01:56,858 [INFO]   [margin] Seed=456 R5/10 F1=0.3415 Acc=0.3563 Labeled=600 QueryTime=0.0s GPU=288MB SSL+42
+2026-06-13 20:02:04,267 [INFO]   [margin] Seed=456 R6/10 F1=0.3855 Acc=0.3988 Labeled=700 QueryTime=0.0s GPU=289MB SSL+114
+2026-06-13 20:02:11,802 [INFO]   [margin] Seed=456 R7/10 F1=0.3589 Acc=0.3794 Labeled=800 QueryTime=0.0s GPU=289MB SSL+108
+2026-06-13 20:02:22,082 [INFO]   [margin] Seed=456 R8/10 F1=0.3724 Acc=0.3989 Labeled=900 QueryTime=0.0s GPU=290MB SSL+191
+2026-06-13 20:02:32,364 [INFO]   [margin] Seed=456 R9/10 F1=0.4353 Acc=0.4515 Labeled=1000 QueryTime=0.0s GPU=290MB SSL+254
+2026-06-13 20:02:42,453 [INFO] 
+--- Strategy: coreset ---
+2026-06-13 20:02:49,452 [INFO]   [coreset] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=2.9s GPU=241MB SSL+0
+2026-06-13 20:02:58,123 [INFO]   [coreset] Seed=42 R2/10 F1=0.1174 Acc=0.1694 Labeled=300 QueryTime=4.2s GPU=274MB SSL+1
+2026-06-13 20:03:08,485 [INFO]   [coreset] Seed=42 R3/10 F1=0.1713 Acc=0.1935 Labeled=400 QueryTime=5.7s GPU=295MB SSL+14
+2026-06-13 20:03:20,565 [INFO]   [coreset] Seed=42 R4/10 F1=0.1717 Acc=0.2229 Labeled=500 QueryTime=7.3s GPU=295MB SSL+14
+2026-06-13 20:03:33,954 [INFO]   [coreset] Seed=42 R5/10 F1=0.2776 Acc=0.2983 Labeled=600 QueryTime=8.4s GPU=295MB SSL+25
+2026-06-13 20:03:51,008 [INFO]   [coreset] Seed=42 R6/10 F1=0.3081 Acc=0.3469 Labeled=700 QueryTime=9.7s GPU=295MB SSL+80
+2026-06-13 20:04:09,998 [INFO]   [coreset] Seed=42 R7/10 F1=0.3304 Acc=0.3686 Labeled=800 QueryTime=11.4s GPU=295MB SSL+117
+2026-06-13 20:04:32,644 [INFO]   [coreset] Seed=42 R8/10 F1=0.3538 Acc=0.3812 Labeled=900 QueryTime=12.4s GPU=295MB SSL+181
+2026-06-13 20:04:58,664 [INFO]   [coreset] Seed=42 R9/10 F1=0.3844 Acc=0.4091 Labeled=1000 QueryTime=15.0s GPU=295MB SSL+309
+2026-06-13 20:05:17,681 [INFO]   [coreset] Seed=123 R1/10 F1=0.1335 Acc=0.1793 Labeled=200 QueryTime=3.5s GPU=241MB SSL+0
+2026-06-13 20:05:27,447 [INFO]   [coreset] Seed=123 R2/10 F1=0.1868 Acc=0.2428 Labeled=300 QueryTime=4.4s GPU=274MB SSL+1
+2026-06-13 20:05:37,576 [INFO]   [coreset] Seed=123 R3/10 F1=0.2601 Acc=0.2876 Labeled=400 QueryTime=5.3s GPU=295MB SSL+3
+2026-06-13 20:05:49,066 [INFO]   [coreset] Seed=123 R4/10 F1=0.3223 Acc=0.3315 Labeled=500 QueryTime=6.8s GPU=295MB SSL+2
+2026-06-13 20:06:01,963 [INFO]   [coreset] Seed=123 R5/10 F1=0.2981 Acc=0.3263 Labeled=600 QueryTime=8.0s GPU=295MB SSL+7
+2026-06-13 20:06:18,630 [INFO]   [coreset] Seed=123 R6/10 F1=0.2891 Acc=0.3203 Labeled=700 QueryTime=9.3s GPU=295MB SSL+170
+2026-06-13 20:06:37,276 [INFO]   [coreset] Seed=123 R7/10 F1=0.2863 Acc=0.3302 Labeled=800 QueryTime=11.2s GPU=295MB SSL+168
+2026-06-13 20:06:59,500 [INFO]   [coreset] Seed=123 R8/10 F1=0.3533 Acc=0.3747 Labeled=900 QueryTime=12.0s GPU=295MB SSL+289
+2026-06-13 20:07:23,439 [INFO]   [coreset] Seed=123 R9/10 F1=0.3640 Acc=0.3861 Labeled=1000 QueryTime=13.7s GPU=295MB SSL+318
+2026-06-13 20:07:40,178 [INFO]   [coreset] Seed=456 R1/10 F1=0.1068 Acc=0.1911 Labeled=200 QueryTime=2.7s GPU=241MB SSL+0
+2026-06-13 20:07:48,646 [INFO]   [coreset] Seed=456 R2/10 F1=0.2310 Acc=0.2574 Labeled=300 QueryTime=4.1s GPU=274MB SSL+0
+2026-06-13 20:07:58,544 [INFO]   [coreset] Seed=456 R3/10 F1=0.2934 Acc=0.3041 Labeled=400 QueryTime=5.3s GPU=295MB SSL+2
+2026-06-13 20:08:10,237 [INFO]   [coreset] Seed=456 R4/10 F1=0.3264 Acc=0.3320 Labeled=500 QueryTime=6.9s GPU=295MB SSL+1
+2026-06-13 20:08:23,300 [INFO]   [coreset] Seed=456 R5/10 F1=0.3250 Acc=0.3402 Labeled=600 QueryTime=8.2s GPU=295MB SSL+4
+2026-06-13 20:08:39,986 [INFO]   [coreset] Seed=456 R6/10 F1=0.3665 Acc=0.3680 Labeled=700 QueryTime=9.4s GPU=295MB SSL+108
+2026-06-13 20:08:58,128 [INFO]   [coreset] Seed=456 R7/10 F1=0.2681 Acc=0.3075 Labeled=800 QueryTime=10.6s GPU=295MB SSL+190
+2026-06-13 20:09:20,849 [INFO]   [coreset] Seed=456 R8/10 F1=0.3471 Acc=0.3805 Labeled=900 QueryTime=12.3s GPU=295MB SSL+293
+2026-06-13 20:09:45,415 [INFO]   [coreset] Seed=456 R9/10 F1=0.3574 Acc=0.3846 Labeled=1000 QueryTime=14.0s GPU=295MB SSL+332
+2026-06-13 20:09:55,525 [INFO] 
+--- Strategy: badge ---
+2026-06-13 20:10:13,093 [INFO]   [badge] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=13.5s GPU=241MB SSL+0
+2026-06-13 20:10:30,997 [INFO]   [badge] Seed=42 R2/10 F1=0.1495 Acc=0.1872 Labeled=300 QueryTime=13.5s GPU=274MB SSL+0
+2026-06-13 20:10:49,019 [INFO]   [badge] Seed=42 R3/10 F1=0.1564 Acc=0.2034 Labeled=400 QueryTime=13.4s GPU=295MB SSL+20
+2026-06-13 20:11:07,420 [INFO]   [badge] Seed=42 R4/10 F1=0.2512 Acc=0.2563 Labeled=500 QueryTime=13.4s GPU=295MB SSL+21
+2026-06-13 20:11:25,985 [INFO]   [badge] Seed=42 R5/10 F1=0.2997 Acc=0.3235 Labeled=600 QueryTime=13.4s GPU=295MB SSL+29
+2026-06-13 20:11:47,443 [INFO]   [badge] Seed=42 R6/10 F1=0.3423 Acc=0.3776 Labeled=700 QueryTime=13.6s GPU=295MB SSL+124
+2026-06-13 20:12:08,835 [INFO]   [badge] Seed=42 R7/10 F1=0.3808 Acc=0.4049 Labeled=800 QueryTime=13.4s GPU=295MB SSL+130
+2026-06-13 20:12:33,247 [INFO]   [badge] Seed=42 R8/10 F1=0.4028 Acc=0.4019 Labeled=900 QueryTime=13.7s GPU=295MB SSL+219
+2026-06-13 20:12:57,448 [INFO]   [badge] Seed=42 R9/10 F1=0.4142 Acc=0.4408 Labeled=1000 QueryTime=13.4s GPU=295MB SSL+245
+2026-06-13 20:13:29,328 [INFO]   [badge] Seed=123 R1/10 F1=0.1335 Acc=0.1793 Labeled=200 QueryTime=17.0s GPU=241MB SSL+0
+2026-06-13 20:13:49,482 [INFO]   [badge] Seed=123 R2/10 F1=0.2355 Acc=0.2707 Labeled=300 QueryTime=15.2s GPU=274MB SSL+0
+2026-06-13 20:14:12,464 [INFO]   [badge] Seed=123 R3/10 F1=0.1974 Acc=0.2522 Labeled=400 QueryTime=17.6s GPU=295MB SSL+0
+2026-06-13 20:14:34,422 [INFO]   [badge] Seed=123 R4/10 F1=0.2872 Acc=0.3170 Labeled=500 QueryTime=17.0s GPU=295MB SSL+45
+2026-06-13 20:14:54,378 [INFO]   [badge] Seed=123 R5/10 F1=0.2672 Acc=0.2989 Labeled=600 QueryTime=14.8s GPU=295MB SSL+67
+2026-06-13 20:15:17,786 [INFO]   [badge] Seed=123 R6/10 F1=0.3023 Acc=0.3269 Labeled=700 QueryTime=14.8s GPU=295MB SSL+150
+2026-06-13 20:15:41,758 [INFO]   [badge] Seed=123 R7/10 F1=0.3751 Acc=0.3896 Labeled=800 QueryTime=15.3s GPU=295MB SSL+163
+2026-06-13 20:16:06,327 [INFO]   [badge] Seed=123 R8/10 F1=0.3895 Acc=0.4091 Labeled=900 QueryTime=13.5s GPU=295MB SSL+255
+2026-06-13 20:16:30,595 [INFO]   [badge] Seed=123 R9/10 F1=0.4015 Acc=0.4174 Labeled=1000 QueryTime=13.6s GPU=295MB SSL+309
+2026-06-13 20:17:03,483 [INFO]   [badge] Seed=456 R1/10 F1=0.1068 Acc=0.1911 Labeled=200 QueryTime=17.5s GPU=241MB SSL+0
+2026-06-13 20:17:22,565 [INFO]   [badge] Seed=456 R2/10 F1=0.2531 Acc=0.2895 Labeled=300 QueryTime=14.2s GPU=274MB SSL+0
+2026-06-13 20:27:33,728 [INFO]   [badge] Seed=456 R3/10 F1=0.2558 Acc=0.2889 Labeled=400 QueryTime=606.2s GPU=295MB SSL+43
+2026-06-13 20:27:58,945 [INFO]   [badge] Seed=456 R4/10 F1=0.3287 Acc=0.3491 Labeled=500 QueryTime=17.6s GPU=295MB SSL+19
+2026-06-13 20:28:16,423 [INFO]   [badge] Seed=456 R5/10 F1=0.3146 Acc=0.3439 Labeled=600 QueryTime=13.2s GPU=295MB SSL+60
+2026-06-13 20:28:35,993 [INFO]   [badge] Seed=456 R6/10 F1=0.3021 Acc=0.3346 Labeled=700 QueryTime=13.8s GPU=295MB SSL+128
+2026-06-13 20:28:55,385 [INFO]   [badge] Seed=456 R7/10 F1=0.3242 Acc=0.3473 Labeled=800 QueryTime=13.2s GPU=295MB SSL+151
+2026-06-13 20:29:18,160 [INFO]   [badge] Seed=456 R8/10 F1=0.4061 Acc=0.4252 Labeled=900 QueryTime=13.7s GPU=295MB SSL+210
+2026-06-13 20:29:40,650 [INFO]   [badge] Seed=456 R9/10 F1=0.4129 Acc=0.4293 Labeled=1000 QueryTime=13.2s GPU=295MB SSL+254
+2026-06-13 20:29:50,038 [INFO] 
+--- Strategy: qbc ---
+2026-06-13 20:29:54,698 [INFO]   [qbc] Seed=42 R1/10 F1=0.0777 Acc=0.1315 Labeled=200 QueryTime=1.4s GPU=241MB SSL+0
+2026-06-13 20:29:59,753 [INFO]   [qbc] Seed=42 R2/10 F1=0.1738 Acc=0.2009 Labeled=300 QueryTime=1.5s GPU=291MB SSL+1
+2026-06-13 20:30:04,915 [INFO]   [qbc] Seed=42 R3/10 F1=0.2241 Acc=0.2455 Labeled=400 QueryTime=1.3s GPU=308MB SSL+0
+2026-06-13 20:30:10,150 [INFO]   [qbc] Seed=42 R4/10 F1=0.2359 Acc=0.2882 Labeled=500 QueryTime=1.4s GPU=310MB SSL+51
+2026-06-13 20:30:15,681 [INFO]   [qbc] Seed=42 R5/10 F1=0.3156 Acc=0.3374 Labeled=600 QueryTime=1.4s GPU=310MB SSL+24
+2026-06-13 20:30:23,452 [INFO]   [qbc] Seed=42 R6/10 F1=0.3889 Acc=0.4030 Labeled=700 QueryTime=1.5s GPU=310MB SSL+77
+2026-06-13 20:30:31,434 [INFO]   [qbc] Seed=42 R7/10 F1=0.3712 Acc=0.3929 Labeled=800 QueryTime=1.5s GPU=307MB SSL+166
+2026-06-13 20:30:42,093 [INFO]   [qbc] Seed=42 R8/10 F1=0.4172 Acc=0.4280 Labeled=900 QueryTime=1.7s GPU=307MB SSL+258
+2026-06-13 20:30:52,973 [INFO]   [qbc] Seed=42 R9/10 F1=0.4304 Acc=0.4406 Labeled=1000 QueryTime=1.7s GPU=310MB SSL+272
+2026-06-13 20:31:06,864 [INFO]   [qbc] Seed=123 R1/10 F1=0.1335 Acc=0.1793 Labeled=200 QueryTime=1.4s GPU=241MB SSL+0
+2026-06-13 20:31:11,805 [INFO]   [qbc] Seed=123 R2/10 F1=0.1910 Acc=0.2068 Labeled=300 QueryTime=1.3s GPU=291MB SSL+0
+2026-06-13 20:31:16,920 [INFO]   [qbc] Seed=123 R3/10 F1=0.2442 Acc=0.2610 Labeled=400 QueryTime=1.4s GPU=308MB SSL+0
+2026-06-13 20:31:21,975 [INFO]   [qbc] Seed=123 R4/10 F1=0.2491 Acc=0.2847 Labeled=500 QueryTime=1.3s GPU=310MB SSL+4
+2026-06-13 20:31:27,544 [INFO]   [qbc] Seed=123 R5/10 F1=0.3351 Acc=0.3513 Labeled=600 QueryTime=1.5s GPU=310MB SSL+2
+2026-06-13 20:31:35,163 [INFO]   [qbc] Seed=123 R6/10 F1=0.3350 Acc=0.3513 Labeled=700 QueryTime=1.5s GPU=310MB SSL+118
+2026-06-13 20:31:43,055 [INFO]   [qbc] Seed=123 R7/10 F1=0.3847 Acc=0.3976 Labeled=800 QueryTime=1.5s GPU=307MB SSL+139
+2026-06-13 20:31:53,627 [INFO]   [qbc] Seed=123 R8/10 F1=0.4056 Acc=0.4308 Labeled=900 QueryTime=1.5s GPU=307MB SSL+227
+2026-06-13 20:32:04,579 [INFO]   [qbc] Seed=123 R9/10 F1=0.4033 Acc=0.4289 Labeled=1000 QueryTime=1.4s GPU=310MB SSL+189
+2026-06-13 20:32:19,209 [INFO]   [qbc] Seed=456 R1/10 F1=0.1068 Acc=0.1911 Labeled=200 QueryTime=1.3s GPU=241MB SSL+0
+2026-06-13 20:32:24,409 [INFO]   [qbc] Seed=456 R2/10 F1=0.1636 Acc=0.2252 Labeled=300 QueryTime=1.3s GPU=291MB SSL+0
+2026-06-13 20:32:29,853 [INFO]   [qbc] Seed=456 R3/10 F1=0.2326 Acc=0.2680 Labeled=400 QueryTime=1.3s GPU=308MB SSL+0
+2026-06-13 20:32:35,616 [INFO]   [qbc] Seed=456 R4/10 F1=0.2624 Acc=0.2939 Labeled=500 QueryTime=1.5s GPU=310MB SSL+7
+2026-06-13 20:32:41,522 [INFO]   [qbc] Seed=456 R5/10 F1=0.3561 Acc=0.3749 Labeled=600 QueryTime=1.1s GPU=284MB SSL+3
+2026-06-13 20:32:50,360 [INFO]   [qbc] Seed=456 R6/10 F1=0.3676 Acc=0.3801 Labeled=700 QueryTime=1.8s GPU=280MB SSL+110
+2026-06-13 20:32:59,196 [INFO]   [qbc] Seed=456 R7/10 F1=0.4034 Acc=0.4147 Labeled=800 QueryTime=1.8s GPU=283MB SSL+153
+2026-06-13 20:33:10,060 [INFO]   [qbc] Seed=456 R8/10 F1=0.3987 Acc=0.4104 Labeled=900 QueryTime=1.4s GPU=281MB SSL+200
+2026-06-13 20:33:22,209 [INFO]   [qbc] Seed=456 R9/10 F1=0.4300 Acc=0.4387 Labeled=1000 QueryTime=1.6s GPU=282MB SSL+198
+2026-06-13 20:33:32,613 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-13 20:42:56,896 [INFO] Full Supervised: Acc=0.8552, F1=0.8544 (epochs=50, time=563.2s)
+2026-06-13 20:42:57,513 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\al_ssl_innovative\rho1 ===
+2026-06-13 20:42:57,513 [INFO] 
+Summary:
+2026-06-13 20:42:57,513 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-13 20:42:57,513 [INFO] ------------------------------------------------------------
+2026-06-13 20:42:57,513 [INFO] badge                      0.4050   0.0080                   
+2026-06-13 20:42:57,513 [INFO] coreset                    0.3764   0.0254                   
+2026-06-13 20:42:57,513 [INFO] entropy                    0.4076   0.0215                   
+2026-06-13 20:42:57,514 [INFO] margin                     0.4209   0.0354                   
+2026-06-13 20:42:57,514 [INFO] qbc                        0.4271   0.0072                   
+2026-06-13 20:42:57,514 [INFO] random                     0.4402   0.0195                   
+2026-06-13 20:42:57,514 [INFO] Full Supervised            0.8544
+2026-06-13 20:42:57,514 [INFO] 
+Statistical Tests (selected):
+2026-06-13 20:42:57,514 [INFO]   badge vs qbc: diff=-0.0221, p=0.0213*, d=-2.906 (large)

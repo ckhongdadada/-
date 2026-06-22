@@ -1,0 +1,24 @@
+2026-06-14 02:44:00,030 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar100 ===
+2026-06-14 02:44:00,031 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 02:44:00,031 [INFO] Strategies: ['entropy']
+2026-06-14 02:44:00,031 [INFO] Seeds: [42]
+2026-06-14 02:44:00,031 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 02:44:00,031 [INFO] SSL: False, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 02:44:00,031 [INFO] Imbalance mode: max/min class count ratio = 10
+2026-06-14 02:44:00,057 [INFO] Device: cuda
+2026-06-14 02:44:09,619 [INFO] Imbalance filter (Exponential): 50000 -> 19573 training samples
+2026-06-14 02:44:09,629 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 02:44:09,730 [ERROR]   ERROR [entropy] seed=42: cannot access local variable 'n_classes' where it is not associated with a value
+2026-06-14 02:44:14,190 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar100 ===
+2026-06-14 02:44:14,190 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 02:44:14,190 [INFO] Strategies: ['entropy']
+2026-06-14 02:44:14,190 [INFO] Seeds: [42]
+2026-06-14 02:44:14,190 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 02:44:14,190 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 02:44:14,190 [INFO] Imbalance mode: max/min class count ratio = 10
+2026-06-14 02:44:14,214 [INFO] Device: cuda
+2026-06-14 02:44:23,117 [INFO] Imbalance filter (Exponential): 50000 -> 19573 training samples
+2026-06-14 02:44:23,117 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 02:44:23,207 [ERROR]   ERROR [entropy] seed=42: cannot access local variable 'n_classes' where it is not associated with a value

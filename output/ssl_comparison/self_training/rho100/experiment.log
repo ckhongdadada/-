@@ -1,0 +1,93 @@
+2026-06-20 00:07:09,301 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-20 00:07:09,302 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-20 00:07:09,302 [INFO] Strategies: ['entropy']
+2026-06-20 00:07:09,302 [INFO] Seeds: [42]
+2026-06-20 00:07:09,302 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-20 00:07:09,302 [INFO] SSL: True, Method: pseudo_label, t-SNE: False, Resume: False
+2026-06-20 00:07:09,302 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-20 00:07:09,320 [INFO] Device: cuda
+2026-06-20 00:07:18,067 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-20 00:07:18,068 [INFO] 
+--- Strategy: entropy ---
+2026-06-20 00:07:21,007 [INFO]   [entropy] Seed=42 R1/10 F1=0.0727 Acc=0.1463 Labeled=200 QueryTime=0.0s GPU=168MB SSL+0
+2026-06-20 00:07:23,172 [INFO]   [entropy] Seed=42 R2/10 F1=0.0929 Acc=0.1835 Labeled=300 QueryTime=0.0s GPU=212MB SSL+0
+2026-06-20 00:07:24,992 [INFO]   [entropy] Seed=42 R3/10 F1=0.1443 Acc=0.2398 Labeled=400 QueryTime=0.0s GPU=233MB SSL+1
+2026-06-20 00:07:27,111 [INFO]   [entropy] Seed=42 R4/10 F1=0.1589 Acc=0.2311 Labeled=500 QueryTime=0.0s GPU=233MB SSL+0
+2026-06-20 00:07:29,267 [INFO]   [entropy] Seed=42 R5/10 F1=0.1724 Acc=0.2624 Labeled=600 QueryTime=0.0s GPU=233MB SSL+1
+2026-06-20 00:07:31,902 [INFO]   [entropy] Seed=42 R6/10 F1=0.2261 Acc=0.3099 Labeled=700 QueryTime=0.0s GPU=233MB SSL+2
+2026-06-20 00:07:34,599 [INFO]   [entropy] Seed=42 R7/10 F1=0.2266 Acc=0.3085 Labeled=800 QueryTime=0.0s GPU=233MB SSL+4
+2026-06-20 00:07:37,679 [INFO]   [entropy] Seed=42 R8/10 F1=0.2393 Acc=0.3250 Labeled=900 QueryTime=0.0s GPU=233MB SSL+11
+2026-06-20 00:07:40,814 [INFO]   [entropy] Seed=42 R9/10 F1=0.2619 Acc=0.3517 Labeled=1000 QueryTime=0.0s GPU=233MB SSL+21
+2026-06-20 00:07:43,450 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-20 00:09:49,410 [INFO] Full Supervised: Acc=0.5933, F1=0.5569 (epochs=50, time=124.7s)
+2026-06-20 00:09:49,756 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\ssl_comparison\self_training\rho100 ===
+2026-06-20 00:09:49,756 [INFO] 
+Summary:
+2026-06-20 00:09:49,756 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-20 00:09:49,756 [INFO] ------------------------------------------------------------
+2026-06-20 00:09:49,756 [INFO] entropy                    0.2585   0.0000                   
+2026-06-20 00:09:49,756 [INFO] Full Supervised            0.5569
+2026-06-20 00:09:54,395 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-20 00:09:54,395 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-20 00:09:54,395 [INFO] Strategies: ['entropy']
+2026-06-20 00:09:54,395 [INFO] Seeds: [123]
+2026-06-20 00:09:54,395 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-20 00:09:54,395 [INFO] SSL: True, Method: pseudo_label, t-SNE: False, Resume: False
+2026-06-20 00:09:54,395 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-20 00:09:54,419 [INFO] Device: cuda
+2026-06-20 00:10:03,056 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-20 00:10:03,056 [INFO] 
+--- Strategy: entropy ---
+2026-06-20 00:10:05,953 [INFO]   [entropy] Seed=123 R1/10 F1=0.0549 Acc=0.1614 Labeled=200 QueryTime=0.0s GPU=168MB SSL+2
+2026-06-20 00:10:08,136 [INFO]   [entropy] Seed=123 R2/10 F1=0.0579 Acc=0.1717 Labeled=300 QueryTime=0.0s GPU=212MB SSL+3
+2026-06-20 00:10:10,001 [INFO]   [entropy] Seed=123 R3/10 F1=0.0631 Acc=0.1739 Labeled=400 QueryTime=0.0s GPU=233MB SSL+7
+2026-06-20 00:10:12,273 [INFO]   [entropy] Seed=123 R4/10 F1=0.1112 Acc=0.2038 Labeled=500 QueryTime=0.0s GPU=233MB SSL+0
+2026-06-20 00:10:14,565 [INFO]   [entropy] Seed=123 R5/10 F1=0.1312 Acc=0.2217 Labeled=600 QueryTime=0.0s GPU=233MB SSL+2
+2026-06-20 00:10:17,241 [INFO]   [entropy] Seed=123 R6/10 F1=0.1733 Acc=0.2645 Labeled=700 QueryTime=0.0s GPU=233MB SSL+4
+2026-06-20 00:10:20,167 [INFO]   [entropy] Seed=123 R7/10 F1=0.1805 Acc=0.2668 Labeled=800 QueryTime=0.0s GPU=233MB SSL+17
+2026-06-20 00:10:23,366 [INFO]   [entropy] Seed=123 R8/10 F1=0.1959 Acc=0.2872 Labeled=900 QueryTime=0.0s GPU=233MB SSL+53
+2026-06-20 00:10:26,570 [INFO]   [entropy] Seed=123 R9/10 F1=0.2163 Acc=0.2957 Labeled=1000 QueryTime=0.0s GPU=233MB SSL+63
+2026-06-20 00:10:29,288 [INFO] 
+--- Full Supervised Baseline (reused from existing) ---
+2026-06-20 00:10:29,288 [INFO] Full Supervised: Acc=0.5933, F1=0.5569
+2026-06-20 00:10:29,626 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\ssl_comparison\self_training\rho100 ===
+2026-06-20 00:10:29,626 [INFO] 
+Summary:
+2026-06-20 00:10:29,626 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-20 00:10:29,626 [INFO] ------------------------------------------------------------
+2026-06-20 00:10:29,626 [INFO] entropy                    0.2687   0.0000                   
+2026-06-20 00:10:29,626 [INFO] Full Supervised            0.5569
+2026-06-20 00:10:34,058 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-20 00:10:34,058 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-20 00:10:34,058 [INFO] Strategies: ['entropy']
+2026-06-20 00:10:34,058 [INFO] Seeds: [456]
+2026-06-20 00:10:34,058 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-20 00:10:34,058 [INFO] SSL: True, Method: pseudo_label, t-SNE: False, Resume: False
+2026-06-20 00:10:34,058 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-20 00:10:34,078 [INFO] Device: cuda
+2026-06-20 00:10:42,731 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-20 00:10:42,731 [INFO] 
+--- Strategy: entropy ---
+2026-06-20 00:10:45,801 [INFO]   [entropy] Seed=456 R1/10 F1=0.0881 Acc=0.1861 Labeled=200 QueryTime=0.0s GPU=168MB SSL+2
+2026-06-20 00:10:47,958 [INFO]   [entropy] Seed=456 R2/10 F1=0.1018 Acc=0.1989 Labeled=300 QueryTime=0.0s GPU=212MB SSL+4
+2026-06-20 00:10:49,818 [INFO]   [entropy] Seed=456 R3/10 F1=0.0998 Acc=0.1973 Labeled=400 QueryTime=0.0s GPU=233MB SSL+18
+2026-06-20 00:10:52,006 [INFO]   [entropy] Seed=456 R4/10 F1=0.1309 Acc=0.2173 Labeled=500 QueryTime=0.0s GPU=233MB SSL+10
+2026-06-20 00:10:54,218 [INFO]   [entropy] Seed=456 R5/10 F1=0.1503 Acc=0.2394 Labeled=600 QueryTime=0.0s GPU=233MB SSL+14
+2026-06-20 00:10:56,834 [INFO]   [entropy] Seed=456 R6/10 F1=0.1860 Acc=0.2711 Labeled=700 QueryTime=0.0s GPU=233MB SSL+5
+2026-06-20 00:10:59,693 [INFO]   [entropy] Seed=456 R7/10 F1=0.1939 Acc=0.2728 Labeled=800 QueryTime=0.0s GPU=233MB SSL+14
+2026-06-20 00:11:02,788 [INFO]   [entropy] Seed=456 R8/10 F1=0.2279 Acc=0.3006 Labeled=900 QueryTime=0.0s GPU=233MB SSL+32
+2026-06-20 00:11:05,868 [INFO]   [entropy] Seed=456 R9/10 F1=0.2620 Acc=0.3294 Labeled=1000 QueryTime=0.0s GPU=233MB SSL+29
+2026-06-20 00:11:08,592 [INFO] 
+--- Full Supervised Baseline (reused from existing) ---
+2026-06-20 00:11:08,592 [INFO] Full Supervised: Acc=0.5933, F1=0.5569
+2026-06-20 00:11:08,942 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\ssl_comparison\self_training\rho100 ===
+2026-06-20 00:11:08,943 [INFO] 
+Summary:
+2026-06-20 00:11:08,943 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-20 00:11:08,943 [INFO] ------------------------------------------------------------
+2026-06-20 00:11:08,943 [INFO] entropy                    0.2679   0.0000                   
+2026-06-20 00:11:08,943 [INFO] Full Supervised            0.5569

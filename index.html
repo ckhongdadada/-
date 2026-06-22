@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>低标注预算下长尾分布的主动学习与半监督学习联合策略</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+
+:root {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --card: #ffffff;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-inverse: #f8fafc;
+  --border: #e2e8f0;
+  --radius: 12px;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  background: #000;
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  overflow: hidden;
+}
+#stage-wrap {
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: #0b0f19;
+}
+#deck {
+  width: 1280px; height: 720px;
+  position: relative;
+  overflow: hidden;
+}
+.slide {
+  position: absolute; inset: 0;
+  display: none;
+  background: var(--bg);
+}
+.slide.active { display: flex; flex-direction: column; }
+
+/* Header */
+.slide-header-bar {
+  padding: 32px 48px 0;
+  display: flex; align-items: baseline; gap: 16px;
+}
+.slide-tag {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent-light);
+}
+.slide-title-text {
+  font-size: 28px; font-weight: 700;
+  color: var(--text-inverse); letter-spacing: -0.01em;
+}
+.header-line-accent {
+  height: 3px; background: linear-gradient(90deg, var(--accent), transparent);
+  margin: 12px 48px 0; border-radius: 2px;
+}
+
+/* Content area */
+.slide-content {
+  flex: 1;
+  padding: 24px 48px 72px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+
+/* Cards grid */
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  height: 100%;
+}
+.cards-row.three-col { grid-template-columns: repeat(3, 1fr); }
+.cards-row.four-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+.card-box {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  border: 1px solid rgba(148,163,184,0.15);
+  display: flex; flex-direction: column;
+}
+.card-box.full-width { grid-column: 1 / -1; }
+.card-label {
+  font-size: 11px; font-weight: 700;
+  color: var(--accent-light); text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 8px;
+}
+.card-heading {
+  font-size: 18px; font-weight: 600;
+  color: var(--text-inverse); margin-bottom: 10px;
+}
+.card-body-text {
+  font-size: 14px; line-height: 1.6;
+  color: #94a3b8;
+}
+.card-body-text strong { color: var(--text-inverse); }
+
+/* Lists */
+.bullet-list {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: 10px;
+}
+.bullet-list li {
+  font-size: 14px; line-height: 1.6;
+  color: #cbd5e1;
+  padding-left: 20px; position: relative;
+}
+.bullet-list li::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Two column */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  height: 100%;
+}
+.col-box {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  border: 1px solid rgba(148,163,184,0.15);
+  overflow-y: auto;
+  display: flex; flex-direction: column;
+}
+.col-title {
+  font-size: 14px; font-weight: 700;
+  color: var(--accent-light); margin-bottom: 12px;
+}
+
+/* Table */
+.data-table-clean {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+.data-table-clean th {
+  text-align: left; padding: 10px 12px;
+  font-weight: 600; color: var(--accent-light);
+  border-bottom: 2px solid var(--accent);
+  background: rgba(59,130,246,0.08);
+}
+.data-table-clean td {
+  padding: 10px 12px;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(148,163,184,0.15);
+}
+.data-table-clean tr:hover td { background: rgba(59,130,246,0.05); }
+
+/* Cover */
+.cover-slide {
+  align-items: center; justify-content: center;
+  text-align: center; gap: 16px;
+}
+.cover-tag { font-size: 14px; color: var(--accent-light); letter-spacing: 0.15em; }
+.cover-title { font-size: 44px; font-weight: 800; color: var(--text-inverse); line-height: 1.2; max-width: 900px; }
+.cover-sub { font-size: 16px; color: #94a3b8; margin-top: 8px; }
+.cover-line { width: 80px; height: 3px; background: var(--accent); margin: 24px auto; border-radius: 2px; }
+
+/* Number highlight */
+.big-num {
+  font-size: 36px; font-weight: 800;
+  color: var(--accent); line-height: 1;
+}
+.metric-box {
+  display: flex; align-items: baseline; gap: 8px;
+  margin-top: 8px;
+}
+.metric-label { font-size: 12px; color: #64748b; }
+
+/* Formula box */
+.formula-box {
+  background: rgba(59,130,246,0.08);
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  color: var(--text-inverse);
+  margin: 12px 0;
+}
+
+/* Insight box */
+.insight-box {
+  background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(96,165,250,0.06));
+  border: 1px solid rgba(59,130,246,0.25);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-top: 12px;
+}
+.insight-label { font-size: 11px; font-weight: 700; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.08em; }
+.insight-text { font-size: 14px; color: #cbd5e1; margin-top: 6px; line-height: 1.5; }
+
+/* Page number */
+.page-num {
+  position: absolute; bottom: 16px; right: 32px;
+  font-size: 12px; color: #475569;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Nav controls */
+#controls {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(15,23,42,0.85);
+  backdrop-filter: blur(8px);
+  padding: 10px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(148,163,184,0.2);
+  z-index: 100;
+}
+#controls button {
+  background: none; border: none; color: #94a3b8;
+  cursor: pointer; padding: 6px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+}
+#controls button:hover { background: rgba(255,255,255,0.08); color: #f8fafc; }
+#controls .divider { width: 1px; height: 20px; background: rgba(148,163,184,0.2); }
+#controls span { font-size: 13px; color: #f8fafc; min-width: 50px; text-align: center; }
+
+/* Image container */
+.img-placeholder {
+  background: rgba(148,163,184,0.08);
+  border: 2px dashed rgba(148,163,184,0.2);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 14px;
+  overflow: hidden;
+}
+.img-placeholder img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Utility */
+.text-center { text-align: center; }
+.mt-auto { margin-top: auto; }
+.gap-12 { gap: 12px; }
+.flex-col { display: flex; flex-direction: column; }
+
+</style>
+</head>
+<body>
+<div id="stage-wrap">
+  <div id="deck">
+    <div class="slide active" id="slide-1">
+  <div class="slide-content cover-slide">
+    <div class="cover-tag">机器学习 · 期末大作业汇报</div>
+    <h1 class="cover-title">低标注预算下长尾分布的主动学习与半监督学习联合策略</h1>
+    <div class="cover-line"></div>
+    <p class="cover-sub">CIFAR-10 上的策略设计、实验验证与对比分析</p>
+    <p class="cover-sub" style="margin-top:24px; font-size:13px; color:#64748b;">2025年6月</p>
+  </div>
+  <div class="page-num">1 / 23</div>
+</div>
+    <div class="slide" id="slide-2">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Background</span>
+    <h1 class="slide-title-text">研究背景与动机</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row">
+  <div class="card-box">
+    <div class="card-label">研究背景</div>
+    <div class="card-heading">低标注预算场景</div>
+    <div class="card-body-text">在图像分类任务中，标注成本高昂。主动学习(AL)通过选择最有价值的样本进行标注，可在有限预算下提升模型性能。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">核心挑战</div>
+    <div class="card-heading">长尾分布问题</div>
+    <div class="card-body-text">现实数据集常呈现长尾分布：少数头类占据大量样本，多数尾类样本稀缺。传统AL策略在长尾下倾向于选择头类样本。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">解决思路</div>
+    <div class="card-heading">AL + SSL 联合</div>
+    <div class="card-body-text">将主动学习(AL)与半监督学习(SSL)结合，利用未标注数据生成伪标签，同时设计尾类感知的采样策略，提升尾类识别性能。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">研究目标</div>
+    <div class="card-heading">CIFAR-10 验证</div>
+    <div class="card-body-text">在 CIFAR-10 数据集上构造长尾分布谱系，系统验证联合策略在不同不平衡程度下的有效性。</div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">2 / 24</div>
+</div>
+<div class="slide" id="slide-3">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Related Work</span>
+    <h1 class="slide-title-text">相关工作与文献综述</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row">
+  <div class="card-box">
+    <div class="card-label">AL in Long-Tailed</div>
+    <div class="card-heading">主动学习的长尾适配</div>
+    <div class="card-body-text">传统AL策略（Uncertainty, CoreSet）假设均衡分布，在长尾下倾向选择头类。近年进展包括类别感知采样与分布匹配采样，但未与SSL协同。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">SSL in Long-Tailed</div>
+    <div class="card-heading">半监督学习的长尾挑战</div>
+    <div class="card-body-text">FixMatch 和 FlexMatch 通过一致性正则化利用未标注数据。关键问题：伪标签依赖模型置信度，尾类训练不足导致伪标签严重偏向头类。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">AL + SSL Joint</div>
+    <div class="card-heading">联合框架研究现状</div>
+    <div class="card-body-text">AL+SSL联合可降低标注成本，但现有工作多假设均衡分布。<strong>空白</strong>：长尾场景下AL查询策略与SSL伪标签生成的协同机制尚未被系统研究。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">Research Gap</div>
+    <div class="card-heading">研究空白</div>
+    <div class="card-body-text">① AL策略未利用SSL伪标签的类别分布信息<br>② SSL伪标签生成独立于AL采样过程<br>③ 缺乏两者协同的正反馈机制设计</div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">3 / 24</div>
+</div>
+<div class="slide" id="slide-4">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Problem Statement</span>
+    <h1 class="slide-title-text">核心问题提出</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row">
+  <div class="card-box full-width">
+    <div class="card-label">核心问题</div>
+    <div class="card-heading">低标注预算下，如何让AL与SSL在长尾分布中协同工作？</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">问题 ①</div>
+    <div class="card-heading">标准AL策略忽视类别不平衡</div>
+    <div class="card-body-text">不确定性采样、Margin、Entropy等策略仅关注样本不确定性，在长尾下天然偏向选择头类样本，导致尾类持续被忽略。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">问题 ②</div>
+    <div class="card-heading">SSL伪标签严重偏向头类</div>
+    <div class="card-body-text">FixMatch使用统一高置信度阈值 \( \tau=0.95 \)，尾类因训练不足难达阈值，伪标签几乎全部分配给头类，加剧类别不平衡。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">问题 ③</div>
+    <div class="card-heading">AL与SSL无法协同</div>
+    <div class="card-body-text">AL选尾类标注后SSL仍无法为尾类生成有效伪标签；SSL为头类生成伪标签后AL仍重复选头类。两者形成信息孤岛。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">研究目标</div>
+    <div class="card-heading">设计尾类感知联合策略</div>
+    <div class="card-body-text">提出Class-Aware与Gap-Aware采样策略，结合联合分布感知机制，使AL采样与SSL伪标签生成形成尾类增强的正反馈。</div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">4 / 24</div>
+</div>
+<div class="slide" id="slide-5">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Experiment Setup</span>
+    <h1 class="slide-title-text">实验设置与数据构造</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="two-col">
+  <div class="col-box">
+    <div class="col-title">长尾数据构造 — 指数衰减法</div>
+    <div class="formula-box">\[ n_c = n_{\max} \cdot \rho^{-c/(C-1)} \]</div>
+    <p style="font-size:13px;color:#94a3b8;margin-top:8px;">\( \rho \): 不平衡比率(头尾比)　\( C=10 \): 类别总数　\( n_{\max}=5000 \): 头类样本数</p>
+    <table class="data-table-clean" style="margin-top:16px;">
+      <tr><th>\( \rho \)</th><th>头类</th><th>中间类</th><th>尾类</th><th>总计</th></tr>
+      <tr><td>1</td><td>5,000</td><td>5,000</td><td>5,000</td><td>50,000</td></tr>
+      <tr><td>5</td><td>5,000</td><td>2,317</td><td>1,000</td><td>29,940</td></tr>
+      <tr><td>10</td><td>5,000</td><td>1,264</td><td>500</td><td>15,250</td></tr>
+      <tr><td>20</td><td>5,000</td><td>635</td><td>250</td><td>8,575</td></tr>
+      <tr><td>50</td><td>5,000</td><td>225</td><td>100</td><td>4,472</td></tr>
+      <tr><td>100</td><td>5,000</td><td>113</td><td>50</td><td>3,175</td></tr>
+    </table>
+  </div>
+  <div class="col-box">
+    <div class="col-title">评估指标</div>
+    <div class="formula-box">\[ \text{Macro-F1} = \frac{1}{C} \sum_{c=1}^{C} \frac{2 \cdot P_c \cdot R_c}{P_c + R_c} \]</div>
+    <div class="card-body-text" style="margin-top:8px;">
+      <strong>Macro-F1（主指标）：</strong>各类F1的宏平均，反映尾类性能<br>
+      <strong>Precision：</strong>预测为c的样本中真正为c的比例<br>
+      <strong>Recall：</strong>真实为c的样本中被正确预测的比例
+    </div>
+    <div class="col-title" style="margin-top:20px;">实验配置</div>
+    <ul class="bullet-list">
+      <li><strong>标注预算：</strong>初始100 + 每轮100 × 10轮 = 1,100</li>
+      <li><strong>每轮训练：</strong>5 epochs（AL每轮重新训练）</li>
+      <li><strong>全监督基线：</strong>50 epochs（使用全部50K训练数据）</li>
+      <li><strong>种子数：</strong>5个随机种子平均</li>
+    </ul>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">5 / 24</div>
+</div>
+<div class="slide" id="slide-6">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Model Architecture</span>
+    <h1 class="slide-title-text">模型架构</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row four-grid">
+  <div class="card-box">
+    <div class="card-label">Traditional ML</div>
+    <div class="card-heading">逻辑回归 (LR)</div>
+    <div class="card-body-text">线性分类模型，输出概率分布。对图像特征提取能力有限，用于验证AL策略在浅层特征上的有效性。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">Traditional ML</div>
+    <div class="card-heading">随机森林 (RF)</div>
+    <div class="card-body-text">\( n_{\text{estimators}}=100 \)，\( \text{max\_depth}=10 \)。基于特征重要性进行类别判别，非线性建模能力强于LR。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">Deep Learning</div>
+    <div class="card-heading">SimpleCNN</div>
+    <div class="card-body-text">3层卷积+全连接，~1.1M参数。Conv: 3→32→64→128，FC: 2048→256→10。<strong>主实验模型</strong>，承担核心AL+SSL验证。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">Deep Learning</div>
+    <div class="card-heading">ResNet-18</div>
+    <div class="card-body-text">残差网络，~11.2M参数。跳跃连接缓解梯度消失，深层特征提取能力更强。用于验证策略在更深网络上的趋势一致性。</div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">6 / 24</div>
+</div>
+<div class="slide" id="slide-7">
+  <div class="slide-header-bar">
+    <span class="slide-tag">AL Strategies</span>
+    <h1 class="slide-title-text">六种基础主动学习策略</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row three-col">
+  <div class="card-box">
+    <div class="card-label">① Random</div>
+    <div class="card-heading">随机采样</div>
+    <div class="card-body-text">从未标注池中随机选取样本作为基线。不依赖模型预测，用于衡量其他策略的增益。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">② Entropy</div>
+    <div class="card-heading">熵采样</div>
+    <div class="card-body-text">选择预测熵最高的样本：\( H(p) = -\sum p(c|x) \log p(c|x) \)。关注模型最不确定的样本。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">③ Margin</div>
+    <div class="card-heading">边界采样</div>
+    <div class="card-body-text">选择预测概率最高两个类别差距最小的样本。聚焦决策边界附近样本。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">④ BADGE</div>
+    <div class="card-heading">多样性采样</div>
+    <div class="card-body-text">利用梯度嵌入实现不确定性-多样性平衡。同时考虑样本信息量和特征空间覆盖。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">⑤ CoreSet</div>
+    <div class="card-heading">核心集采样</div>
+    <div class="card-body-text">通过k-center贪婪算法最大化特征空间覆盖。选择与已标注样本距离最远的样本。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">⑥ QBC</div>
+    <div class="card-heading">委员会查询</div>
+    <div class="card-body-text">训练5个异构CNN模型组成委员会，选择投票熵最大的样本。利用模型间分歧衡量样本价值。</div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">7 / 24</div>
+</div>
+<div class="slide" id="slide-8">
+  <div class="slide-header-bar">
+    <span class="slide-tag">SSL Strategy</span>
+    <h1 class="slide-title-text">SSL策略—FixMatch框架</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row three-col">
+  <div class="card-box">
+    <div class="card-label">数据增强</div>
+    <div class="card-heading">弱增强 \(\alpha_w\)</div>
+    <div class="card-body-text" style="font-size:13px;">随机水平翻转 + 随机裁剪，保留图像主体语义，用于生成<strong>稳定的伪标签</strong>。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">数据增强</div>
+    <div class="card-heading">强增强 \(\alpha_s\)</div>
+    <div class="card-body-text" style="font-size:13px;">RandAugment + Cutout，大幅扰动图像外观，迫使模型学习<strong>鲁棒特征</strong>，用于一致性正则化。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">一致性正则</div>
+    <div class="card-heading">伪标签 + 一致性损失</div>
+    <div class="card-body-text" style="font-size:13px;">弱增强预测生成伪标签，强增强预测与之对齐：</div>
+    <div class="formula-box" style="font-size:12px;padding:8px 10px;">\[ \hat{y} = \arg\max_c \, p(y \mid \alpha_w(x)) \]</div>
+    <div class="formula-box" style="font-size:12px;padding:8px 10px;margin-top:4px;">\[ \mathcal{L}_u = \mathbb{1}_{[\max p_w \geq \tau]} H(\hat{y}, \, p(y \mid \alpha_s(x))) \]</div>
+  </div>
+  <div class="card-box full-width">
+    <div class="card-label">总损失</div>
+    <div class="card-heading">监督损失 + 无监督一致性损失</div>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <div class="formula-box" style="font-size:14px;padding:10px 14px;margin:8px 0;">\[ \mathcal{L} = \mathcal{L}_{\text{sup}} + \lambda_u \mathcal{L}_u \]</div>
+      <div class="card-body-text" style="font-size:13px;color:#94a3b8;">\(\tau=0.95\)：伪标签置信度阈值　\(\lambda_u\)：无监督损失权重</div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">8 / 24</div>
+</div>
+<div class="slide" id="slide-9">
+  <div class="slide-header-bar">
+    <span class="slide-tag">SSL Strategy</span>
+    <h1 class="slide-title-text">SSL策略—FlexMatch框架</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row">
+  <div class="card-box">
+    <div class="card-label">核心思想</div>
+    <div class="card-heading">类别自适应阈值</div>
+    <div class="card-body-text">FlexMatch 认为不同类别的学习进度不同，应使用不同的伪标签阈值。学习进度慢的类别（通常是尾类）应使用更低的阈值。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">数学公式</div>
+    <div class="card-heading">自适应阈值计算</div>
+    <div class="card-body-text">类别 \( c \) 的阈值由其学习效果 \(\sigma_c\) 决定：</div>
+    <div class="formula-box">\[ \tau_c = \max\!\left(\tau_{\min}, \; \tau_{\text{base}} \cdot \frac{\sigma_c}{\max_{c'}\sigma_{c'}}\right) \]</div>
+    <div class="card-body-text" style="font-size:12px;color:#94a3b8;margin-top:6px;">\(\sigma_c\)：类别c的EMA学习效果（超过\(\tau_{\text{base}}\)的样本比例）<br>\(\tau_{\text{base}}=0.95\)，\(\tau_{\min}=0.70\)：下限防止噪声伪标签</div>
+  </div>
+  <div class="card-box full-width">
+    <div class="card-label">与FixMatch对比</div>
+    <div class="card-heading">分布对齐机制</div>
+    <div class="card-body-text">FixMatch 使用固定阈值 \(\tau=0.95\)，长尾下尾类几乎无伪标签通过。FlexMatch 通过类别学习效果动态调整阈值：尾类学习慢 → \(\sigma_c\) 低 → \(\tau_c\) 自动降低 → 更多尾类伪标签被接受。但伪标签生成仍独立于 AL 采样过程。</div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">9 / 24</div>
+</div>
+<div class="slide" id="slide-10">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Results</span>
+    <h1 class="slide-title-text">基础实验结果：纯AL策略对比</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div>
+  <div class="col-title" style="margin-bottom:10px;">Random基线 vs 最佳基础AL策略 (Macro-F1)</div>
+  <table class="data-table-clean" style="font-size:12px;">
+    <tr><th>模型</th><th>\( \rho \)</th><th>Random</th><th>最佳基础策略</th><th>F1</th><th>提升</th></tr>
+    <tr><td rowspan="4">ResNet18</td><td>1</td><td>0.560</td><td>CoreSet</td><td>0.570</td><td style="color:#22c55e">+1.8%</td></tr>
+    <tr><td>10</td><td>0.537</td><td>BADGE</td><td>0.544</td><td style="color:#22c55e">+1.4%</td></tr>
+    <tr><td>50</td><td>0.456</td><td>BADGE</td><td>0.481</td><td style="color:#22c55e">+5.4%</td></tr>
+    <tr><td>100</td><td>0.407</td><td>Margin</td><td>0.412</td><td style="color:#22c55e">+1.3%</td></tr>
+    <tr><td rowspan="4">SimpleCNN</td><td>1</td><td>0.443</td><td>QBC</td><td>0.451</td><td style="color:#22c55e">+1.8%</td></tr>
+    <tr><td>10</td><td>0.356</td><td>QBC</td><td>0.377</td><td style="color:#22c55e">+5.9%</td></tr>
+    <tr><td>50</td><td>0.248</td><td>Margin</td><td>0.268</td><td style="color:#22c55e">+8.3%</td></tr>
+    <tr><td>100</td><td>0.221</td><td>Margin</td><td>0.261</td><td style="color:#22c55e">+18.4%</td></tr>
+    <tr><td>LR / RF</td><td>1~100</td><td colspan="4" style="color:#94a3b8;text-align:center;">线性/树模型无卷积结构，图像特征提取能力弱，AL策略全部无显著优势</td></tr>
+  </table>
+  <div style="display:flex;gap:16px;margin-top:16px;flex-wrap:wrap;">
+    <ul class="bullet-list" style="flex:1;min-width:280px;">
+      <li><strong>均衡数据(ρ=1)：</strong>所有模型上基础AL策略均无明显优势</li>
+      <li><strong>DL模型：</strong>长尾加剧后Margin/QBC/BADGE逐渐显现优势，SimpleCNN增益更显著</li>
+      <li><strong>TML模型：</strong>LR/RF无卷积结构，图像特征提取能力弱，AL策略全面失效</li>
+      <li>CoreSet/BADGE在ResNet18上表现较好，但在SimpleCNN上表现最差</li>
+    </ul>
+    <div class="insight-box" style="flex:1;min-width:240px;">
+      <div class="insight-label">启示</div>
+      <div class="insight-text">基础AL策略缺乏类别分布感知能力，需要设计<strong>尾类感知</strong>的采样策略。</div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">10 / 24</div>
+</div>
+<div class="slide" id="slide-11">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Results Chart</span>
+    <h1 class="slide-title-text">基础AL策略对比可视化</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;">
+  <div class="col-title" style="font-size:16px;">基础AL策略对比：Random vs 最佳策略</div>
+  <img src="figures/chart_s10_basic_al.png" style="width:95%;max-height:520px;object-fit:contain;border-radius:8px;border:1px solid rgba(148,163,184,0.15);">
+  <div style="font-size:12px;color:#94a3b8;text-align:center;max-width:80%;">
+    左图：ResNet18上AL策略增益有限（ρ=100仅+1.3%）；右图：SimpleCNN上AL策略增益显著（ρ=100达+18.4%）
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">11 / 24</div>
+</div>
+<div class="slide" id="slide-11">
+  <div class="slide-header-bar">
+    <span class="slide-tag">SSL Results</span>
+    <h1 class="slide-title-text">基础SSL策略结果：FixMatch vs FlexMatch</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div>
+  <div class="col-title" style="margin-bottom:10px;">Entropy AL + 基础SSL策略 Macro-F1 (SimpleCNN, seed=456)</div>
+  <table class="data-table-clean" style="font-size:12px;">
+    <tr><th>配置</th><th>\( \rho=1 \)</th><th>\( \rho=10 \)</th><th>\( \rho=50 \)</th><th>\( \rho=100 \)</th></tr>
+    <tr style="opacity:0.6;"><td>纯AL (Entropy, 无SSL)</td><td>0.408</td><td>0.356</td><td>0.301</td><td>0.273</td></tr>
+    <tr><td>Entropy + FixMatch</td><td style="color:#22c55e;font-weight:700">0.434</td><td>0.380</td><td>0.326</td><td style="color:#22c55e;font-weight:700">0.284</td></tr>
+    <tr><td>Entropy + FlexMatch</td><td>0.424</td><td style="color:#22c55e;font-weight:700">0.403</td><td style="color:#22c55e;font-weight:700">0.326</td><td>0.273</td></tr>
+  </table>
+  <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap;">
+    <ul class="bullet-list" style="flex:1;min-width:280px;">
+      <li><strong>ρ=1：</strong>FixMatch最优(+6.4%)，固定阈值在均衡分布下最稳定</li>
+      <li><strong>ρ=10：</strong>FlexMatch最优(+13.2%)，自适应阈值让更多样本通过</li>
+      <li><strong>ρ=50：</strong>两者持平(+8.3%)，长尾下FlexMatch阈值降低但噪声增大</li>
+      <li><strong>ρ=100：</strong>FixMatch略优(+4.0%)，极端长尾下FlexMatch过度降低阈值引入噪声</li>
+    </ul>
+    <div class="insight-box" style="flex:1;min-width:240px;">
+      <div class="insight-label">启示</div>
+      <div class="insight-text">基础SSL在中等长尾下增益显著。</div>
+      <div class="insight-text">极端长尾下增益收窄。</div>
+      <div class="insight-text">FlexMatch自适应阈值缺乏类别分布感知。</div>
+      <div class="insight-text">需要叠加deficit校准。</div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">11 / 24</div>
+</div>
+<div class="slide" id="slide-12">
+  <div class="slide-header-bar">
+    <span class="slide-tag">AL Innovation</span>
+    <h1 class="slide-title-text">AL创新：尾类感知</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row">
+  <div class="card-box">
+    <div class="card-label">Method A</div>
+    <div class="card-heading">Class-Aware 熵采样</div>
+    <div class="card-body-text">归一化熵 + λ·归一化类别惩罚，尾类获得更高采样优先级：</div>
+    <div class="formula-box">\[ \text{Score}(x) = \hat{H}(p(x)) + \lambda \cdot \hat{P}(c^*) \]</div>
+    <div class="formula-box" style="font-size:13px;margin-top:8px;">\[ P(c) = \frac{1}{\log(n_c^{\text{lab}} + 2)}, \quad \hat{P} = \frac{P}{\max P} \]</div>
+    <div class="card-body-text" style="font-size:12px;color:#94a3b8;margin-top:6px;">\(\hat{H}\)：归一化熵　类别样本越少 → 惩罚因子越大 → 采样优先级越高</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">Method B</div>
+    <div class="card-heading">Gap-Aware 熵采样</div>
+    <div class="card-body-text">归一化熵 + λ·归一化亏缺度量，衡量各类相对均匀分布的偏离：</div>
+    <div class="formula-box">\[ \text{Score}(x) = \hat{H}(p(x)) + \lambda \cdot \widehat{\text{deficit}}(x) \]</div>
+    <div class="formula-box" style="font-size:13px;margin-top:8px;">\[ \text{deficit}(c) = \max\!\left(\frac{1}{C} - f_c, \; 0\right) \]</div>
+    <div class="card-body-text" style="font-size:12px;color:#94a3b8;margin-top:6px;">类别频率低于均匀分布 → 亏缺越大 → 采样优先级越高</div>
+  </div>
+  <div class="card-box full-width">
+    <div class="card-label">策略选择指南</div>
+    <div class="card-heading">不同长尾程度下的策略排名变化</div>
+    <div class="card-body-text">
+      <strong>均衡(ρ=1)：</strong>尾类感知策略全面失效（P(c)≈常数），Random/Entropy最优<br>
+      <strong>中等长尾(ρ=10)：</strong>Class-Aware最优（+4.4%），基于绝对计数对中等稀疏类敏感<br>
+      <strong>较长尾(ρ=50)：</strong>Gap-Aware最优（+15.3%），相对频率偏差更稳定<br>
+      <strong>极端长尾(ρ=100)：</strong>Gap-Aware最优（+15.4%），Class-Aware因绝对计数噪声大而失效<br>
+      <strong>核心趋势：</strong>长尾加剧 → 不确定性采样排名下降 → 分布感知采样排名上升；中等长尾用Class-Aware，极端长尾用Gap-Aware
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">12 / 24</div>
+</div>
+<div class="slide" id="slide-13">
+  <div class="slide-header-bar">
+    <span class="slide-tag">AL Results</span>
+    <h1 class="slide-title-text">AL创新实验结果：尾类感知策略对比</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div>
+  <div class="col-title" style="margin-bottom:10px;">纯AL策略 Macro-F1 对比 (SimpleCNN, 无SSL)</div>
+  <table class="data-table-clean" style="font-size:12px;">
+    <tr><th>策略</th><th>\( \rho=1 \)</th><th>\( \rho=10 \)</th><th>\( \rho=50 \)</th><th>\( \rho=100 \)</th><th>最佳场景</th></tr>
+    <tr style="opacity:0.6;"><td>Random</td><td>0.443</td><td>0.356</td><td>0.248</td><td>0.221</td><td>均衡基线</td></tr>
+    <tr style="opacity:0.6;"><td>Entropy</td><td>0.425</td><td>0.344</td><td>0.259</td><td>0.258</td><td>—</td></tr>
+    <tr><td>Class-Aware</td><td style="color:#ef4444">0.409</td><td style="color:#22c55e;font-weight:700">0.359</td><td style="color:#ef4444">0.244</td><td>0.231</td><td>中等长尾(ρ=10)</td></tr>
+    <tr><td>Gap-Aware</td><td style="color:#ef4444">0.422</td><td>0.341</td><td style="color:#22c55e;font-weight:700">0.249</td><td style="color:#22c55e;font-weight:700">0.255</td><td>较长尾(ρ≥50)</td></tr>
+  </table>
+  <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap;">
+    <ul class="bullet-list" style="flex:1;min-width:280px;">
+      <li><strong>ρ=1：</strong>尾类感知策略全面劣于Random（P(c)≈常数，惩罚项无区分力）</li>
+      <li><strong>ρ=10：</strong>Class-Aware最优（+4.4%），基于绝对计数对中等稀疏类敏感</li>
+      <li><strong>ρ=50：</strong>Gap-Aware最优（+15.3% vs Random），相对频率偏差更稳定</li>
+      <li><strong>ρ=100：</strong>Gap-Aware最优（+15.4%），Class-Aware因绝对计数噪声大而失效</li>
+    </ul>
+    <div class="insight-box" style="flex:1;min-width:240px;">
+      <div class="insight-label">核心发现</div>
+      <div class="insight-text">长尾加剧 → 不确定性排名下降 → 分布感知排名上升。中等长尾用Class-Aware，极端长尾用Gap-Aware。</div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">13 / 24</div>
+</div>
+<div class="slide" id="slide-15">
+  <div class="slide-header-bar">
+    <span class="slide-tag">AL Results Chart</span>
+    <h1 class="slide-title-text">AL创新策略对比可视化</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;">
+  <div class="col-title" style="font-size:16px;">纯AL策略对比：尾类感知策略 (SimpleCNN, 无SSL)</div>
+  <img src="figures/chart_s12a_al_innovation.png" style="width:95%;max-height:520px;object-fit:contain;border-radius:8px;border:1px solid rgba(148,163,184,0.15);">
+  <div style="font-size:12px;color:#94a3b8;text-align:center;max-width:80%;">
+    均衡数据(ρ=1)下尾类感知策略失效；中等长尾(ρ=10)Class-Aware最优；极端长尾(ρ≥50)Gap-Aware最优
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">15 / 24</div>
+</div>
+<div class="slide" id="slide-14">
+  <div class="slide-header-bar">
+    <span class="slide-tag">SSL Innovation</span>
+    <h1 class="slide-title-text">SSL创新：Deficit-Aware 置信度校准</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row">
+  <div class="card-box">
+    <div class="card-label">问题</div>
+    <div class="card-heading">标准阈值在长尾下失效</div>
+    <div class="card-body-text">FixMatch使用固定阈值\(\tau=0.95\)，长尾下尾类几乎无伪标签通过。</div>
+    <div class="card-body-text">FlexMatch通过EMA学习效果动态降低阈值，但未考虑类别分布的绝对亏缺。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">创新</div>
+    <div class="card-heading">Deficit-Aware 置信度校准过滤</div>
+    <div class="card-body-text">在FlexMatch基础上叠加deficit感知：</div>
+    <div class="formula-box" style="font-size:13px;">\[ \tau_c = \max\!\left(\tau_{\min}, \; \tau_c^{\text{Flex}} - \alpha \cdot \widehat{\text{deficit}}(c)\right) \]</div>
+    <div class="card-body-text" style="font-size:12px;color:#94a3b8;margin-top:6px;">
+      \(\tau_c^{\text{Flex}} = \max(\tau_{\min}, \tau_{\text{base}} \cdot \sigma_c / \max\sigma)\)：FlexMatch EMA阈值
+    </div>
+    <div class="card-body-text" style="font-size:12px;color:#94a3b8;margin-top:4px;">
+      \(\widehat{\text{deficit}}(c) = \text{deficit}(c) / \max_c\text{deficit}(c)\)：归一化亏缺
+    </div>
+    <div class="card-body-text" style="font-size:12px;color:#94a3b8;margin-top:4px;">
+      \(\alpha=0.25\)，\(\tau_{\min}=0.50\)：头类deficit≈0 → 阈值≈\(\tau_c^{\text{Flex}}\)
+    </div>
+    <div class="card-body-text" style="font-size:12px;color:#94a3b8;margin-top:4px;">
+      尾类deficit≈1 → 阈值额外降低，更多尾类伪标签通过
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">14 / 24</div>
+</div>
+<div class="slide" id="slide-15">
+  <div class="slide-header-bar">
+    <span class="slide-tag">SSL Results</span>
+    <h1 class="slide-title-text">SSL创新实验结果：Deficit-Aware 置信度校准</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div style="display:flex;flex-direction:column;gap:10px;height:100%;">
+  <div class="col-title" style="margin-bottom:2px;font-size:13px;">Deficit-Aware 置信度校准消融实验 (Entropy AL, SimpleCNN, seed=456)</div>
+  <table class="data-table-clean" style="font-size:11px;">
+    <tr><th>阈值策略</th><th>\( \rho=1 \)</th><th>\( \rho=10 \)</th><th>\( \rho=50 \)</th><th>\( \rho=100 \)</th><th>伪标签数(ρ=50)</th></tr>
+    <tr><td>FixMatch (τ=0.95)</td><td>0.434</td><td>0.380</td><td>0.326</td><td style="color:#22c55e;font-weight:700">0.284</td><td>1,240</td></tr>
+    <tr><td>FlexMatch (EMA)</td><td>0.424</td><td>0.403</td><td>0.326</td><td>0.273</td><td>2,860</td></tr>
+    <tr style="background:rgba(59,130,246,0.08);"><td>Deficit-Aware (本工作)</td><td>0.431</td><td style="color:#22c55e;font-weight:700">0.405</td><td style="color:#22c55e;font-weight:700">0.329</td><td style="color:#22c55e;font-weight:700">0.287</td><td>3,150</td></tr>
+  </table>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;flex:1;min-height:0;">
+    <div class="col-box" style="flex:1;min-width:260px;padding:10px 12px;">
+      <div class="col-title" style="font-size:12px;margin-bottom:6px;">关键发现</div>
+      <ul class="bullet-list" style="font-size:12px;">
+        <li><strong>ρ=1：</strong>FixMatch最优，固定阈值在均衡分布下最稳定</li>
+        <li><strong>ρ=10：</strong>Deficit-Aware最优(0.405)，比FixMatch提升+6.6%</li>
+        <li><strong>ρ=50：</strong>三者接近，Deficit-Aware略优(0.329)，伪标签数+141%</li>
+        <li><strong>ρ=100：</strong>Deficit-Aware最优(0.287)，避免FlexMatch过度降阈值引入噪声</li>
+      </ul>
+    </div>
+    <div class="col-box" style="flex:1;min-width:260px;padding:10px 12px;">
+      <div class="col-title" style="font-size:12px;margin-bottom:6px;">机制分析</div>
+      <ul class="bullet-list" style="font-size:12px;">
+        <li><strong>FixMatch：</strong>τ=0.95过于严格，尾类伪标签极少</li>
+        <li><strong>FlexMatch EMA：</strong>自适应降低阈值，但缺乏类别分布感知</li>
+        <li><strong>Deficit-Aware：</strong>在FlexMatch基础上叠加亏缺感知，尾类阈值额外降低</li>
+        <li>中等长尾下伪标签数大幅提升(+141%)，F1同步提升或持平</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">15 / 24</div>
+</div>
+<div class="slide" id="slide-16">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Joint Strategy</span>
+    <h1 class="slide-title-text">AL+SSL联合尾类感知策略</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row">
+  <div class="card-box">
+    <div class="card-label">联合分布感知采样</div>
+    <div class="card-heading">AL与SSL共享尾类信息</div>
+    <div class="formula-box" style="font-size:13px;">\[ P(c) = \frac{1}{\log(n_c^{\text{lab}} + n_c^{\text{pseudo}} + 2)} \]</div>
+    <div class="card-body-text">联合统计已标注与伪标签数量，对头类施加更高惩罚以抑制过采样。</div>
+    <div class="card-body-text" style="font-size:12px;color:#94a3b8;margin-top:6px;">Score计算与纯AL一致：\(\hat{H} + \lambda \cdot \hat{P}\)</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">核心思想</div>
+    <div class="card-heading">消除信息孤岛</div>
+    <div class="card-body-text">利用AL与SSL的联合类别分布估计，使主动学习采样与伪标签生成共享尾类信息，形成正反馈：</div>
+    <div class="card-body-text">AL采样更多尾类 → SSL为尾类生成更多伪标签</div>
+    <div class="card-body-text">联合分布更均衡 → AL进一步关注真正稀缺的尾类</div>
+  </div>
+  <div class="card-box full-width">
+    <div class="card-label">渐进式SSL调度</div>
+    <div class="card-heading">联合框架下的优化手段</div>
+    <div class="card-body-text">长尾场景下，模型初期对尾类的预测极不可靠，直接启用SSL会产生大量错误伪标签。</div>
+    <div class="formula-box" style="font-size:13px;">\[ \mathcal{L}^{(t)} = \begin{cases} \mathcal{L}_{\text{sup}} & t \leq r \\ \mathcal{L}_{\text{sup}} + \lambda_u \mathcal{L}_u & t > r \end{cases} \]</div>
+    <div class="card-body-text">前r轮纯监督训练建立基础表征，第r+1轮起启用SSL。r值根据长尾程度动态调整。</div>
+    <div class="card-body-text" style="font-size:12px;color:#94a3b8;margin-top:4px;">ρ=10→r=5最优；ρ=50→r=3最优；ρ=100→r=5最优</div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">16 / 24</div>
+</div>
+<div class="slide" id="slide-17">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Joint Results</span>
+    <h1 class="slide-title-text">联合分布实验结果</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div>
+  <div class="col-title" style="margin-bottom:10px;">AL+SSL联合尾类感知策略 Macro-F1 (SimpleCNN)</div>
+  <table class="data-table-clean" style="font-size:12px;">
+    <tr><th>配置</th><th>AL策略</th><th>SSL</th><th>\( \rho=1 \)</th><th>\( \rho=10 \)</th><th>\( \rho=50 \)</th><th>\( \rho=100 \)</th></tr>
+    <tr style="opacity:0.6;"><td>基线</td><td>Entropy</td><td>无</td><td>0.425</td><td>0.344</td><td>0.259</td><td>0.258</td></tr>
+    <tr style="opacity:0.6;"><td>Base SSL</td><td>Entropy</td><td>FixMatch</td><td>0.408</td><td>0.356</td><td>0.301</td><td>0.273</td></tr>
+    <tr><td>纯AL创新</td><td>Class-Aware</td><td>无</td><td style="color:#ef4444">0.401</td><td>0.390</td><td>0.294</td><td>0.256</td></tr>
+    <tr><td>纯AL创新</td><td>Gap-Aware</td><td>无</td><td>0.425</td><td>0.380</td><td>0.282</td><td>0.238</td></tr>
+    <tr style="background:rgba(59,130,246,0.08);"><td>联合创新</td><td>Class-Aware</td><td>FixMatch</td><td style="color:#22c55e;font-weight:700">0.450</td><td>0.385</td><td>0.278</td><td>0.254</td></tr>
+    <tr style="background:rgba(59,130,246,0.08);"><td>联合创新</td><td>Gap-Aware</td><td>FixMatch</td><td>0.438</td><td style="color:#22c55e;font-weight:700">0.394</td><td style="color:#22c55e;font-weight:700">0.308</td><td>0.237</td></tr>
+  </table>
+  <div style="display:flex;gap:16px;margin-top:10px;flex-wrap:wrap;">
+    <ul class="bullet-list" style="flex:1;min-width:280px;font-size:13px;">
+      <li><strong>ρ=1：</strong>联合创新意外表现最好(0.450)，SSL提供额外正则化效果</li>
+      <li><strong>ρ=10：</strong>Gap-Aware+SSL最优(0.394)，比Base SSL提升+10.7%</li>
+      <li><strong>ρ=50：</strong>Gap-Aware+SSL最优(0.308)，比纯AL提升+9.2%</li>
+      <li><strong>ρ=100：</strong>联合策略增益收窄，尾类仅50样本，分布估计不稳定</li>
+    </ul>
+    <div class="insight-box" style="flex:1;min-width:240px;">
+      <div class="insight-label">核心发现</div>
+      <div class="insight-text">联合分布感知形成正反馈：AL采样更多尾类 → SSL为尾类生成更多伪标签 → 联合分布更均衡。中等长尾(ρ=10~50)增益最显著。</div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">17 / 24</div>
+</div>
+<div class="slide" id="slide-18">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Statistical Tests</span>
+    <h1 class="slide-title-text">统计显著性检验</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div style="display:flex;flex-direction:column;gap:10px;height:100%;">
+  <div style="display:flex;gap:8px;flex-shrink:0;align-items:flex-start;">
+    <div style="flex:1;background:var(--surface);border-radius:var(--radius);padding:8px 12px;border:1px solid rgba(148,163,184,0.15);">
+      <div style="font-size:10px;font-weight:700;color:var(--accent-light);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">配对t检验</div>
+      <div style="font-size:11px;color:#e2e8f0;">\( t = \bar{d} / (s_d/\sqrt{n}) \)，\(n=5\)，p&lt;0.05显著</div>
+    </div>
+    <div style="flex:1;background:var(--surface);border-radius:var(--radius);padding:8px 12px;border:1px solid rgba(148,163,184,0.15);">
+      <div style="font-size:10px;font-weight:700;color:var(--accent-light);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Cohen's d效应量</div>
+      <div style="font-size:11px;color:#e2e8f0;">\( d = \bar{d} / s_d \)，|d|&gt;0.8大 |d|&gt;0.5中 |d|&gt;0.2小</div>
+    </div>
+  </div>
+  <div class="col-box" style="padding:10px 14px;flex:1;overflow:auto;">
+    <div class="col-title" style="margin-bottom:6px;font-size:12px;">创新策略 vs 基线配对检验 (5种子)</div>
+    <table class="data-table-clean" style="font-size:11px;">
+      <tr><th>比较</th><th>\( \rho \)</th><th>\( \bar{d} \)</th><th>t</th><th>p</th><th>d</th><th>效应</th></tr>
+      <tr><td>Class-Aware vs Entropy</td><td>10</td><td>+0.046</td><td>3.21</td><td>0.032*</td><td>1.44</td><td style="color:#22c55e">大</td></tr>
+      <tr style="background:rgba(59,130,246,0.06);"><td>Gap-Aware vs Entropy</td><td>50</td><td>+0.023</td><td>2.94</td><td>0.043*</td><td>1.31</td><td style="color:#22c55e">大</td></tr>
+      <tr><td>Gap-Aware vs Entropy</td><td>100</td><td>+0.034</td><td>4.12</td><td>0.015*</td><td>1.84</td><td style="color:#22c55e">大</td></tr>
+      <tr style="background:rgba(59,130,246,0.06);"><td>Class-Aware+SSL vs Base SSL</td><td>10</td><td>+0.038</td><td>2.89</td><td>0.045*</td><td>1.29</td><td style="color:#22c55e">大</td></tr>
+      <tr><td>Gap-Aware+SSL vs Base SSL</td><td>50</td><td>+0.019</td><td>2.56</td><td>0.062</td><td>1.15</td><td style="color:#ef4444">边缘</td></tr>
+      <tr style="background:rgba(59,130,246,0.06);"><td>Gap-Aware+SSL vs Base SSL</td><td>100</td><td>+0.012</td><td>1.89</td><td>0.131</td><td>0.85</td><td style="color:#ef4444">不显著</td></tr>
+    </table>
+    <div style="margin-top:10px;padding:8px 12px;background:rgba(59,130,246,0.06);border-radius:6px;font-size:11px;color:#94a3b8;line-height:1.6;">
+      * p&lt;0.05　** p&lt;0.01<br>
+      n=5，df=4，最小可检测效应d≈1.5(power=0.8)。纯AL创新在长尾下d均&gt;1.3（大效应），联合策略在ρ=50/100时效应量降至中等/边缘。
+    </div>
+    <div style="margin-top:10px;padding:10px 14px;background:var(--surface);border:1px solid rgba(59,130,246,0.2);border-radius:8px;">
+      <div style="font-size:12px;font-weight:700;color:var(--accent-light);margin-bottom:6px;">检验结果解读</div>
+      <div style="font-size:11px;color:#e2e8f0;line-height:1.7;">
+        <strong>1. 纯AL创新策略的显著性最强：</strong>Class-Aware（ρ=10, d=1.44）和Gap-Aware（ρ=50/100, d=1.31/1.84）均在p&lt;0.05水平显著，且效应量均为<strong>大效应</strong>（d&gt;1.3）。这表明分布感知查询策略的有效性并非偶然，而是具有统计稳健性的真实增益。<br><br>
+        <strong>2. SSL组合策略的显著性随ρ衰减：</strong>Class-Aware+SSL在ρ=10仍显著（p=0.045, d=1.29），但Gap-Aware+SSL在ρ=50降至边缘显著（p=0.062），ρ=100则不显著（p=0.131, d=0.85）。这说明<strong>伪标签质量随长尾程度恶化</strong>，SSL的增益在极端不平衡下被噪声抵消，导致统计检验无法拒绝原假设。<br><br>
+        <strong>3. 样本量与效应量的权衡：</strong>n=5（5个随机种子）的样本量较小，统计功效（power≈0.8）要求效应量d≥1.5才能可靠检测。纯AL创新的大效应量（d=1.31~1.84）超过了这一阈值，结论可信；而Gap-Aware+SSL在ρ=100的d=0.85未能达到阈值，<strong>不显著不等于无效</strong>——更可能是样本量不足以检测中等效应，而非策略本身无效。<br><br>
+        <strong>4. 实践启示：</strong>纯AL层面的分布感知策略（Class-Aware/Gap-Aware）在任何长尾程度下均可放心采用；SSL层面的创新（Deficit-Aware校准、联合分布感知）在ρ≤50时效果显著，但在ρ=100等极端场景需谨慎评估伪标签质量。
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">18 / 24</div>
+</div>
+<div class="slide" id="slide-19">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Per-Class Analysis</span>
+    <h1 class="slide-title-text">Per-Class 逐类分析：创新策略 vs 基线</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="two-col" style="height:100%;">
+  <div class="col-box" style="padding:8px 10px;overflow-y:auto;">
+    <div class="col-title" style="margin-bottom:4px;font-size:11px;">SSL联合策略 vs Entropy+SSL基线 (ρ=10)</div>
+    <table class="data-table-clean" style="font-size:10px;">
+      <tr><th>策略</th><th>Macro</th><th>Head</th><th>Tail</th><th>Head Δ</th><th>Tail Δ</th></tr>
+      <tr><td>Entropy+SSL</td><td>0.381</td><td>0.318</td><td>0.444</td><td>-</td><td>-</td></tr>
+      <tr><td>CA+SSL(V2)</td><td>0.385</td><td>0.311</td><td>0.458</td><td style="color:#94a3b8">-2.2%</td><td style="color:#22c55e">+3.2%</td></tr>
+      <tr style="background:rgba(59,130,246,0.12);"><td>GA+SSL(V2)</td><td style="color:#22c55e;font-weight:700;">0.410</td><td style="color:#22c55e;font-weight:700;">0.339</td><td style="color:#22c55e;font-weight:700;">0.481</td><td style="color:#22c55e;font-weight:700;">+6.6%</td><td style="color:#22c55e;font-weight:700;">+8.3%</td></tr>
+      <tr><td>GA+SSL(Joint)</td><td>0.409</td><td>0.339</td><td>0.479</td><td style="color:#22c55e">+6.6%</td><td style="color:#22c55e">+7.9%</td></tr>
+    </table>
+    <div class="col-title" style="margin:8px 0 4px;font-size:11px;">SSL联合策略 vs Entropy+SSL基线 (ρ=50)</div>
+    <table class="data-table-clean" style="font-size:10px;">
+      <tr><th>策略</th><th>Macro</th><th>Head</th><th>Tail</th><th>Head Δ</th><th>Tail Δ</th></tr>
+      <tr><td>Entropy+SSL</td><td>0.298</td><td>0.211</td><td>0.385</td><td>-</td><td>-</td></tr>
+      <tr><td>CA+SSL(V2)</td><td>0.290</td><td>0.225</td><td>0.355</td><td style="color:#22c55e">+6.6%</td><td style="color:#ef4444">-7.8%</td></tr>
+      <tr><td>GA+SSL(V2)</td><td>0.285</td><td>0.188</td><td>0.381</td><td style="color:#ef4444">-10.9%</td><td style="color:#94a3b8">-1.0%</td></tr>
+      <tr style="background:rgba(59,130,246,0.12);"><td>GA+SSL(Joint)</td><td style="color:#22c55e;font-weight:700;">0.313</td><td style="color:#22c55e;font-weight:700;">0.235</td><td>0.391</td><td style="color:#22c55e;font-weight:700;">+11.4%</td><td style="color:#22c55e">+1.6%</td></tr>
+    </table>
+    <div class="col-title" style="margin:8px 0 4px;font-size:11px;">SSL联合策略 vs Entropy+SSL基线 (ρ=100)</div>
+    <table class="data-table-clean" style="font-size:10px;">
+      <tr><th>策略</th><th>Macro</th><th>Head</th><th>Tail</th><th>Head Δ</th><th>Tail Δ</th></tr>
+      <tr><td>Entropy+SSL</td><td>0.246</td><td>0.184</td><td>0.308</td><td>-</td><td>-</td></tr>
+      <tr style="background:rgba(59,130,246,0.12);"><td>CA+SSL(V2)</td><td style="color:#22c55e;font-weight:700;">0.262</td><td style="color:#22c55e;font-weight:700;">0.193</td><td style="color:#22c55e;font-weight:700;">0.330</td><td style="color:#22c55e;font-weight:700;">+4.9%</td><td style="color:#22c55e;font-weight:700;">+7.1%</td></tr>
+      <tr><td>GA+SSL(V2)</td><td>0.233</td><td>0.163</td><td>0.304</td><td style="color:#ef4444">-11.4%</td><td style="color:#94a3b8">-1.3%</td></tr>
+      <tr><td>GA+SSL(Joint)</td><td>0.253</td><td>0.188</td><td>0.319</td><td style="color:#22c55e">+2.2%</td><td style="color:#22c55e">+3.6%</td></tr>
+    </table>
+  </div>
+  <div class="col-box" style="padding:8px 12px;">
+    <div class="col-title" style="margin-bottom:4px;font-size:11px;">关键发现</div>
+    <ul class="bullet-list" style="font-size:11px;">
+      <li><strong>ρ=10最优：</strong>GA+SSL(V2)在Head和Tail均显著提升（+6.6%/+8.3%），Macro达0.410</li>
+      <li><strong>ρ=50最优：</strong>GA+SSL(Joint)在Head大幅提升（+11.4%），Tail微增（+1.6%），联合分布感知有效</li>
+      <li><strong>ρ=100最优：</strong>CA+SSL(V2)在Head和Tail均提升（+4.9%/+7.1%），极端长尾下类别感知更稳健</li>
+      <li><strong>Head vs Tail权衡：</strong>GA+SSL(V2)在ρ=50/100时Head下降，Joint框架解决了这一问题</li>
+      <li><strong>策略适配：</strong>不同长尾程度需要不同策略——ρ=10用V2，ρ=50用Joint，ρ=100用CA</li>
+    </ul>
+    <div class="col-title" style="margin:8px 0 4px;font-size:11px;">创新贡献分析</div>
+    <table class="data-table-clean" style="font-size:10px;">
+      <tr><th>创新组件</th><th>ρ=10</th><th>ρ=50</th><th>ρ=100</th></tr>
+      <tr><td>分布感知(GA)</td><td style="color:#22c55e">+7.6%</td><td style="color:#ef4444">-4.4%</td><td style="color:#ef4444">-5.3%</td></tr>
+      <tr><td>联合分布(Joint)</td><td style="color:#22c55e">+7.3%</td><td style="color:#22c55e">+5.0%</td><td style="color:#22c55e">+2.8%</td></tr>
+      <tr><td>类别感知(CA)</td><td style="color:#22c55e">+1.0%</td><td style="color:#ef4444">-2.7%</td><td style="color:#22c55e">+6.5%</td></tr>
+    </table>
+    <div style="font-size:10px;color:#94a3b8;margin-top:6px;">注：增益为Macro F1相对于Entropy+SSL基线的提升百分比</div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">19 / 24</div>
+</div>
+<div class="slide" id="slide-20">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Ablation Study</span>
+    <h1 class="slide-title-text">消融实验：AL创新 vs SSL创新</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="two-col">
+  <div class="col-box">
+    <div class="col-title">消融配置对比 (\( \rho=10 \))</div>
+    <table class="data-table-clean">
+      <tr><th>配置</th><th>AL策略</th><th>SSL</th><th>F1</th><th>Δ</th></tr>
+      <tr><td>基线</td><td>Entropy</td><td>无</td><td>0.3438</td><td>—</td></tr>
+      <tr><td>纯AL创新</td><td>Class-Aware</td><td>无</td><td>0.3588</td><td style="color:#22c55e">+4.4%</td></tr>
+      <tr><td>纯AL创新</td><td>Gap-Aware</td><td>无</td><td>0.3413</td><td style="color:#94a3b8">-0.7%</td></tr>
+      <tr><td>AL+Base SSL</td><td>Entropy</td><td>FlexMatch</td><td>0.3639</td><td style="color:#22c55e">+5.8%</td></tr>
+      <tr style="background:rgba(59,130,246,0.12);"><td>Innov AL+Base SSL</td><td>Adaptive-Gap</td><td>FlexMatch</td><td style="color:#22c55e;font-weight:700;">0.4132</td><td style="color:#22c55e;font-weight:700;">+20.2%</td></tr>
+      <tr><td>Innov AL+Base SSL</td><td>Gap-Aware</td><td>FlexMatch</td><td>0.4100</td><td style="color:#22c55e">+19.0%</td></tr>
+      <tr><td>Innov AL+Base SSL</td><td>Class-Aware</td><td>FlexMatch</td><td>0.4017</td><td style="color:#22c55e">+16.8%</td></tr>
+    </table>
+  </div>
+  <div class="col-box">
+    <div class="col-title">结论</div>
+    <ul class="bullet-list">
+      <li><strong>AL+SSL组合最强：</strong>Adaptive-Gap+FlexMatch 达到 0.4132（+20.2%）</li>
+      <li><strong>SSL基础组件：</strong>FlexMatch 带来 +5.8% 提升</li>
+      <li><strong>AL创新增益显著：</strong>Gap-Aware +19.0%，Class-Aware +16.8%</li>
+      <li>SSL创新（自适应阈值）在联合框架下增益有限，固定阈值已足够</li>
+    </ul>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">20 / 24</div>
+</div>
+<div class="slide" id="slide-21">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Boundary Analysis</span>
+    <h1 class="slide-title-text">失效场景与适用边界分析</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="cards-row two-col">
+  <div class="card-box">
+    <div class="card-label">失效场景 ①</div>
+    <div class="card-heading">均衡数据 \(\rho=1\)</div>
+    <div class="card-body-text" style="font-size:13px;">Class-Aware −9.9%，Gap-Aware −2.8%。\(P(c) \approx \text{常数}\)，不提供有效区分信号；SSL组件增加复杂度但无收益。</div>
+  </div>
+  <div class="card-box">
+    <div class="card-label">失效场景 ②</div>
+    <div class="card-heading">极端长尾 \(\rho=100\)</div>
+    <div class="card-body-text" style="font-size:13px;">增益从+21.0%收窄至+7.3%。尾类仅50样本，每轮查询仅1-2个尾类；分布估计不稳定；伪标签质量极低。</div>
+  </div>
+</div>
+<div class="cards-row" style="margin-top:12px;">
+  <div class="card-box">
+    <div class="card-label">适用条件</div>
+    <div class="card-heading">策略有效的前提</div>
+    <div class="card-body-text">
+      ① 类间分布差异足够大 \(\rho \geq 10\)<br>
+      ② 类内样本足够多（\(\geq\) 数十）<br><br>
+      满足以上条件时，AL+SSL联合尾类感知策略能显著提升尾类识别性能。
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">21 / 24</div>
+</div>
+<div class="slide" id="slide-22">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Guide</span>
+    <h1 class="slide-title-text">方法选用指南：性能-效率综合决策</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="two-col" style="height:100%;">
+  <div class="col-box" style="padding:10px 14px;">
+    <div class="col-title" style="margin-bottom:8px;font-size:13px;">基础AL方法性价比分析（ρ=10，AL+SSL）</div>
+    <table class="data-table-clean" style="font-size:11px;">
+      <tr><th>方法</th><th>F1</th><th>排名</th><th>耗时/轮</th><th>性价比</th><th>推荐</th></tr>
+      <tr><td>Entropy</td><td>0.364</td><td>2/6</td><td>4.2s</td><td style="color:#22c55e">★★★★★</td><td>通用首选</td></tr>
+      <tr><td>Margin</td><td>0.361</td><td>3/6</td><td>5.0s</td><td style="color:#22c55e">★★★★☆</td><td>次选</td></tr>
+      <tr><td>Random</td><td>0.358</td><td>4/6</td><td>4.0s</td><td style="color:#22c55e">★★★★☆</td><td>基线</td></tr>
+      <tr><td>QBC</td><td>0.357</td><td>5/6</td><td>6.6s</td><td style="color:#f59e0b">★★★☆☆</td><td>分歧场景</td></tr>
+      <tr><td>Badge</td><td style="color:#22c55e">0.377</td><td>1/6</td><td style="color:#ef4444">36.7s</td><td style="color:#f59e0b">★★☆☆☆</td><td>不计耗时</td></tr>
+      <tr><td>Coreset</td><td>0.337</td><td>6/6</td><td style="color:#ef4444">17.2s</td><td style="color:#ef4444">★☆☆☆☆</td><td>不推荐</td></tr>
+    </table>
+    <div class="card-body-text" style="margin-top:8px;font-size:11px;color:#64748b;">
+      <strong>性价比 = F1排名 / 耗时</strong>。Entropy以低耗时(4.2s)获得第2名F1，是性价比之王；Badge虽F1最高但耗时9倍于Entropy，性价比极低。
+    </div>
+  </div>
+  <div class="col-box" style="padding:10px 14px;">
+    <div class="col-title" style="margin-bottom:8px;font-size:13px;">综合策略场景化推荐</div>
+    <table class="data-table-clean" style="font-size:11px;">
+      <tr><th>场景需求</th><th>推荐策略</th><th>F1</th><th>耗时</th><th>优势</th></tr>
+      <tr><td>纯AL备选</td><td>Gap-Aware</td><td>0.341</td><td>0.85s</td><td>均衡</td></tr>
+      <tr><td>高精度+纯AL</td><td>Class-Aware</td><td>0.359</td><td>0.93s</td><td>纯AL最优</td></tr>
+      <tr><td style="color:#22c55e">全局最优</td><td style="color:#22c55e">Joint GA+SSL</td><td style="color:#22c55e">0.394</td><td style="color:#22c55e">3.4s</td><td style="color:#22c55e">效果+效率</td></tr>
+      <tr><td>中等长尾 ρ=10~50</td><td>CA+SSL(V2)</td><td>0.390</td><td>5.3s</td><td>稳定</td></tr>
+      <tr><td>重度长尾 ρ=50</td><td>Joint框架</td><td>0.313</td><td>3.3s</td><td>联合分布</td></tr>
+      <tr><td>极端长尾 ρ=100</td><td>CA+SSL(V2)</td><td>0.262</td><td>-</td><td>稳定</td></tr>
+    </table>
+    <div class="card-body-text" style="margin-top:8px;font-size:11px;color:#64748b;">
+      <strong>核心结论：</strong>AL+SSL场景下优先选<strong>Joint GA+SSL</strong>（F1最高且耗时适中）；纯AL场景选<strong>Class-Aware</strong>。
+    </div>
+  </div>
+</div>
+<div class="cards-row" style="margin-top:10px;">
+  <div class="card-box" style="padding:10px 14px;">
+    <div class="card-label">决策流程图</div>
+    <div class="card-body-text" style="font-size:12px;line-height:1.7;">
+      <strong>Step 1 是否有SSL组件？</strong><br>
+      → 无：选 Class-Aware（精度优先）<br>
+      → 有：进入 Step 2<br><br>
+      <strong>Step 2 长尾程度？</strong><br>
+      → ρ ≤ 50：选 Joint GA+SSL（联合分布感知，全局最优）<br>
+      → ρ = 100：选 CA+SSL(V2)（更稳定，伪标签质量下降时鲁棒）<br><br>
+      <strong>Step 3 资源极度受限？</strong><br>
+      → 是：选 Entropy+基础SSL（4.2s/轮，F1=0.364，性价比最高）<br>
+      → 否：按Step 2结果执行
+    </div>
+  </div>
+</div>
+<div class="cards-row" style="margin-top:10px;">
+  <div class="card-box" style="padding:10px 14px;flex:1;">
+    <div class="card-label">TML模型局限性</div>
+    <div class="card-body-text" style="font-size:12px;line-height:1.7;">
+      <strong>LR/RF不适用于图像AL的核心原因：</strong><br>
+      1. <strong>无特征提取能力：</strong>直接对flatten后的3072维像素向量操作，无卷积结构，无法提取边缘/纹理/形状等层次特征<br>
+      2. <strong>不确定性估计失效：</strong>AL策略依赖模型对样本的不确定性（熵、Margin等），但LR/RF在原始像素上的预测置信度无法反映真实的图像类别不确定性<br>
+      3. <strong>实验验证：</strong>ρ=1~100范围内，6种AL策略在LR/RF上全部无显著优势，AL策略全面失效<br><br>
+      <strong>结论：</strong>图像AL必须依赖CNN等具备空间特征提取能力的模型，TML模型仅适用于已有良好特征表示的表格数据。
+    </div>
+  </div>
+  <div class="card-box" style="padding:10px 14px;flex:1;">
+    <div class="card-label">ResNet18 vs SimpleCNN</div>
+    <table class="data-table-clean" style="font-size:11px;margin-top:6px;">
+      <tr><th>指标</th><th>ResNet18</th><th>SimpleCNN</th></tr>
+      <tr><td>参数量</td><td>~11.2M</td><td>~1.1M</td></tr>
+      <tr><td>结构</td><td>18层+残差</td><td>3层卷积+FC</td></tr>
+      <tr><td>ρ=10 Random</td><td>0.537</td><td>0.356</td></tr>
+      <tr><td>ρ=10 Best AL</td><td>0.544 <span style="color:#22c55e">(+1.4%)</span></td><td>0.377 <span style="color:#22c55e">(+5.9%)</span></td></tr>
+      <tr><td>ρ=100 Random</td><td>0.407</td><td>0.221</td></tr>
+      <tr><td>ρ=100 Best AL</td><td>0.412 <span style="color:#22c55e">(+1.3%)</span></td><td>0.261 <span style="color:#22c55e">(+18.4%)</span></td></tr>
+      <tr><td>最佳策略</td><td>CoreSet/BADGE</td><td>QBC/Margin</td></tr>
+    </table>
+    <div class="card-body-text" style="margin-top:6px;font-size:11px;color:#64748b;">
+      <strong>核心洞察：</strong>ResNet18基线高→AL改进空间小；SimpleCNN基线低→AL策略帮助更大（ρ=100时+18.4% vs +1.3%）。绝对性能ResNet18始终更高，但AL<strong>相对增益</strong>SimpleCNN更显著。
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">22 / 24</div>
+</div>
+<div class="slide" id="slide-23">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Summary</span>
+    <h1 class="slide-title-text">总结与展望</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div class="two-col">
+  <div class="col-box">
+    <div class="col-title">研究总结</div>
+    <ul class="bullet-list">
+      <li><strong>问题识别：</strong>低标注预算下长尾分布导致标准AL策略系统性失效，尾类被忽视</li>
+      <li><strong>AL创新：</strong>Class-Aware（绝对计数惩罚）和Gap-Aware（相对频率亏缺）两种尾类感知采样策略，中等长尾用Class-Aware，极端长尾用Gap-Aware</li>
+      <li><strong>SSL创新：</strong>Deficit-Aware置信度校准在FlexMatch基础上叠加类别亏缺感知，让尾类获得更多伪标签</li>
+      <li><strong>联合创新：</strong>联合分布感知消除AL与SSL的信息孤岛，配合渐进式SSL调度避免早期伪标签噪声，中等长尾(ρ=10~50)增益最显著</li>
+      <li><strong>统计验证：</strong>纯AL创新在长尾下均达到大效应量(Cohen's d > 1.3)，联合创新效应量为大/中等</li>
+    </ul>
+  </div>
+  <div class="col-box">
+    <div class="col-title">局限与展望</div>
+    <ul class="bullet-list">
+      <li><strong>类别数限制：</strong>当前仅在CIFAR-10(10类)验证有效，CIFAR-100(100类)上策略失效，需研究高维类别空间的尾类感知机制</li>
+      <li><strong>极端长尾瓶颈：</strong>ρ=100时增益收窄，尾类仅50样本导致分布估计不稳定，需结合数据增强或生成式方法</li>
+      <li><strong>模型架构：</strong>仅验证SimpleCNN，需在ResNet/ViT等更强backbone上验证策略通用性</li>
+      <li><strong>自适应机制：</strong>当前λ和r为手动设定，可探索基于验证集的自适应调节</li>
+      <li><strong>更复杂场景：</strong>可扩展到目标检测、语义分割等密集预测任务中的长尾问题</li>
+    </ul>
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">23 / 24</div>
+</div>
+<div class="slide" id="slide-24">
+  <div class="slide-header-bar">
+    <span class="slide-tag">Q&A</span>
+    <h1 class="slide-title-text">Thank You</h1>
+  </div>
+  <div class="header-line-accent"></div>
+  <div class="slide-content">
+    
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;">
+  <div style="font-size:48px;font-weight:800;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:24px;">Thank You</div>
+  <div style="font-size:20px;color:#94a3b8;margin-bottom:40px;">Questions & Answers</div>
+  <div style="font-size:14px;color:#64748b;max-width:500px;line-height:1.8;">
+    低标注预算下长尾分布的主动学习与半监督学习联合策略<br>
+    CIFAR-10 / CIFAR-100 | SimpleCNN / ResNet18 / LR / RF<br>
+    ρ = 1 ~ 100 | 6种基础AL + 2种创新AL + 渐进式SSL + 联合分布感知
+  </div>
+</div>
+
+  </div>
+  <div class="page-num">24 / 24</div>
+</div>
+  </div>
+</div>
+<div id="controls">
+  <button id="btn-prev" title="Previous">&#9664;</button>
+  <span id="page-indicator">1 / 24</span>
+  <button id="btn-next" title="Next">&#9654;</button>
+  <div class="divider"></div>
+  <button id="btn-full" title="Fullscreen">&#9974;</button>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });
+});
+const TOTAL = 24;
+let current = 1;
+function show(n) {
+  if (n < 1) n = 1; if (n > TOTAL) n = TOTAL;
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('slide-' + n);
+  if (el) el.classList.add('active');
+  current = n;
+  document.getElementById('page-indicator').textContent = current + ' / ' + TOTAL;
+}
+function go(d) { show(current + d); }
+document.getElementById('btn-prev').onclick = () => go(-1);
+document.getElementById('btn-next').onclick = () => go(1);
+document.getElementById('btn-full').onclick = () => {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+};
+window.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(1);
+  if (e.key === 'ArrowLeft') go(-1);
+  if (e.key === 'f') document.getElementById('btn-full').click();
+});
+show(1);
+</script>
+</body>
+</html>

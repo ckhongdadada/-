@@ -1,0 +1,40 @@
+2026-06-20 10:15:38,011 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-20 10:15:38,012 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-20 10:15:38,012 [INFO] Strategies: ['entropy']
+2026-06-20 10:15:38,012 [INFO] Seeds: [42, 123, 456]
+2026-06-20 10:15:38,012 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-20 10:15:38,012 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-20 10:15:38,012 [INFO] Imbalance mode: max/min class count ratio = 20
+2026-06-20 10:15:38,047 [INFO] Device: cuda
+2026-06-20 10:15:50,445 [INFO] Imbalance filter (Exponential): 50000 -> 17023 training samples
+2026-06-20 10:15:50,445 [INFO] 
+--- Strategy: entropy ---
+2026-06-20 10:15:57,181 [INFO]   [entropy] Seed=42 R1/10 F1=0.0648 Acc=0.1451 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-20 10:16:02,591 [INFO]   [entropy] Seed=42 R2/10 F1=0.1089 Acc=0.1964 Labeled=300 QueryTime=0.0s GPU=217MB SSL+0
+2026-06-20 10:16:07,503 [INFO]   [entropy] Seed=42 R3/10 F1=0.1624 Acc=0.2513 Labeled=400 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-20 10:16:12,432 [INFO]   [entropy] Seed=42 R4/10 F1=0.1872 Acc=0.2649 Labeled=500 QueryTime=0.0s GPU=237MB SSL+25
+2026-06-20 10:16:17,245 [INFO]   [entropy] Seed=42 R5/10 F1=0.2009 Acc=0.2696 Labeled=600 QueryTime=0.0s GPU=237MB SSL+19
+2026-06-20 10:16:23,567 [INFO]   [entropy] Seed=42 R6/10 F1=0.2221 Acc=0.2916 Labeled=700 QueryTime=0.0s GPU=237MB SSL+61
+2026-06-20 10:16:30,170 [INFO]   [entropy] Seed=42 R7/10 F1=0.2671 Acc=0.3310 Labeled=800 QueryTime=0.0s GPU=237MB SSL+45
+2026-06-20 10:16:38,660 [INFO]   [entropy] Seed=42 R8/10 F1=0.2920 Acc=0.3500 Labeled=900 QueryTime=0.0s GPU=237MB SSL+94
+2026-06-20 10:16:46,767 [INFO]   [entropy] Seed=42 R9/10 F1=0.3116 Acc=0.3584 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+81
+2026-06-20 10:16:58,583 [INFO]   [entropy] Seed=123 R1/10 F1=0.0656 Acc=0.1416 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-20 10:17:03,083 [INFO]   [entropy] Seed=123 R2/10 F1=0.1222 Acc=0.1980 Labeled=300 QueryTime=0.0s GPU=230MB SSL+10
+2026-06-20 10:17:07,578 [INFO]   [entropy] Seed=123 R3/10 F1=0.1668 Acc=0.2381 Labeled=400 QueryTime=0.0s GPU=250MB SSL+25
+2026-06-20 10:17:12,852 [INFO]   [entropy] Seed=123 R4/10 F1=0.2035 Acc=0.2607 Labeled=500 QueryTime=0.0s GPU=249MB SSL+12
+2026-06-20 10:17:17,326 [INFO]   [entropy] Seed=123 R5/10 F1=0.2068 Acc=0.2824 Labeled=600 QueryTime=0.0s GPU=249MB SSL+26
+2026-06-20 10:17:24,129 [INFO]   [entropy] Seed=123 R6/10 F1=0.2252 Acc=0.2988 Labeled=700 QueryTime=0.0s GPU=249MB SSL+34
+2026-06-20 10:17:33,124 [INFO]   [entropy] Seed=123 R7/10 F1=0.2375 Acc=0.3143 Labeled=800 QueryTime=0.0s GPU=249MB SSL+69
+2026-06-20 10:17:44,881 [INFO]   [entropy] Seed=123 R8/10 F1=0.2615 Acc=0.3358 Labeled=900 QueryTime=0.0s GPU=249MB SSL+104
+2026-06-20 10:17:56,255 [INFO]   [entropy] Seed=123 R9/10 F1=0.2731 Acc=0.3461 Labeled=1000 QueryTime=0.0s GPU=249MB SSL+174
+2026-06-20 10:18:08,196 [INFO]   [entropy] Seed=456 R1/10 F1=0.1046 Acc=0.1712 Labeled=200 QueryTime=0.0s GPU=199MB SSL+0
+2026-06-20 10:18:11,942 [INFO]   [entropy] Seed=456 R2/10 F1=0.1357 Acc=0.2321 Labeled=300 QueryTime=0.0s GPU=217MB SSL+0
+2026-06-20 10:18:17,063 [INFO]   [entropy] Seed=456 R3/10 F1=0.1276 Acc=0.2171 Labeled=400 QueryTime=0.0s GPU=237MB SSL+5
+2026-06-20 10:18:23,265 [INFO]   [entropy] Seed=456 R4/10 F1=0.1856 Acc=0.2649 Labeled=500 QueryTime=0.0s GPU=237MB SSL+6
+2026-06-20 10:18:29,610 [INFO]   [entropy] Seed=456 R5/10 F1=0.2398 Acc=0.3087 Labeled=600 QueryTime=0.0s GPU=237MB SSL+13
+2026-06-20 10:18:38,528 [INFO]   [entropy] Seed=456 R6/10 F1=0.2207 Acc=0.2994 Labeled=700 QueryTime=0.0s GPU=237MB SSL+52
+2026-06-20 10:18:47,944 [INFO]   [entropy] Seed=456 R7/10 F1=0.2030 Acc=0.2800 Labeled=800 QueryTime=0.0s GPU=237MB SSL+42
+2026-06-20 10:19:00,034 [INFO]   [entropy] Seed=456 R8/10 F1=0.2896 Acc=0.3404 Labeled=900 QueryTime=0.0s GPU=237MB SSL+101
+2026-06-20 10:19:11,510 [INFO]   [entropy] Seed=456 R9/10 F1=0.3541 Acc=0.3887 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+74
+2026-06-20 10:19:21,826 [INFO] 
+--- Full Supervised Baseline ---

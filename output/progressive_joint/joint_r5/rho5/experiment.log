@@ -1,0 +1,69 @@
+2026-06-20 14:29:21,513 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-20 14:29:21,513 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-20 14:29:21,513 [INFO] Strategies: ['class_aware_entropy_ssl', 'gap_aware_entropy_ssl']
+2026-06-20 14:29:21,513 [INFO] Seeds: [42, 123, 456]
+2026-06-20 14:29:21,513 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-20 14:29:21,513 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-20 14:29:21,513 [INFO] Imbalance mode: max/min class count ratio = 5
+2026-06-20 14:29:21,607 [INFO] Device: cuda
+2026-06-20 14:29:34,213 [INFO] Imbalance filter (Exponential): 50000 -> 25423 training samples
+2026-06-20 14:29:34,213 [INFO] 
+--- Strategy: class_aware_entropy_ssl ---
+2026-06-20 14:29:42,648 [INFO]   [class_aware_entropy_ssl] Seed=42 R1/10 F1=0.0685 Acc=0.1341 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-20 14:29:48,241 [INFO]   [class_aware_entropy_ssl] Seed=42 R2/10 F1=0.2165 Acc=0.2594 Labeled=300 QueryTime=0.0s GPU=210MB SSL+0
+2026-06-20 14:29:53,433 [INFO]   [class_aware_entropy_ssl] Seed=42 R3/10 F1=0.2381 Acc=0.2764 Labeled=400 QueryTime=0.1s GPU=229MB SSL+3
+2026-06-20 14:29:58,328 [INFO]   [class_aware_entropy_ssl] Seed=42 R4/10 F1=0.2600 Acc=0.2901 Labeled=500 QueryTime=0.1s GPU=229MB SSL+6
+2026-06-20 14:30:04,630 [INFO]   [class_aware_entropy_ssl] Seed=42 R5/10 F1=0.3018 Acc=0.3362 Labeled=600 QueryTime=0.2s GPU=229MB SSL+9
+2026-06-20 14:30:15,847 [INFO]   [class_aware_entropy_ssl] Seed=42 R6/10 F1=0.3039 Acc=0.3410 Labeled=700 QueryTime=0.2s GPU=229MB SSL+15
+2026-06-20 14:30:27,153 [INFO]   [class_aware_entropy_ssl] Seed=42 R7/10 F1=0.3612 Acc=0.3925 Labeled=800 QueryTime=0.3s GPU=229MB SSL+53
+2026-06-20 14:30:40,082 [INFO]   [class_aware_entropy_ssl] Seed=42 R8/10 F1=0.3646 Acc=0.3910 Labeled=900 QueryTime=0.2s GPU=229MB SSL+84
+2026-06-20 14:30:48,731 [INFO]   [class_aware_entropy_ssl] Seed=42 R9/10 F1=0.4210 Acc=0.4304 Labeled=1000 QueryTime=0.1s GPU=229MB SSL+99
+2026-06-20 14:31:01,058 [INFO]   [class_aware_entropy_ssl] Seed=123 R1/10 F1=0.0866 Acc=0.1552 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-20 14:31:04,569 [INFO]   [class_aware_entropy_ssl] Seed=123 R2/10 F1=0.1293 Acc=0.2147 Labeled=300 QueryTime=0.0s GPU=208MB SSL+0
+2026-06-20 14:31:08,343 [INFO]   [class_aware_entropy_ssl] Seed=123 R3/10 F1=0.1662 Acc=0.2331 Labeled=400 QueryTime=0.0s GPU=229MB SSL+4
+2026-06-20 14:31:12,083 [INFO]   [class_aware_entropy_ssl] Seed=123 R4/10 F1=0.2270 Acc=0.2721 Labeled=500 QueryTime=0.1s GPU=229MB SSL+1
+2026-06-20 14:31:15,976 [INFO]   [class_aware_entropy_ssl] Seed=123 R5/10 F1=0.2688 Acc=0.3083 Labeled=600 QueryTime=0.1s GPU=229MB SSL+4
+2026-06-20 14:31:21,632 [INFO]   [class_aware_entropy_ssl] Seed=123 R6/10 F1=0.3356 Acc=0.3639 Labeled=700 QueryTime=0.1s GPU=229MB SSL+18
+2026-06-20 14:31:27,297 [INFO]   [class_aware_entropy_ssl] Seed=123 R7/10 F1=0.3568 Acc=0.3751 Labeled=800 QueryTime=0.1s GPU=229MB SSL+16
+2026-06-20 14:31:39,398 [INFO]   [class_aware_entropy_ssl] Seed=123 R8/10 F1=0.4156 Acc=0.4310 Labeled=900 QueryTime=0.2s GPU=229MB SSL+41
+2026-06-20 14:31:49,080 [INFO]   [class_aware_entropy_ssl] Seed=123 R9/10 F1=0.4134 Acc=0.4335 Labeled=1000 QueryTime=0.2s GPU=229MB SSL+77
+2026-06-20 14:32:02,053 [INFO]   [class_aware_entropy_ssl] Seed=456 R1/10 F1=0.0944 Acc=0.1635 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-20 14:32:06,506 [INFO]   [class_aware_entropy_ssl] Seed=456 R2/10 F1=0.1477 Acc=0.2164 Labeled=300 QueryTime=0.0s GPU=208MB SSL+0
+2026-06-20 14:32:11,226 [INFO]   [class_aware_entropy_ssl] Seed=456 R3/10 F1=0.2157 Acc=0.2734 Labeled=400 QueryTime=0.1s GPU=229MB SSL+0
+2026-06-20 14:32:15,824 [INFO]   [class_aware_entropy_ssl] Seed=456 R4/10 F1=0.2292 Acc=0.2788 Labeled=500 QueryTime=0.1s GPU=229MB SSL+7
+2026-06-20 14:32:19,980 [INFO]   [class_aware_entropy_ssl] Seed=456 R5/10 F1=0.2714 Acc=0.3092 Labeled=600 QueryTime=0.1s GPU=229MB SSL+11
+2026-06-20 14:32:26,516 [INFO]   [class_aware_entropy_ssl] Seed=456 R6/10 F1=0.3030 Acc=0.3437 Labeled=700 QueryTime=0.1s GPU=229MB SSL+31
+2026-06-20 14:32:34,315 [INFO]   [class_aware_entropy_ssl] Seed=456 R7/10 F1=0.3297 Acc=0.3623 Labeled=800 QueryTime=0.1s GPU=229MB SSL+45
+2026-06-20 14:32:45,115 [INFO]   [class_aware_entropy_ssl] Seed=456 R8/10 F1=0.3537 Acc=0.3781 Labeled=900 QueryTime=0.3s GPU=229MB SSL+72
+2026-06-20 14:32:54,857 [INFO]   [class_aware_entropy_ssl] Seed=456 R9/10 F1=0.4004 Acc=0.4108 Labeled=1000 QueryTime=0.3s GPU=229MB SSL+74
+2026-06-20 14:33:03,148 [INFO] 
+--- Strategy: gap_aware_entropy_ssl ---
+2026-06-20 14:33:08,569 [INFO]   [gap_aware_entropy_ssl] Seed=42 R1/10 F1=0.0685 Acc=0.1341 Labeled=200 QueryTime=0.1s GPU=171MB SSL+0
+2026-06-20 14:33:15,453 [INFO]   [gap_aware_entropy_ssl] Seed=42 R2/10 F1=0.2140 Acc=0.2603 Labeled=300 QueryTime=0.1s GPU=208MB SSL+0
+2026-06-20 14:33:22,176 [INFO]   [gap_aware_entropy_ssl] Seed=42 R3/10 F1=0.2211 Acc=0.2653 Labeled=400 QueryTime=0.1s GPU=229MB SSL+6
+2026-06-20 14:33:28,830 [INFO]   [gap_aware_entropy_ssl] Seed=42 R4/10 F1=0.2285 Acc=0.2721 Labeled=500 QueryTime=0.1s GPU=229MB SSL+5
+2026-06-20 14:33:35,492 [INFO]   [gap_aware_entropy_ssl] Seed=42 R5/10 F1=0.2605 Acc=0.2975 Labeled=600 QueryTime=0.2s GPU=229MB SSL+3
+2026-06-20 14:33:45,582 [INFO]   [gap_aware_entropy_ssl] Seed=42 R6/10 F1=0.2945 Acc=0.3354 Labeled=700 QueryTime=0.2s GPU=229MB SSL+12
+2026-06-20 14:33:55,271 [INFO]   [gap_aware_entropy_ssl] Seed=42 R7/10 F1=0.3186 Acc=0.3634 Labeled=800 QueryTime=0.2s GPU=229MB SSL+34
+2026-06-20 14:34:07,911 [INFO]   [gap_aware_entropy_ssl] Seed=42 R8/10 F1=0.3356 Acc=0.3737 Labeled=900 QueryTime=0.3s GPU=229MB SSL+64
+2026-06-20 14:34:21,250 [INFO]   [gap_aware_entropy_ssl] Seed=42 R9/10 F1=0.3731 Acc=0.4016 Labeled=1000 QueryTime=0.3s GPU=229MB SSL+69
+2026-06-20 14:34:39,830 [INFO]   [gap_aware_entropy_ssl] Seed=123 R1/10 F1=0.0866 Acc=0.1552 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-20 14:34:46,623 [INFO]   [gap_aware_entropy_ssl] Seed=123 R2/10 F1=0.1147 Acc=0.1761 Labeled=300 QueryTime=0.1s GPU=208MB SSL+0
+2026-06-20 14:34:52,923 [INFO]   [gap_aware_entropy_ssl] Seed=123 R3/10 F1=0.1875 Acc=0.2546 Labeled=400 QueryTime=0.1s GPU=229MB SSL+0
+2026-06-20 14:34:59,584 [INFO]   [gap_aware_entropy_ssl] Seed=123 R4/10 F1=0.2081 Acc=0.2638 Labeled=500 QueryTime=0.1s GPU=229MB SSL+0
+2026-06-20 14:35:06,206 [INFO]   [gap_aware_entropy_ssl] Seed=123 R5/10 F1=0.2478 Acc=0.2918 Labeled=600 QueryTime=0.2s GPU=229MB SSL+9
+2026-06-20 14:35:15,735 [INFO]   [gap_aware_entropy_ssl] Seed=123 R6/10 F1=0.3281 Acc=0.3567 Labeled=700 QueryTime=0.2s GPU=229MB SSL+29
+2026-06-20 14:35:25,035 [INFO]   [gap_aware_entropy_ssl] Seed=123 R7/10 F1=0.3687 Acc=0.3799 Labeled=800 QueryTime=0.2s GPU=229MB SSL+29
+2026-06-20 14:35:37,076 [INFO]   [gap_aware_entropy_ssl] Seed=123 R8/10 F1=0.3782 Acc=0.3965 Labeled=900 QueryTime=0.3s GPU=229MB SSL+72
+2026-06-20 14:35:48,992 [INFO]   [gap_aware_entropy_ssl] Seed=123 R9/10 F1=0.3956 Acc=0.4077 Labeled=1000 QueryTime=0.3s GPU=229MB SSL+75
+2026-06-20 14:36:05,815 [INFO]   [gap_aware_entropy_ssl] Seed=456 R1/10 F1=0.0944 Acc=0.1635 Labeled=200 QueryTime=0.0s GPU=171MB SSL+0
+2026-06-20 14:36:12,157 [INFO]   [gap_aware_entropy_ssl] Seed=456 R2/10 F1=0.1561 Acc=0.2353 Labeled=300 QueryTime=0.1s GPU=208MB SSL+0
+2026-06-20 14:36:19,101 [INFO]   [gap_aware_entropy_ssl] Seed=456 R3/10 F1=0.1883 Acc=0.2460 Labeled=400 QueryTime=0.1s GPU=229MB SSL+0
+2026-06-20 14:36:25,440 [INFO]   [gap_aware_entropy_ssl] Seed=456 R4/10 F1=0.2411 Acc=0.2882 Labeled=500 QueryTime=0.1s GPU=229MB SSL+5
+2026-06-20 14:36:32,306 [INFO]   [gap_aware_entropy_ssl] Seed=456 R5/10 F1=0.2735 Acc=0.3088 Labeled=600 QueryTime=0.2s GPU=229MB SSL+3
+2026-06-20 14:36:41,434 [INFO]   [gap_aware_entropy_ssl] Seed=456 R6/10 F1=0.3106 Acc=0.3439 Labeled=700 QueryTime=0.2s GPU=229MB SSL+12
+2026-06-20 14:36:50,321 [INFO]   [gap_aware_entropy_ssl] Seed=456 R7/10 F1=0.3576 Acc=0.3837 Labeled=800 QueryTime=0.2s GPU=229MB SSL+26
+2026-06-20 14:36:58,583 [INFO]   [gap_aware_entropy_ssl] Seed=456 R8/10 F1=0.4001 Acc=0.4102 Labeled=900 QueryTime=0.2s GPU=229MB SSL+74
+2026-06-20 14:37:06,318 [INFO]   [gap_aware_entropy_ssl] Seed=456 R9/10 F1=0.4208 Acc=0.4258 Labeled=1000 QueryTime=0.2s GPU=229MB SSL+70
+2026-06-20 14:37:16,660 [INFO] 
+--- Full Supervised Baseline ---

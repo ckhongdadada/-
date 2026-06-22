@@ -1,0 +1,93 @@
+2026-06-16 22:38:56,280 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 22:38:56,280 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 22:38:56,280 [INFO] Strategies: ['gap_aware_entropy_ssl']
+2026-06-16 22:38:56,280 [INFO] Seeds: [42]
+2026-06-16 22:38:56,280 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 22:38:56,280 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 22:38:56,280 [INFO] Imbalance mode: max/min class count ratio = 50
+2026-06-16 22:38:56,324 [INFO] Device: cuda
+2026-06-16 22:39:14,540 [INFO] Imbalance filter (Exponential): 50000 -> 13996 training samples
+2026-06-16 22:39:14,549 [INFO] 
+--- Strategy: gap_aware_entropy_ssl ---
+2026-06-16 22:39:20,982 [INFO]   [gap_aware_entropy_ssl] Seed=42 R1/10 F1=0.0753 Acc=0.1487 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-16 22:39:26,866 [INFO]   [gap_aware_entropy_ssl] Seed=42 R2/10 F1=0.1311 Acc=0.2257 Labeled=300 QueryTime=0.1s GPU=210MB SSL+0
+2026-06-16 22:39:32,458 [INFO]   [gap_aware_entropy_ssl] Seed=42 R3/10 F1=0.1182 Acc=0.2149 Labeled=400 QueryTime=0.1s GPU=229MB SSL+57
+2026-06-16 22:39:38,057 [INFO]   [gap_aware_entropy_ssl] Seed=42 R4/10 F1=0.1734 Acc=0.2471 Labeled=500 QueryTime=0.1s GPU=229MB SSL+10
+2026-06-16 22:39:43,640 [INFO]   [gap_aware_entropy_ssl] Seed=42 R5/10 F1=0.2019 Acc=0.2804 Labeled=600 QueryTime=0.2s GPU=229MB SSL+9
+2026-06-16 22:39:51,421 [INFO]   [gap_aware_entropy_ssl] Seed=42 R6/10 F1=0.2030 Acc=0.2924 Labeled=700 QueryTime=0.2s GPU=229MB SSL+47
+2026-06-16 22:39:59,155 [INFO]   [gap_aware_entropy_ssl] Seed=42 R7/10 F1=0.2254 Acc=0.3078 Labeled=800 QueryTime=0.2s GPU=229MB SSL+55
+2026-06-16 22:40:09,160 [INFO]   [gap_aware_entropy_ssl] Seed=42 R8/10 F1=0.2507 Acc=0.3168 Labeled=900 QueryTime=0.3s GPU=229MB SSL+87
+2026-06-16 22:40:19,235 [INFO]   [gap_aware_entropy_ssl] Seed=42 R9/10 F1=0.3004 Acc=0.3596 Labeled=1000 QueryTime=0.3s GPU=229MB SSL+111
+2026-06-16 22:40:27,657 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-16 22:45:15,967 [INFO] Full Supervised: Acc=0.6487, F1=0.6224 (epochs=50, time=285.7s)
+2026-06-16 22:45:16,750 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\joint_distribution\joint_gap_aware\rho50 ===
+2026-06-16 22:45:16,750 [INFO] 
+Summary:
+2026-06-16 22:45:16,750 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-16 22:45:16,750 [INFO] ------------------------------------------------------------
+2026-06-16 22:45:16,750 [INFO] gap_aware_entropy_ssl       0.3052   0.0000                   
+2026-06-16 22:45:16,750 [INFO] Full Supervised            0.6224
+2026-06-16 22:45:22,249 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 22:45:22,249 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 22:45:22,249 [INFO] Strategies: ['gap_aware_entropy_ssl']
+2026-06-16 22:45:22,249 [INFO] Seeds: [123]
+2026-06-16 22:45:22,249 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 22:45:22,249 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 22:45:22,250 [INFO] Imbalance mode: max/min class count ratio = 50
+2026-06-16 22:45:22,296 [INFO] Device: cuda
+2026-06-16 22:45:41,251 [INFO] Imbalance filter (Exponential): 50000 -> 13996 training samples
+2026-06-16 22:45:41,251 [INFO] 
+--- Strategy: gap_aware_entropy_ssl ---
+2026-06-16 22:45:47,819 [INFO]   [gap_aware_entropy_ssl] Seed=123 R1/10 F1=0.0599 Acc=0.1599 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-16 22:45:53,724 [INFO]   [gap_aware_entropy_ssl] Seed=123 R2/10 F1=0.0632 Acc=0.1582 Labeled=300 QueryTime=0.1s GPU=210MB SSL+86
+2026-06-16 22:45:59,131 [INFO]   [gap_aware_entropy_ssl] Seed=123 R3/10 F1=0.1147 Acc=0.2047 Labeled=400 QueryTime=0.1s GPU=229MB SSL+43
+2026-06-16 22:46:04,693 [INFO]   [gap_aware_entropy_ssl] Seed=123 R4/10 F1=0.1488 Acc=0.2239 Labeled=500 QueryTime=0.1s GPU=229MB SSL+31
+2026-06-16 22:46:10,422 [INFO]   [gap_aware_entropy_ssl] Seed=123 R5/10 F1=0.1827 Acc=0.2490 Labeled=600 QueryTime=0.2s GPU=229MB SSL+45
+2026-06-16 22:46:18,269 [INFO]   [gap_aware_entropy_ssl] Seed=123 R6/10 F1=0.2071 Acc=0.2704 Labeled=700 QueryTime=0.2s GPU=229MB SSL+27
+2026-06-16 22:46:26,127 [INFO]   [gap_aware_entropy_ssl] Seed=123 R7/10 F1=0.2119 Acc=0.2765 Labeled=800 QueryTime=0.2s GPU=229MB SSL+110
+2026-06-16 22:46:36,118 [INFO]   [gap_aware_entropy_ssl] Seed=123 R8/10 F1=0.2633 Acc=0.3203 Labeled=900 QueryTime=0.3s GPU=229MB SSL+86
+2026-06-16 22:46:46,259 [INFO]   [gap_aware_entropy_ssl] Seed=123 R9/10 F1=0.2759 Acc=0.3427 Labeled=1000 QueryTime=0.3s GPU=229MB SSL+138
+2026-06-16 22:46:55,076 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-16 22:49:18,610 [INFO] Full Supervised: Acc=0.5797, F1=0.5552 (epochs=50, time=140.9s)
+2026-06-16 22:49:19,347 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\joint_distribution\joint_gap_aware\rho50 ===
+2026-06-16 22:49:19,348 [INFO] 
+Summary:
+2026-06-16 22:49:19,348 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-16 22:49:19,348 [INFO] ------------------------------------------------------------
+2026-06-16 22:49:19,348 [INFO] gap_aware_entropy_ssl       0.3263   0.0000                   
+2026-06-16 22:49:19,348 [INFO] Full Supervised            0.5552
+2026-06-16 22:49:24,716 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 22:49:24,716 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 22:49:24,716 [INFO] Strategies: ['gap_aware_entropy_ssl']
+2026-06-16 22:49:24,716 [INFO] Seeds: [456]
+2026-06-16 22:49:24,716 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 22:49:24,716 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 22:49:24,717 [INFO] Imbalance mode: max/min class count ratio = 50
+2026-06-16 22:49:24,752 [INFO] Device: cuda
+2026-06-16 22:49:43,415 [INFO] Imbalance filter (Exponential): 50000 -> 13996 training samples
+2026-06-16 22:49:43,415 [INFO] 
+--- Strategy: gap_aware_entropy_ssl ---
+2026-06-16 22:49:49,804 [INFO]   [gap_aware_entropy_ssl] Seed=456 R1/10 F1=0.0497 Acc=0.1299 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-16 22:49:55,817 [INFO]   [gap_aware_entropy_ssl] Seed=456 R2/10 F1=0.0762 Acc=0.1714 Labeled=300 QueryTime=0.1s GPU=210MB SSL+25
+2026-06-16 22:50:01,466 [INFO]   [gap_aware_entropy_ssl] Seed=456 R3/10 F1=0.1080 Acc=0.1981 Labeled=400 QueryTime=0.1s GPU=229MB SSL+51
+2026-06-16 22:50:06,975 [INFO]   [gap_aware_entropy_ssl] Seed=456 R4/10 F1=0.1625 Acc=0.2378 Labeled=500 QueryTime=0.1s GPU=229MB SSL+5
+2026-06-16 22:50:12,403 [INFO]   [gap_aware_entropy_ssl] Seed=456 R5/10 F1=0.1822 Acc=0.2412 Labeled=600 QueryTime=0.2s GPU=229MB SSL+32
+2026-06-16 22:50:20,221 [INFO]   [gap_aware_entropy_ssl] Seed=456 R6/10 F1=0.2248 Acc=0.2843 Labeled=700 QueryTime=0.2s GPU=229MB SSL+50
+2026-06-16 22:50:27,973 [INFO]   [gap_aware_entropy_ssl] Seed=456 R7/10 F1=0.2348 Acc=0.3119 Labeled=800 QueryTime=0.2s GPU=229MB SSL+33
+2026-06-16 22:50:37,959 [INFO]   [gap_aware_entropy_ssl] Seed=456 R8/10 F1=0.2903 Acc=0.3572 Labeled=900 QueryTime=0.3s GPU=229MB SSL+45
+2026-06-16 22:50:47,973 [INFO]   [gap_aware_entropy_ssl] Seed=456 R9/10 F1=0.3081 Acc=0.3601 Labeled=1000 QueryTime=0.3s GPU=229MB SSL+90
+2026-06-16 22:50:56,841 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-16 22:53:21,786 [INFO] Full Supervised: Acc=0.5780, F1=0.5441 (epochs=50, time=142.3s)
+2026-06-16 22:53:22,465 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\joint_distribution\joint_gap_aware\rho50 ===
+2026-06-16 22:53:22,465 [INFO] 
+Summary:
+2026-06-16 22:53:22,465 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-16 22:53:22,465 [INFO] ------------------------------------------------------------
+2026-06-16 22:53:22,465 [INFO] gap_aware_entropy_ssl       0.3077   0.0000                   
+2026-06-16 22:53:22,466 [INFO] Full Supervised            0.5441

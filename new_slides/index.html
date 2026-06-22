@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>低标注预算下长尾分布的主动学习与半监督学习联合策略</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #fff; }
+  #stage-wrap { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  #stage { width: 1280px; height: 720px; transform-origin: center center; background: #000; box-shadow: 0 12px 40px rgba(0,0,0,.6); position: relative; }
+  #stage iframe { width: 100%; height: 100%; border: 0; background: #000; display: block; }
+  #controls { position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; padding: 8px 14px; background: rgba(20,20,20,.78); border: 1px solid rgba(255,255,255,.12); border-radius: 999px; backdrop-filter: blur(12px); transition: opacity .25s; opacity: 1; z-index: 10; }
+  #controls.fade { opacity: 0; pointer-events: none; }
+  #controls button { width: 30px; height: 30px; border-radius: 50%; border: 0; background: rgba(255,255,255,.1); color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; line-height: 1; padding: 0; }
+  #controls button:hover:not(:disabled) { background: rgba(255,255,255,.2); }
+  #controls button:disabled { opacity: .35; cursor: default; }
+  #controls button.active { background: rgba(255,255,255,.32); color: #fff; }
+  #controls button svg { display: block; }
+  #counter { font-variant-numeric: tabular-nums; font-size: 13px; min-width: 64px; text-align: center; user-select: none; }
+  #hint { position: fixed; right: 16px; bottom: 16px; font-size: 11px; color: rgba(255,255,255,.45); user-select: none; pointer-events: none; }
+  #hint.fade { opacity: 0; }
+</style>
+</head>
+<body>
+  <div id="stage-wrap">
+    <div id="stage">
+      <iframe id="frame" tabindex="-1" allow="fullscreen"></iframe>
+    </div>
+  </div>
+  <div id="controls" role="toolbar" aria-label="Presenter controls">
+    <button id="prev" type="button" aria-label="Previous"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <span id="counter">- / -</span>
+    <button id="next" type="button" aria-label="Next"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button id="fs" type="button" aria-label="Fullscreen"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5V2H5 M9 2H12V5 M12 9V12H9 M5 12H2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+  <div id="hint">&larr; &rarr; Space &middot; F fullscreen &middot; Esc exit</div>
+<script>
+(function () {
+  var SLIDES = [
+    {order:1, file:"1.html", title:"封面"},
+    {order:2, file:"2.html", title:"汇报目录"},
+    {order:3, file:"3.html", title:"核心矛盾与研究问题"},
+    {order:4, file:"4.html", title:"标准AL策略结果"},
+    {order:5, file:"5.html", title:"尾类感知AL+SSL策略"},
+    {order:6, file:"6.html", title:"渐进式联合分布感知"},
+    {order:7, file:"7.html", title:"消融实验"},
+    {order:8, file:"8.html", title:"渐进式SSL调度"},
+    {order:9, file:"9.html", title:"失效场景分析"},
+    {order:10, file:"10.html", title:"LDAM与CB/Focal基线"},
+    {order:11, file:"11.html", title:"ResNet-18验证"},
+    {order:12, file:"12.html", title:"CIFAR-100交叉验证"},
+    {order:13, file:"13.html", title:"Per-Class F1分析"},
+    {order:14, file:"14.html", title:"TML vs DL对比"},
+    {order:15, file:"15.html", title:"总结与展望"}
+  ];
+  var DESIGN_W = 1280, DESIGN_H = 720, idx = 0, fadeTimer = null;
+  var stage = document.getElementById("stage"), stageWrap = document.getElementById("stage-wrap");
+  var frame = document.getElementById("frame"), counter = document.getElementById("counter");
+  var prevBtn = document.getElementById("prev"), nextBtn = document.getElementById("next");
+  var fsBtn = document.getElementById("fs"), controls = document.getElementById("controls");
+  var hint = document.getElementById("hint");
+
+  function fitStage() {
+    var rect = stageWrap.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
+    var scale = Math.min(rect.width / DESIGN_W, rect.height / DESIGN_H);
+    stage.style.transform = "scale(" + scale + ")";
+  }
+
+  function renderSlide() {
+    if (SLIDES.length === 0) { counter.textContent = "0 / 0"; prevBtn.disabled = true; nextBtn.disabled = true; return; }
+    if (idx < 0) idx = 0;
+    if (idx > SLIDES.length - 1) idx = SLIDES.length - 1;
+    var slide = SLIDES[idx];
+    if (frame.dataset.src !== slide.file) { frame.dataset.src = slide.file; frame.src = slide.file; }
+    counter.textContent = (idx + 1) + " / " + SLIDES.length;
+    prevBtn.disabled = idx <= 0;
+    nextBtn.disabled = idx >= SLIDES.length - 1;
+    document.title = slide.title ? (slide.title + " - " + (idx + 1) + "/" + SLIDES.length) : (idx + 1) + " / " + SLIDES.length;
+  }
+
+  function go(delta) { var next = idx + delta; if (next < 0 || next >= SLIDES.length) return false; idx = next; renderSlide(); return true; }
+  function jumpTo(n) { if (n < 1 || n > SLIDES.length) return false; idx = n - 1; renderSlide(); return true; }
+  function toggleFullscreen() {
+    if (document.fullscreenElement) { if (document.exitFullscreen) document.exitFullscreen(); }
+    else { var root = document.documentElement; if (root && root.requestFullscreen) { var p = root.requestFullscreen(); if (p && typeof p.catch === "function") p.catch(function () {}); } }
+  }
+  function showControls() {
+    controls.classList.remove("fade"); hint.classList.remove("fade");
+    if (fadeTimer) clearTimeout(fadeTimer);
+    fadeTimer = setTimeout(function () { controls.classList.add("fade"); hint.classList.add("fade"); }, 2000);
+  }
+
+  prevBtn.addEventListener("click", function () { go(-1); });
+  nextBtn.addEventListener("click", function () { go(1); });
+  fsBtn.addEventListener("click", function () { toggleFullscreen(); });
+
+  window.addEventListener("message", function (ev) {
+    if (!ev || !ev.data || ev.source !== frame.contentWindow) return;
+    var data = ev.data;
+    if (data.type === "ai-slides-present-keydown") {
+      var k = data.key;
+      if (k === "ArrowLeft" || k === "PageUp") { go(-1); }
+      else if (k === "ArrowRight" || k === "PageDown" || k === " ") { go(1); }
+      else if (k === "Escape") { if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen(); }
+    } else if (data.type === "ai-slides-export-mousemove") {
+      if (typeof data.clientY === "number") { var rect = frame.getBoundingClientRect(); if (rect.top + data.clientY > window.innerHeight - 200) showControls(); }
+    }
+  });
+
+  document.addEventListener("fullscreenchange", function () { if (document.fullscreenElement) fsBtn.classList.add("active"); else fsBtn.classList.remove("active"); });
+
+  function handleKeydown(e) {
+    if (e.key === "ArrowLeft" || e.key === "PageUp") { if (go(-1)) e.preventDefault(); }
+    else if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") { if (go(1)) e.preventDefault(); }
+    else if (e.key === "Home") { if (jumpTo(1)) e.preventDefault(); }
+    else if (e.key === "End") { if (jumpTo(SLIDES.length)) e.preventDefault(); }
+    else if (e.key === "f" || e.key === "F") { toggleFullscreen(); e.preventDefault(); }
+    else if (e.key === "Escape") { if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen(); }
+    else if (/^[0-9]$/.test(e.key)) { var n = parseInt(e.key, 10); if (n >= 1 && jumpTo(n)) e.preventDefault(); }
+  }
+  document.addEventListener("keydown", handleKeydown);
+
+  function maybeWakeControls(e) { if (e && typeof e.clientY === "number" && e.clientY > window.innerHeight - 200) showControls(); }
+  document.addEventListener("mousemove", maybeWakeControls);
+
+  function bindIframeListeners() {
+    try { if (frame.contentWindow) frame.contentWindow.postMessage({ type: "ai-slides-set-present", value: true }, "*"); } catch (_) {}
+    try {
+      var doc = frame.contentDocument; if (!doc) return;
+      doc.addEventListener("mousemove", function (e) { var rect = frame.getBoundingClientRect(); if (rect.top + e.clientY > window.innerHeight - 200) showControls(); });
+      doc.addEventListener("keydown", handleKeydown);
+    } catch (_) {}
+  }
+  frame.addEventListener("load", bindIframeListeners);
+
+  if (typeof ResizeObserver !== "undefined") { new ResizeObserver(fitStage).observe(stageWrap); }
+  else { window.addEventListener("resize", fitStage); }
+
+  fitStage(); renderSlide(); showControls();
+})();
+</script>
+</body>
+</html>

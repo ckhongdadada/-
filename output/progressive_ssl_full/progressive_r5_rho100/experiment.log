@@ -1,0 +1,416 @@
+2026-06-16 02:47:16,626 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 02:47:16,626 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 02:47:16,626 [INFO] Strategies: ['entropy', 'class_aware_entropy', 'gap_aware_entropy', 'adaptive_gap_entropy']
+2026-06-16 02:47:16,626 [INFO] Seeds: [42]
+2026-06-16 02:47:16,626 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 02:47:16,626 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 02:47:16,626 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-16 02:47:16,661 [INFO] Device: cuda
+2026-06-16 02:47:36,323 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-16 02:47:36,323 [INFO] 
+--- Strategy: entropy ---
+2026-06-16 02:47:36,450 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 02:47:43,786 [INFO]   [entropy] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-16 02:47:50,846 [INFO]   [entropy] Seed=42 R2/10 F1=0.0844 Acc=0.1754 Labeled=300 QueryTime=0.0s GPU=217MB SSL+26
+2026-06-16 02:47:57,452 [INFO]   [entropy] Seed=42 R3/10 F1=0.1449 Acc=0.2309 Labeled=400 QueryTime=0.0s GPU=237MB SSL+5
+2026-06-16 02:48:03,948 [INFO]   [entropy] Seed=42 R4/10 F1=0.1456 Acc=0.2213 Labeled=500 QueryTime=0.0s GPU=237MB SSL+5
+2026-06-16 02:48:10,588 [INFO]   [entropy] Seed=42 R5/10 F1=0.1826 Acc=0.2764 Labeled=600 QueryTime=0.0s GPU=237MB SSL+15
+2026-06-16 02:48:10,789 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 02:48:22,596 [INFO]   [entropy] Seed=42 R6/10 F1=0.1698 Acc=0.2701 Labeled=700 QueryTime=0.0s GPU=237MB SSL+131
+2026-06-16 02:48:34,637 [INFO]   [entropy] Seed=42 R7/10 F1=0.2273 Acc=0.3123 Labeled=800 QueryTime=0.0s GPU=237MB SSL+53
+2026-06-16 02:48:50,442 [INFO]   [entropy] Seed=42 R8/10 F1=0.2682 Acc=0.3448 Labeled=900 QueryTime=0.0s GPU=237MB SSL+233
+2026-06-16 02:49:07,305 [INFO]   [entropy] Seed=42 R9/10 F1=0.2635 Acc=0.3391 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+237
+2026-06-16 02:49:23,661 [INFO] 
+--- Strategy: class_aware_entropy ---
+2026-06-16 02:49:23,674 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 02:49:29,992 [INFO]   [class_aware_entropy] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-16 02:49:36,469 [INFO]   [class_aware_entropy] Seed=42 R2/10 F1=0.1071 Acc=0.1959 Labeled=300 QueryTime=0.1s GPU=221MB SSL+2
+2026-06-16 02:49:43,046 [INFO]   [class_aware_entropy] Seed=42 R3/10 F1=0.1211 Acc=0.2232 Labeled=400 QueryTime=0.1s GPU=241MB SSL+25
+2026-06-16 02:49:49,488 [INFO]   [class_aware_entropy] Seed=42 R4/10 F1=0.1419 Acc=0.2304 Labeled=500 QueryTime=0.1s GPU=241MB SSL+15
+2026-06-16 02:49:55,871 [INFO]   [class_aware_entropy] Seed=42 R5/10 F1=0.1672 Acc=0.2512 Labeled=600 QueryTime=0.2s GPU=241MB SSL+17
+2026-06-16 02:49:56,074 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 02:50:07,530 [INFO]   [class_aware_entropy] Seed=42 R6/10 F1=0.1812 Acc=0.2775 Labeled=700 QueryTime=0.2s GPU=241MB SSL+183
+2026-06-16 02:50:19,726 [INFO]   [class_aware_entropy] Seed=42 R7/10 F1=0.2325 Acc=0.3191 Labeled=800 QueryTime=0.2s GPU=241MB SSL+130
+2026-06-16 02:50:36,135 [INFO]   [class_aware_entropy] Seed=42 R8/10 F1=0.2298 Acc=0.3210 Labeled=900 QueryTime=0.3s GPU=241MB SSL+267
+2026-06-16 02:50:52,720 [INFO]   [class_aware_entropy] Seed=42 R9/10 F1=0.2387 Acc=0.3334 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+135
+2026-06-16 02:51:08,660 [INFO] 
+--- Strategy: gap_aware_entropy ---
+2026-06-16 02:51:08,671 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 02:51:14,920 [INFO]   [gap_aware_entropy] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-16 02:51:21,618 [INFO]   [gap_aware_entropy] Seed=42 R2/10 F1=0.0976 Acc=0.1839 Labeled=300 QueryTime=0.1s GPU=221MB SSL+0
+2026-06-16 02:51:28,185 [INFO]   [gap_aware_entropy] Seed=42 R3/10 F1=0.1211 Acc=0.2121 Labeled=400 QueryTime=0.1s GPU=241MB SSL+1
+2026-06-16 02:51:34,699 [INFO]   [gap_aware_entropy] Seed=42 R4/10 F1=0.1072 Acc=0.2034 Labeled=500 QueryTime=0.1s GPU=241MB SSL+30
+2026-06-16 02:51:41,263 [INFO]   [gap_aware_entropy] Seed=42 R5/10 F1=0.1420 Acc=0.2283 Labeled=600 QueryTime=0.2s GPU=241MB SSL+18
+2026-06-16 02:51:41,467 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 02:51:52,984 [INFO]   [gap_aware_entropy] Seed=42 R6/10 F1=0.1896 Acc=0.2845 Labeled=700 QueryTime=0.2s GPU=241MB SSL+73
+2026-06-16 02:52:04,889 [INFO]   [gap_aware_entropy] Seed=42 R7/10 F1=0.2087 Acc=0.2997 Labeled=800 QueryTime=0.2s GPU=241MB SSL+150
+2026-06-16 02:52:20,923 [INFO]   [gap_aware_entropy] Seed=42 R8/10 F1=0.2338 Acc=0.3222 Labeled=900 QueryTime=0.3s GPU=241MB SSL+112
+2026-06-16 02:52:37,370 [INFO]   [gap_aware_entropy] Seed=42 R9/10 F1=0.2300 Acc=0.3219 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+296
+2026-06-16 02:52:53,431 [INFO] 
+--- Strategy: adaptive_gap_entropy ---
+2026-06-16 02:52:53,443 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 02:52:59,720 [INFO]   [adaptive_gap_entropy] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-16 02:53:06,101 [INFO]   [adaptive_gap_entropy] Seed=42 R2/10 F1=0.0941 Acc=0.1783 Labeled=300 QueryTime=0.1s GPU=221MB SSL+0
+2026-06-16 02:53:12,627 [INFO]   [adaptive_gap_entropy] Seed=42 R3/10 F1=0.1421 Acc=0.2330 Labeled=400 QueryTime=0.1s GPU=241MB SSL+8
+2026-06-16 02:53:19,142 [INFO]   [adaptive_gap_entropy] Seed=42 R4/10 F1=0.1457 Acc=0.2304 Labeled=500 QueryTime=0.1s GPU=241MB SSL+21
+2026-06-16 02:53:25,503 [INFO]   [adaptive_gap_entropy] Seed=42 R5/10 F1=0.1853 Acc=0.2747 Labeled=600 QueryTime=0.2s GPU=241MB SSL+2
+2026-06-16 02:53:25,704 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 02:53:37,070 [INFO]   [adaptive_gap_entropy] Seed=42 R6/10 F1=0.2015 Acc=0.2866 Labeled=700 QueryTime=0.2s GPU=241MB SSL+120
+2026-06-16 02:53:49,185 [INFO]   [adaptive_gap_entropy] Seed=42 R7/10 F1=0.2284 Acc=0.3147 Labeled=800 QueryTime=0.2s GPU=241MB SSL+133
+2026-06-16 02:54:05,581 [INFO]   [adaptive_gap_entropy] Seed=42 R8/10 F1=0.2198 Acc=0.2998 Labeled=900 QueryTime=0.3s GPU=241MB SSL+250
+2026-06-16 02:54:22,673 [INFO]   [adaptive_gap_entropy] Seed=42 R9/10 F1=0.2643 Acc=0.3493 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+238
+2026-06-16 02:54:38,918 [INFO] 
+--- Full Supervised Baseline (skipped, no existing result) ---
+2026-06-16 03:27:24,682 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 03:27:24,682 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 03:27:24,683 [INFO] Strategies: ['entropy', 'class_aware_entropy', 'gap_aware_entropy', 'adaptive_gap_entropy']
+2026-06-16 03:27:24,683 [INFO] Seeds: [123]
+2026-06-16 03:27:24,683 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 03:27:24,683 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 03:27:24,683 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-16 03:27:24,717 [INFO] Device: cuda
+2026-06-16 03:27:44,324 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-16 03:27:44,325 [INFO] 
+--- Strategy: entropy ---
+2026-06-16 03:27:44,460 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 03:27:51,847 [INFO]   [entropy] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.0s GPU=172MB SSL+18
+2026-06-16 03:27:58,955 [INFO]   [entropy] Seed=123 R2/10 F1=0.0652 Acc=0.1696 Labeled=300 QueryTime=0.0s GPU=217MB SSL+37
+2026-06-16 03:28:05,574 [INFO]   [entropy] Seed=123 R3/10 F1=0.0879 Acc=0.1832 Labeled=400 QueryTime=0.0s GPU=237MB SSL+27
+2026-06-16 03:28:12,232 [INFO]   [entropy] Seed=123 R4/10 F1=0.1045 Acc=0.1989 Labeled=500 QueryTime=0.0s GPU=237MB SSL+9
+2026-06-16 03:28:18,888 [INFO]   [entropy] Seed=123 R5/10 F1=0.0864 Acc=0.1946 Labeled=600 QueryTime=0.0s GPU=237MB SSL+49
+2026-06-16 03:28:19,092 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 03:28:30,872 [INFO]   [entropy] Seed=123 R6/10 F1=0.1432 Acc=0.2436 Labeled=700 QueryTime=0.0s GPU=237MB SSL+148
+2026-06-16 03:28:42,810 [INFO]   [entropy] Seed=123 R7/10 F1=0.1986 Acc=0.2836 Labeled=800 QueryTime=0.0s GPU=237MB SSL+80
+2026-06-16 03:28:59,007 [INFO]   [entropy] Seed=123 R8/10 F1=0.2310 Acc=0.3039 Labeled=900 QueryTime=0.0s GPU=237MB SSL+259
+2026-06-16 03:29:16,331 [INFO]   [entropy] Seed=123 R9/10 F1=0.2114 Acc=0.2900 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+337
+2026-06-16 03:29:32,694 [INFO] 
+--- Strategy: class_aware_entropy ---
+2026-06-16 03:29:32,705 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 03:29:39,155 [INFO]   [class_aware_entropy] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.0s GPU=185MB SSL+18
+2026-06-16 03:29:45,542 [INFO]   [class_aware_entropy] Seed=123 R2/10 F1=0.0582 Acc=0.1688 Labeled=300 QueryTime=0.1s GPU=221MB SSL+80
+2026-06-16 03:29:52,147 [INFO]   [class_aware_entropy] Seed=123 R3/10 F1=0.0701 Acc=0.1745 Labeled=400 QueryTime=0.1s GPU=241MB SSL+81
+2026-06-16 03:29:59,085 [INFO]   [class_aware_entropy] Seed=123 R4/10 F1=0.1444 Acc=0.2280 Labeled=500 QueryTime=0.1s GPU=241MB SSL+1
+2026-06-16 03:30:06,168 [INFO]   [class_aware_entropy] Seed=123 R5/10 F1=0.1150 Acc=0.1990 Labeled=600 QueryTime=0.2s GPU=241MB SSL+21
+2026-06-16 03:30:06,372 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 03:30:17,855 [INFO]   [class_aware_entropy] Seed=123 R6/10 F1=0.1204 Acc=0.2186 Labeled=700 QueryTime=0.2s GPU=241MB SSL+52
+2026-06-16 03:30:30,193 [INFO]   [class_aware_entropy] Seed=123 R7/10 F1=0.2076 Acc=0.2808 Labeled=800 QueryTime=0.2s GPU=241MB SSL+30
+2026-06-16 03:30:46,513 [INFO]   [class_aware_entropy] Seed=123 R8/10 F1=0.2333 Acc=0.3130 Labeled=900 QueryTime=0.3s GPU=241MB SSL+231
+2026-06-16 03:31:03,692 [INFO]   [class_aware_entropy] Seed=123 R9/10 F1=0.2584 Acc=0.3382 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+242
+2026-06-16 03:31:19,713 [INFO] 
+--- Strategy: gap_aware_entropy ---
+2026-06-16 03:31:19,725 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 03:31:25,992 [INFO]   [gap_aware_entropy] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.0s GPU=185MB SSL+18
+2026-06-16 03:31:32,552 [INFO]   [gap_aware_entropy] Seed=123 R2/10 F1=0.0572 Acc=0.1636 Labeled=300 QueryTime=0.1s GPU=221MB SSL+5
+2026-06-16 03:31:39,407 [INFO]   [gap_aware_entropy] Seed=123 R3/10 F1=0.0752 Acc=0.1802 Labeled=400 QueryTime=0.1s GPU=241MB SSL+19
+2026-06-16 03:31:46,082 [INFO]   [gap_aware_entropy] Seed=123 R4/10 F1=0.0549 Acc=0.1420 Labeled=500 QueryTime=0.1s GPU=241MB SSL+7
+2026-06-16 03:31:52,895 [INFO]   [gap_aware_entropy] Seed=123 R5/10 F1=0.0775 Acc=0.1805 Labeled=600 QueryTime=0.2s GPU=241MB SSL+30
+2026-06-16 03:31:53,104 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 03:32:05,020 [INFO]   [gap_aware_entropy] Seed=123 R6/10 F1=0.1174 Acc=0.2101 Labeled=700 QueryTime=0.2s GPU=241MB SSL+140
+2026-06-16 03:32:16,850 [INFO]   [gap_aware_entropy] Seed=123 R7/10 F1=0.1119 Acc=0.2045 Labeled=800 QueryTime=0.2s GPU=241MB SSL+160
+2026-06-16 03:32:33,020 [INFO]   [gap_aware_entropy] Seed=123 R8/10 F1=0.2158 Acc=0.2930 Labeled=900 QueryTime=0.3s GPU=241MB SSL+270
+2026-06-16 03:32:50,168 [INFO]   [gap_aware_entropy] Seed=123 R9/10 F1=0.2150 Acc=0.2998 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+246
+2026-06-16 03:33:06,171 [INFO] 
+--- Strategy: adaptive_gap_entropy ---
+2026-06-16 03:33:06,183 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 03:33:12,522 [INFO]   [adaptive_gap_entropy] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.0s GPU=185MB SSL+18
+2026-06-16 03:33:19,136 [INFO]   [adaptive_gap_entropy] Seed=123 R2/10 F1=0.0571 Acc=0.1638 Labeled=300 QueryTime=0.1s GPU=221MB SSL+83
+2026-06-16 03:33:25,775 [INFO]   [adaptive_gap_entropy] Seed=123 R3/10 F1=0.0859 Acc=0.1829 Labeled=400 QueryTime=0.1s GPU=241MB SSL+0
+2026-06-16 03:33:32,271 [INFO]   [adaptive_gap_entropy] Seed=123 R4/10 F1=0.0726 Acc=0.1745 Labeled=500 QueryTime=0.1s GPU=241MB SSL+20
+2026-06-16 03:33:38,861 [INFO]   [adaptive_gap_entropy] Seed=123 R5/10 F1=0.0885 Acc=0.1892 Labeled=600 QueryTime=0.2s GPU=241MB SSL+14
+2026-06-16 03:33:39,064 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 03:33:50,694 [INFO]   [adaptive_gap_entropy] Seed=123 R6/10 F1=0.1132 Acc=0.2104 Labeled=700 QueryTime=0.2s GPU=241MB SSL+99
+2026-06-16 03:34:02,931 [INFO]   [adaptive_gap_entropy] Seed=123 R7/10 F1=0.1668 Acc=0.2482 Labeled=800 QueryTime=0.2s GPU=241MB SSL+38
+2026-06-16 03:34:19,657 [INFO]   [adaptive_gap_entropy] Seed=123 R8/10 F1=0.2359 Acc=0.3092 Labeled=900 QueryTime=0.3s GPU=241MB SSL+177
+2026-06-16 03:34:36,846 [INFO]   [adaptive_gap_entropy] Seed=123 R9/10 F1=0.2393 Acc=0.3189 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+149
+2026-06-16 03:34:53,186 [INFO] 
+--- Full Supervised Baseline (reused from existing) ---
+2026-06-16 03:34:53,186 [INFO] Full Supervised: Acc=0.0000, F1=0.0000
+2026-06-16 04:07:45,078 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 04:07:45,078 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 04:07:45,078 [INFO] Strategies: ['entropy', 'class_aware_entropy', 'gap_aware_entropy', 'adaptive_gap_entropy']
+2026-06-16 04:07:45,078 [INFO] Seeds: [456]
+2026-06-16 04:07:45,078 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 04:07:45,078 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 04:07:45,078 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-16 04:07:45,119 [INFO] Device: cuda
+2026-06-16 04:08:04,885 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-16 04:08:04,886 [INFO] 
+--- Strategy: entropy ---
+2026-06-16 04:08:05,019 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 04:08:12,302 [INFO]   [entropy] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.0s GPU=172MB SSL+7
+2026-06-16 04:08:19,706 [INFO]   [entropy] Seed=456 R2/10 F1=0.0983 Acc=0.2026 Labeled=300 QueryTime=0.0s GPU=217MB SSL+55
+2026-06-16 04:08:26,108 [INFO]   [entropy] Seed=456 R3/10 F1=0.1003 Acc=0.2081 Labeled=400 QueryTime=0.0s GPU=237MB SSL+46
+2026-06-16 04:08:32,689 [INFO]   [entropy] Seed=456 R4/10 F1=0.1401 Acc=0.2325 Labeled=500 QueryTime=0.0s GPU=237MB SSL+38
+2026-06-16 04:08:39,385 [INFO]   [entropy] Seed=456 R5/10 F1=0.1607 Acc=0.2427 Labeled=600 QueryTime=0.0s GPU=237MB SSL+61
+2026-06-16 04:08:39,587 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 04:08:51,490 [INFO]   [entropy] Seed=456 R6/10 F1=0.2340 Acc=0.3057 Labeled=700 QueryTime=0.0s GPU=237MB SSL+109
+2026-06-16 04:09:03,679 [INFO]   [entropy] Seed=456 R7/10 F1=0.2321 Acc=0.3005 Labeled=800 QueryTime=0.0s GPU=237MB SSL+157
+2026-06-16 04:09:19,839 [INFO]   [entropy] Seed=456 R8/10 F1=0.2437 Acc=0.3152 Labeled=900 QueryTime=0.0s GPU=237MB SSL+255
+2026-06-16 04:09:37,112 [INFO]   [entropy] Seed=456 R9/10 F1=0.2700 Acc=0.3421 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+304
+2026-06-16 04:09:53,348 [INFO] 
+--- Strategy: class_aware_entropy ---
+2026-06-16 04:09:53,360 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 04:09:59,711 [INFO]   [class_aware_entropy] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.0s GPU=185MB SSL+7
+2026-06-16 04:10:06,186 [INFO]   [class_aware_entropy] Seed=456 R2/10 F1=0.1076 Acc=0.2105 Labeled=300 QueryTime=0.1s GPU=221MB SSL+12
+2026-06-16 04:10:12,734 [INFO]   [class_aware_entropy] Seed=456 R3/10 F1=0.1012 Acc=0.2034 Labeled=400 QueryTime=0.1s GPU=241MB SSL+43
+2026-06-16 04:10:19,364 [INFO]   [class_aware_entropy] Seed=456 R4/10 F1=0.1300 Acc=0.2169 Labeled=500 QueryTime=0.1s GPU=241MB SSL+30
+2026-06-16 04:10:25,948 [INFO]   [class_aware_entropy] Seed=456 R5/10 F1=0.1501 Acc=0.2327 Labeled=600 QueryTime=0.2s GPU=241MB SSL+41
+2026-06-16 04:10:26,150 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 04:10:38,091 [INFO]   [class_aware_entropy] Seed=456 R6/10 F1=0.1957 Acc=0.2774 Labeled=700 QueryTime=0.2s GPU=241MB SSL+119
+2026-06-16 04:10:50,492 [INFO]   [class_aware_entropy] Seed=456 R7/10 F1=0.2054 Acc=0.2986 Labeled=800 QueryTime=0.2s GPU=241MB SSL+138
+2026-06-16 04:11:06,636 [INFO]   [class_aware_entropy] Seed=456 R8/10 F1=0.2245 Acc=0.2986 Labeled=900 QueryTime=0.3s GPU=241MB SSL+93
+2026-06-16 04:11:23,503 [INFO]   [class_aware_entropy] Seed=456 R9/10 F1=0.2496 Acc=0.3299 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+276
+2026-06-16 04:11:39,638 [INFO] 
+--- Strategy: gap_aware_entropy ---
+2026-06-16 04:11:39,650 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 04:11:45,905 [INFO]   [gap_aware_entropy] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.0s GPU=185MB SSL+7
+2026-06-16 04:11:52,355 [INFO]   [gap_aware_entropy] Seed=456 R2/10 F1=0.0986 Acc=0.2002 Labeled=300 QueryTime=0.1s GPU=221MB SSL+32
+2026-06-16 04:11:58,839 [INFO]   [gap_aware_entropy] Seed=456 R3/10 F1=0.1200 Acc=0.2137 Labeled=400 QueryTime=0.1s GPU=241MB SSL+37
+2026-06-16 04:12:05,529 [INFO]   [gap_aware_entropy] Seed=456 R4/10 F1=0.1366 Acc=0.2206 Labeled=500 QueryTime=0.1s GPU=241MB SSL+50
+2026-06-16 04:12:11,891 [INFO]   [gap_aware_entropy] Seed=456 R5/10 F1=0.1799 Acc=0.2483 Labeled=600 QueryTime=0.2s GPU=241MB SSL+6
+2026-06-16 04:12:12,089 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 04:12:23,617 [INFO]   [gap_aware_entropy] Seed=456 R6/10 F1=0.1873 Acc=0.2580 Labeled=700 QueryTime=0.2s GPU=241MB SSL+124
+2026-06-16 04:12:35,746 [INFO]   [gap_aware_entropy] Seed=456 R7/10 F1=0.1994 Acc=0.2731 Labeled=800 QueryTime=0.2s GPU=241MB SSL+122
+2026-06-16 04:12:51,845 [INFO]   [gap_aware_entropy] Seed=456 R8/10 F1=0.2600 Acc=0.3296 Labeled=900 QueryTime=0.3s GPU=241MB SSL+279
+2026-06-16 04:13:08,655 [INFO]   [gap_aware_entropy] Seed=456 R9/10 F1=0.2451 Acc=0.3252 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+341
+2026-06-16 04:13:24,931 [INFO] 
+--- Strategy: adaptive_gap_entropy ---
+2026-06-16 04:13:24,943 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 04:13:31,209 [INFO]   [adaptive_gap_entropy] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.0s GPU=185MB SSL+7
+2026-06-16 04:13:37,777 [INFO]   [adaptive_gap_entropy] Seed=456 R2/10 F1=0.0982 Acc=0.2003 Labeled=300 QueryTime=0.1s GPU=221MB SSL+33
+2026-06-16 04:13:44,272 [INFO]   [adaptive_gap_entropy] Seed=456 R3/10 F1=0.1185 Acc=0.2140 Labeled=400 QueryTime=0.1s GPU=241MB SSL+43
+2026-06-16 04:13:51,110 [INFO]   [adaptive_gap_entropy] Seed=456 R4/10 F1=0.1625 Acc=0.2376 Labeled=500 QueryTime=0.1s GPU=241MB SSL+24
+2026-06-16 04:13:57,684 [INFO]   [adaptive_gap_entropy] Seed=456 R5/10 F1=0.1551 Acc=0.2400 Labeled=600 QueryTime=0.2s GPU=241MB SSL+23
+2026-06-16 04:13:57,886 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 04:14:09,373 [INFO]   [adaptive_gap_entropy] Seed=456 R6/10 F1=0.1870 Acc=0.2687 Labeled=700 QueryTime=0.2s GPU=241MB SSL+103
+2026-06-16 04:14:21,686 [INFO]   [adaptive_gap_entropy] Seed=456 R7/10 F1=0.2251 Acc=0.2991 Labeled=800 QueryTime=0.2s GPU=241MB SSL+55
+2026-06-16 04:14:38,205 [INFO]   [adaptive_gap_entropy] Seed=456 R8/10 F1=0.2549 Acc=0.3177 Labeled=900 QueryTime=0.3s GPU=241MB SSL+257
+2026-06-16 04:14:55,100 [INFO]   [adaptive_gap_entropy] Seed=456 R9/10 F1=0.2633 Acc=0.3343 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+171
+2026-06-16 04:15:11,416 [INFO] 
+--- Full Supervised Baseline (reused from existing) ---
+2026-06-16 04:15:11,416 [INFO] Full Supervised: Acc=0.0000, F1=0.0000
+2026-06-16 07:20:14,262 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 07:20:14,262 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 07:20:14,262 [INFO] Strategies: ['entropy', 'class_aware_entropy', 'gap_aware_entropy', 'adaptive_gap_entropy']
+2026-06-16 07:20:14,262 [INFO] Seeds: [42]
+2026-06-16 07:20:14,262 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 07:20:14,262 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 07:20:14,263 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-16 07:20:14,300 [INFO] Device: cuda
+2026-06-16 07:20:34,015 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-16 07:20:34,015 [INFO] 
+--- Strategy: entropy ---
+2026-06-16 07:20:34,145 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 07:20:41,587 [INFO]   [entropy] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-16 07:20:48,891 [INFO]   [entropy] Seed=42 R2/10 F1=0.0844 Acc=0.1754 Labeled=300 QueryTime=0.0s GPU=217MB SSL+26
+2026-06-16 07:20:55,223 [INFO]   [entropy] Seed=42 R3/10 F1=0.1449 Acc=0.2309 Labeled=400 QueryTime=0.0s GPU=237MB SSL+5
+2026-06-16 07:21:01,782 [INFO]   [entropy] Seed=42 R4/10 F1=0.1456 Acc=0.2213 Labeled=500 QueryTime=0.0s GPU=237MB SSL+5
+2026-06-16 07:21:08,726 [INFO]   [entropy] Seed=42 R5/10 F1=0.1826 Acc=0.2764 Labeled=600 QueryTime=0.0s GPU=237MB SSL+15
+2026-06-16 07:21:08,932 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 07:21:20,536 [INFO]   [entropy] Seed=42 R6/10 F1=0.1698 Acc=0.2701 Labeled=700 QueryTime=0.0s GPU=237MB SSL+131
+2026-06-16 07:21:32,452 [INFO]   [entropy] Seed=42 R7/10 F1=0.2273 Acc=0.3123 Labeled=800 QueryTime=0.0s GPU=237MB SSL+53
+2026-06-16 07:21:49,018 [INFO]   [entropy] Seed=42 R8/10 F1=0.2682 Acc=0.3448 Labeled=900 QueryTime=0.0s GPU=237MB SSL+233
+2026-06-16 07:22:05,952 [INFO]   [entropy] Seed=42 R9/10 F1=0.2635 Acc=0.3391 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+237
+2026-06-16 07:22:21,785 [INFO] 
+--- Strategy: class_aware_entropy ---
+2026-06-16 07:22:21,796 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 07:22:28,109 [INFO]   [class_aware_entropy] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-16 07:22:34,905 [INFO]   [class_aware_entropy] Seed=42 R2/10 F1=0.1071 Acc=0.1959 Labeled=300 QueryTime=0.1s GPU=221MB SSL+2
+2026-06-16 07:22:41,294 [INFO]   [class_aware_entropy] Seed=42 R3/10 F1=0.1211 Acc=0.2232 Labeled=400 QueryTime=0.1s GPU=241MB SSL+25
+2026-06-16 07:22:47,939 [INFO]   [class_aware_entropy] Seed=42 R4/10 F1=0.1419 Acc=0.2304 Labeled=500 QueryTime=0.1s GPU=241MB SSL+15
+2026-06-16 07:22:54,801 [INFO]   [class_aware_entropy] Seed=42 R5/10 F1=0.1672 Acc=0.2512 Labeled=600 QueryTime=0.2s GPU=241MB SSL+17
+2026-06-16 07:22:55,015 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 07:23:06,991 [INFO]   [class_aware_entropy] Seed=42 R6/10 F1=0.1812 Acc=0.2775 Labeled=700 QueryTime=0.2s GPU=241MB SSL+183
+2026-06-16 07:23:19,056 [INFO]   [class_aware_entropy] Seed=42 R7/10 F1=0.2325 Acc=0.3191 Labeled=800 QueryTime=0.2s GPU=241MB SSL+130
+2026-06-16 07:23:35,181 [INFO]   [class_aware_entropy] Seed=42 R8/10 F1=0.2298 Acc=0.3210 Labeled=900 QueryTime=0.3s GPU=241MB SSL+267
+2026-06-16 07:23:51,806 [INFO]   [class_aware_entropy] Seed=42 R9/10 F1=0.2387 Acc=0.3334 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+135
+2026-06-16 07:24:07,734 [INFO] 
+--- Strategy: gap_aware_entropy ---
+2026-06-16 07:24:07,747 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 07:24:14,242 [INFO]   [gap_aware_entropy] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-16 07:24:20,675 [INFO]   [gap_aware_entropy] Seed=42 R2/10 F1=0.0976 Acc=0.1839 Labeled=300 QueryTime=0.1s GPU=221MB SSL+0
+2026-06-16 07:24:27,108 [INFO]   [gap_aware_entropy] Seed=42 R3/10 F1=0.1211 Acc=0.2121 Labeled=400 QueryTime=0.1s GPU=241MB SSL+1
+2026-06-16 07:24:33,745 [INFO]   [gap_aware_entropy] Seed=42 R4/10 F1=0.1072 Acc=0.2034 Labeled=500 QueryTime=0.1s GPU=241MB SSL+30
+2026-06-16 07:24:40,353 [INFO]   [gap_aware_entropy] Seed=42 R5/10 F1=0.1420 Acc=0.2283 Labeled=600 QueryTime=0.2s GPU=241MB SSL+18
+2026-06-16 07:24:40,560 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 07:24:52,196 [INFO]   [gap_aware_entropy] Seed=42 R6/10 F1=0.1896 Acc=0.2845 Labeled=700 QueryTime=0.2s GPU=241MB SSL+73
+2026-06-16 07:25:04,396 [INFO]   [gap_aware_entropy] Seed=42 R7/10 F1=0.2087 Acc=0.2997 Labeled=800 QueryTime=0.2s GPU=241MB SSL+150
+2026-06-16 07:25:20,433 [INFO]   [gap_aware_entropy] Seed=42 R8/10 F1=0.2338 Acc=0.3222 Labeled=900 QueryTime=0.3s GPU=241MB SSL+112
+2026-06-16 07:25:37,130 [INFO]   [gap_aware_entropy] Seed=42 R9/10 F1=0.2300 Acc=0.3219 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+296
+2026-06-16 07:25:53,418 [INFO] 
+--- Strategy: adaptive_gap_entropy ---
+2026-06-16 07:25:53,430 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 07:25:59,609 [INFO]   [adaptive_gap_entropy] Seed=42 R1/10 F1=0.0643 Acc=0.1328 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-16 07:26:05,931 [INFO]   [adaptive_gap_entropy] Seed=42 R2/10 F1=0.0941 Acc=0.1783 Labeled=300 QueryTime=0.1s GPU=221MB SSL+0
+2026-06-16 07:26:12,730 [INFO]   [adaptive_gap_entropy] Seed=42 R3/10 F1=0.1421 Acc=0.2330 Labeled=400 QueryTime=0.1s GPU=241MB SSL+8
+2026-06-16 07:26:19,334 [INFO]   [adaptive_gap_entropy] Seed=42 R4/10 F1=0.1457 Acc=0.2304 Labeled=500 QueryTime=0.1s GPU=241MB SSL+21
+2026-06-16 07:26:26,032 [INFO]   [adaptive_gap_entropy] Seed=42 R5/10 F1=0.1853 Acc=0.2747 Labeled=600 QueryTime=0.2s GPU=241MB SSL+2
+2026-06-16 07:26:26,236 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 07:26:37,960 [INFO]   [adaptive_gap_entropy] Seed=42 R6/10 F1=0.2015 Acc=0.2866 Labeled=700 QueryTime=0.2s GPU=241MB SSL+120
+2026-06-16 07:26:49,759 [INFO]   [adaptive_gap_entropy] Seed=42 R7/10 F1=0.2284 Acc=0.3147 Labeled=800 QueryTime=0.2s GPU=241MB SSL+133
+2026-06-16 07:27:06,112 [INFO]   [adaptive_gap_entropy] Seed=42 R8/10 F1=0.2198 Acc=0.2998 Labeled=900 QueryTime=0.3s GPU=241MB SSL+250
+2026-06-16 07:27:22,882 [INFO]   [adaptive_gap_entropy] Seed=42 R9/10 F1=0.2643 Acc=0.3493 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+238
+2026-06-16 07:27:39,157 [INFO] 
+--- Full Supervised Baseline (reused from existing) ---
+2026-06-16 07:27:39,157 [INFO] Full Supervised: Acc=0.6192, F1=0.5815
+2026-06-16 07:27:40,392 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\progressive_ssl_full\progressive_r5_rho100 ===
+2026-06-16 07:27:40,392 [INFO] 
+Summary:
+2026-06-16 07:27:40,392 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-16 07:27:40,392 [INFO] ------------------------------------------------------------
+2026-06-16 07:27:40,392 [INFO] adaptive_gap_entropy       0.2715   0.0000                   
+2026-06-16 07:27:40,392 [INFO] class_aware_entropy        0.2667   0.0000                   
+2026-06-16 07:27:40,392 [INFO] entropy                    0.2760   0.0000                   
+2026-06-16 07:27:40,392 [INFO] gap_aware_entropy          0.2577   0.0000                   
+2026-06-16 07:27:40,392 [INFO] Full Supervised            0.5815
+2026-06-16 07:56:34,996 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 07:56:34,997 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 07:56:34,997 [INFO] Strategies: ['entropy', 'class_aware_entropy', 'gap_aware_entropy', 'adaptive_gap_entropy']
+2026-06-16 07:56:34,997 [INFO] Seeds: [123]
+2026-06-16 07:56:34,997 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 07:56:34,997 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 07:56:34,997 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-16 07:56:35,031 [INFO] Device: cuda
+2026-06-16 07:56:54,749 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-16 07:56:54,749 [INFO] 
+--- Strategy: entropy ---
+2026-06-16 07:56:54,879 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 07:57:02,235 [INFO]   [entropy] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.0s GPU=172MB SSL+18
+2026-06-16 07:57:09,550 [INFO]   [entropy] Seed=123 R2/10 F1=0.0652 Acc=0.1696 Labeled=300 QueryTime=0.0s GPU=217MB SSL+37
+2026-06-16 07:57:16,473 [INFO]   [entropy] Seed=123 R3/10 F1=0.0879 Acc=0.1832 Labeled=400 QueryTime=0.0s GPU=237MB SSL+27
+2026-06-16 07:57:23,252 [INFO]   [entropy] Seed=123 R4/10 F1=0.1045 Acc=0.1989 Labeled=500 QueryTime=0.0s GPU=237MB SSL+9
+2026-06-16 07:57:30,067 [INFO]   [entropy] Seed=123 R5/10 F1=0.0864 Acc=0.1946 Labeled=600 QueryTime=0.0s GPU=237MB SSL+49
+2026-06-16 07:57:30,269 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 07:57:41,966 [INFO]   [entropy] Seed=123 R6/10 F1=0.1432 Acc=0.2436 Labeled=700 QueryTime=0.0s GPU=237MB SSL+148
+2026-06-16 07:57:54,373 [INFO]   [entropy] Seed=123 R7/10 F1=0.1986 Acc=0.2836 Labeled=800 QueryTime=0.0s GPU=237MB SSL+80
+2026-06-16 07:58:10,369 [INFO]   [entropy] Seed=123 R8/10 F1=0.2310 Acc=0.3039 Labeled=900 QueryTime=0.0s GPU=237MB SSL+259
+2026-06-16 07:58:27,026 [INFO]   [entropy] Seed=123 R9/10 F1=0.2114 Acc=0.2900 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+337
+2026-06-16 07:58:43,445 [INFO] 
+--- Strategy: class_aware_entropy ---
+2026-06-16 07:58:43,457 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 07:58:49,950 [INFO]   [class_aware_entropy] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.0s GPU=185MB SSL+18
+2026-06-16 07:58:56,565 [INFO]   [class_aware_entropy] Seed=123 R2/10 F1=0.0582 Acc=0.1688 Labeled=300 QueryTime=0.1s GPU=221MB SSL+80
+2026-06-16 07:59:02,831 [INFO]   [class_aware_entropy] Seed=123 R3/10 F1=0.0701 Acc=0.1745 Labeled=400 QueryTime=0.1s GPU=241MB SSL+81
+2026-06-16 07:59:09,565 [INFO]   [class_aware_entropy] Seed=123 R4/10 F1=0.1444 Acc=0.2280 Labeled=500 QueryTime=0.1s GPU=241MB SSL+1
+2026-06-16 07:59:16,314 [INFO]   [class_aware_entropy] Seed=123 R5/10 F1=0.1150 Acc=0.1990 Labeled=600 QueryTime=0.2s GPU=241MB SSL+21
+2026-06-16 07:59:16,516 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 07:59:28,272 [INFO]   [class_aware_entropy] Seed=123 R6/10 F1=0.1204 Acc=0.2186 Labeled=700 QueryTime=0.2s GPU=241MB SSL+52
+2026-06-16 07:59:40,262 [INFO]   [class_aware_entropy] Seed=123 R7/10 F1=0.2076 Acc=0.2808 Labeled=800 QueryTime=0.2s GPU=241MB SSL+30
+2026-06-16 07:59:56,921 [INFO]   [class_aware_entropy] Seed=123 R8/10 F1=0.2333 Acc=0.3130 Labeled=900 QueryTime=0.3s GPU=241MB SSL+231
+2026-06-16 08:00:14,017 [INFO]   [class_aware_entropy] Seed=123 R9/10 F1=0.2584 Acc=0.3382 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+242
+2026-06-16 08:00:29,893 [INFO] 
+--- Strategy: gap_aware_entropy ---
+2026-06-16 08:00:29,904 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 08:00:36,208 [INFO]   [gap_aware_entropy] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.0s GPU=185MB SSL+18
+2026-06-16 08:00:42,588 [INFO]   [gap_aware_entropy] Seed=123 R2/10 F1=0.0572 Acc=0.1636 Labeled=300 QueryTime=0.1s GPU=221MB SSL+5
+2026-06-16 08:00:49,263 [INFO]   [gap_aware_entropy] Seed=123 R3/10 F1=0.0752 Acc=0.1802 Labeled=400 QueryTime=0.1s GPU=241MB SSL+19
+2026-06-16 08:00:56,157 [INFO]   [gap_aware_entropy] Seed=123 R4/10 F1=0.0549 Acc=0.1420 Labeled=500 QueryTime=0.1s GPU=241MB SSL+7
+2026-06-16 08:01:02,871 [INFO]   [gap_aware_entropy] Seed=123 R5/10 F1=0.0775 Acc=0.1805 Labeled=600 QueryTime=0.2s GPU=241MB SSL+30
+2026-06-16 08:01:03,077 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 08:01:14,966 [INFO]   [gap_aware_entropy] Seed=123 R6/10 F1=0.1174 Acc=0.2101 Labeled=700 QueryTime=0.2s GPU=241MB SSL+140
+2026-06-16 08:01:27,321 [INFO]   [gap_aware_entropy] Seed=123 R7/10 F1=0.1119 Acc=0.2045 Labeled=800 QueryTime=0.2s GPU=241MB SSL+160
+2026-06-16 08:01:43,809 [INFO]   [gap_aware_entropy] Seed=123 R8/10 F1=0.2158 Acc=0.2930 Labeled=900 QueryTime=0.3s GPU=241MB SSL+270
+2026-06-16 08:02:00,835 [INFO]   [gap_aware_entropy] Seed=123 R9/10 F1=0.2150 Acc=0.2998 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+246
+2026-06-16 08:02:17,106 [INFO] 
+--- Strategy: adaptive_gap_entropy ---
+2026-06-16 08:02:17,118 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 08:02:23,456 [INFO]   [adaptive_gap_entropy] Seed=123 R1/10 F1=0.0556 Acc=0.1622 Labeled=200 QueryTime=0.0s GPU=185MB SSL+18
+2026-06-16 08:02:29,826 [INFO]   [adaptive_gap_entropy] Seed=123 R2/10 F1=0.0571 Acc=0.1638 Labeled=300 QueryTime=0.1s GPU=221MB SSL+83
+2026-06-16 08:02:36,394 [INFO]   [adaptive_gap_entropy] Seed=123 R3/10 F1=0.0859 Acc=0.1829 Labeled=400 QueryTime=0.1s GPU=241MB SSL+0
+2026-06-16 08:02:43,274 [INFO]   [adaptive_gap_entropy] Seed=123 R4/10 F1=0.0726 Acc=0.1745 Labeled=500 QueryTime=0.1s GPU=241MB SSL+20
+2026-06-16 08:02:49,916 [INFO]   [adaptive_gap_entropy] Seed=123 R5/10 F1=0.0885 Acc=0.1892 Labeled=600 QueryTime=0.2s GPU=241MB SSL+14
+2026-06-16 08:02:50,120 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 08:03:01,947 [INFO]   [adaptive_gap_entropy] Seed=123 R6/10 F1=0.1132 Acc=0.2104 Labeled=700 QueryTime=0.2s GPU=241MB SSL+99
+2026-06-16 08:03:14,162 [INFO]   [adaptive_gap_entropy] Seed=123 R7/10 F1=0.1668 Acc=0.2482 Labeled=800 QueryTime=0.2s GPU=241MB SSL+38
+2026-06-16 08:03:30,281 [INFO]   [adaptive_gap_entropy] Seed=123 R8/10 F1=0.2359 Acc=0.3092 Labeled=900 QueryTime=0.3s GPU=241MB SSL+177
+2026-06-16 08:03:47,058 [INFO]   [adaptive_gap_entropy] Seed=123 R9/10 F1=0.2393 Acc=0.3189 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+149
+2026-06-16 08:04:03,349 [INFO] 
+--- Full Supervised Baseline (reused from existing) ---
+2026-06-16 08:04:03,349 [INFO] Full Supervised: Acc=0.6192, F1=0.5815
+2026-06-16 08:04:04,589 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\progressive_ssl_full\progressive_r5_rho100 ===
+2026-06-16 08:04:04,589 [INFO] 
+Summary:
+2026-06-16 08:04:04,590 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-16 08:04:04,590 [INFO] ------------------------------------------------------------
+2026-06-16 08:04:04,590 [INFO] adaptive_gap_entropy       0.2491   0.0000                   
+2026-06-16 08:04:04,590 [INFO] class_aware_entropy        0.2830   0.0000                   
+2026-06-16 08:04:04,590 [INFO] entropy                    0.2455   0.0000                   
+2026-06-16 08:04:04,590 [INFO] gap_aware_entropy          0.2504   0.0000                   
+2026-06-16 08:04:04,590 [INFO] Full Supervised            0.5815
+2026-06-16 08:33:00,150 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-16 08:33:00,150 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-16 08:33:00,151 [INFO] Strategies: ['entropy', 'class_aware_entropy', 'gap_aware_entropy', 'adaptive_gap_entropy']
+2026-06-16 08:33:00,151 [INFO] Seeds: [456]
+2026-06-16 08:33:00,151 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-16 08:33:00,151 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-16 08:33:00,151 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-16 08:33:00,188 [INFO] Device: cuda
+2026-06-16 08:33:20,091 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-16 08:33:20,091 [INFO] 
+--- Strategy: entropy ---
+2026-06-16 08:33:20,227 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 08:33:27,654 [INFO]   [entropy] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.0s GPU=172MB SSL+7
+2026-06-16 08:33:35,135 [INFO]   [entropy] Seed=456 R2/10 F1=0.0983 Acc=0.2026 Labeled=300 QueryTime=0.0s GPU=217MB SSL+55
+2026-06-16 08:33:41,674 [INFO]   [entropy] Seed=456 R3/10 F1=0.1003 Acc=0.2081 Labeled=400 QueryTime=0.0s GPU=237MB SSL+46
+2026-06-16 08:33:48,624 [INFO]   [entropy] Seed=456 R4/10 F1=0.1401 Acc=0.2325 Labeled=500 QueryTime=0.0s GPU=237MB SSL+38
+2026-06-16 08:33:55,246 [INFO]   [entropy] Seed=456 R5/10 F1=0.1607 Acc=0.2427 Labeled=600 QueryTime=0.0s GPU=237MB SSL+61
+2026-06-16 08:33:55,448 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 08:34:07,307 [INFO]   [entropy] Seed=456 R6/10 F1=0.2340 Acc=0.3057 Labeled=700 QueryTime=0.0s GPU=237MB SSL+109
+2026-06-16 08:34:19,320 [INFO]   [entropy] Seed=456 R7/10 F1=0.2321 Acc=0.3005 Labeled=800 QueryTime=0.0s GPU=237MB SSL+157
+2026-06-16 08:34:35,269 [INFO]   [entropy] Seed=456 R8/10 F1=0.2437 Acc=0.3152 Labeled=900 QueryTime=0.0s GPU=237MB SSL+255
+2026-06-16 08:34:52,324 [INFO]   [entropy] Seed=456 R9/10 F1=0.2700 Acc=0.3421 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+304
+2026-06-16 08:35:08,741 [INFO] 
+--- Strategy: class_aware_entropy ---
+2026-06-16 08:35:08,753 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 08:35:15,020 [INFO]   [class_aware_entropy] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.0s GPU=185MB SSL+7
+2026-06-16 08:35:21,482 [INFO]   [class_aware_entropy] Seed=456 R2/10 F1=0.1076 Acc=0.2105 Labeled=300 QueryTime=0.1s GPU=221MB SSL+12
+2026-06-16 08:35:28,086 [INFO]   [class_aware_entropy] Seed=456 R3/10 F1=0.1012 Acc=0.2034 Labeled=400 QueryTime=0.1s GPU=241MB SSL+43
+2026-06-16 08:35:34,463 [INFO]   [class_aware_entropy] Seed=456 R4/10 F1=0.1300 Acc=0.2169 Labeled=500 QueryTime=0.1s GPU=241MB SSL+30
+2026-06-16 08:35:41,015 [INFO]   [class_aware_entropy] Seed=456 R5/10 F1=0.1501 Acc=0.2327 Labeled=600 QueryTime=0.2s GPU=241MB SSL+41
+2026-06-16 08:35:41,219 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 08:35:52,724 [INFO]   [class_aware_entropy] Seed=456 R6/10 F1=0.1957 Acc=0.2774 Labeled=700 QueryTime=0.2s GPU=241MB SSL+119
+2026-06-16 08:36:04,960 [INFO]   [class_aware_entropy] Seed=456 R7/10 F1=0.2054 Acc=0.2986 Labeled=800 QueryTime=0.2s GPU=241MB SSL+138
+2026-06-16 08:36:20,915 [INFO]   [class_aware_entropy] Seed=456 R8/10 F1=0.2245 Acc=0.2986 Labeled=900 QueryTime=0.3s GPU=241MB SSL+93
+2026-06-16 08:36:37,602 [INFO]   [class_aware_entropy] Seed=456 R9/10 F1=0.2496 Acc=0.3299 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+276
+2026-06-16 08:36:53,219 [INFO] 
+--- Strategy: gap_aware_entropy ---
+2026-06-16 08:36:53,230 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 08:36:59,588 [INFO]   [gap_aware_entropy] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.0s GPU=185MB SSL+7
+2026-06-16 08:37:06,175 [INFO]   [gap_aware_entropy] Seed=456 R2/10 F1=0.0986 Acc=0.2002 Labeled=300 QueryTime=0.1s GPU=221MB SSL+32
+2026-06-16 08:37:12,542 [INFO]   [gap_aware_entropy] Seed=456 R3/10 F1=0.1200 Acc=0.2137 Labeled=400 QueryTime=0.1s GPU=241MB SSL+37
+2026-06-16 08:37:19,260 [INFO]   [gap_aware_entropy] Seed=456 R4/10 F1=0.1366 Acc=0.2206 Labeled=500 QueryTime=0.1s GPU=241MB SSL+50
+2026-06-16 08:37:25,899 [INFO]   [gap_aware_entropy] Seed=456 R5/10 F1=0.1799 Acc=0.2483 Labeled=600 QueryTime=0.2s GPU=241MB SSL+6
+2026-06-16 08:37:26,102 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 08:37:37,699 [INFO]   [gap_aware_entropy] Seed=456 R6/10 F1=0.1873 Acc=0.2580 Labeled=700 QueryTime=0.2s GPU=241MB SSL+124
+2026-06-16 08:37:49,941 [INFO]   [gap_aware_entropy] Seed=456 R7/10 F1=0.1994 Acc=0.2731 Labeled=800 QueryTime=0.2s GPU=241MB SSL+122
+2026-06-16 08:38:06,268 [INFO]   [gap_aware_entropy] Seed=456 R8/10 F1=0.2600 Acc=0.3296 Labeled=900 QueryTime=0.3s GPU=241MB SSL+279
+2026-06-16 08:38:23,020 [INFO]   [gap_aware_entropy] Seed=456 R9/10 F1=0.2451 Acc=0.3252 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+341
+2026-06-16 08:38:39,201 [INFO] 
+--- Strategy: adaptive_gap_entropy ---
+2026-06-16 08:38:39,213 [INFO]   Progressive SSL: Base SSL for rounds 0-4, Innov SSL for round 5+
+2026-06-16 08:38:45,667 [INFO]   [adaptive_gap_entropy] Seed=456 R1/10 F1=0.0882 Acc=0.1856 Labeled=200 QueryTime=0.0s GPU=185MB SSL+7
+2026-06-16 08:38:52,213 [INFO]   [adaptive_gap_entropy] Seed=456 R2/10 F1=0.0982 Acc=0.2003 Labeled=300 QueryTime=0.1s GPU=221MB SSL+33
+2026-06-16 08:38:59,123 [INFO]   [adaptive_gap_entropy] Seed=456 R3/10 F1=0.1185 Acc=0.2140 Labeled=400 QueryTime=0.1s GPU=241MB SSL+43
+2026-06-16 08:39:05,778 [INFO]   [adaptive_gap_entropy] Seed=456 R4/10 F1=0.1625 Acc=0.2376 Labeled=500 QueryTime=0.1s GPU=241MB SSL+24
+2026-06-16 08:39:12,301 [INFO]   [adaptive_gap_entropy] Seed=456 R5/10 F1=0.1551 Acc=0.2400 Labeled=600 QueryTime=0.2s GPU=241MB SSL+23
+2026-06-16 08:39:12,502 [INFO]   Progressive SSL: switched to Innov SSL at round 5
+2026-06-16 08:39:24,002 [INFO]   [adaptive_gap_entropy] Seed=456 R6/10 F1=0.1870 Acc=0.2687 Labeled=700 QueryTime=0.2s GPU=241MB SSL+103
+2026-06-16 08:39:35,750 [INFO]   [adaptive_gap_entropy] Seed=456 R7/10 F1=0.2251 Acc=0.2991 Labeled=800 QueryTime=0.2s GPU=241MB SSL+55
+2026-06-16 08:39:52,201 [INFO]   [adaptive_gap_entropy] Seed=456 R8/10 F1=0.2549 Acc=0.3177 Labeled=900 QueryTime=0.3s GPU=241MB SSL+257
+2026-06-16 08:40:09,294 [INFO]   [adaptive_gap_entropy] Seed=456 R9/10 F1=0.2633 Acc=0.3343 Labeled=1000 QueryTime=0.3s GPU=241MB SSL+171
+2026-06-16 08:40:25,467 [INFO] 
+--- Full Supervised Baseline (reused from existing) ---
+2026-06-16 08:40:25,467 [INFO] Full Supervised: Acc=0.6192, F1=0.5815
+2026-06-16 08:40:26,717 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\progressive_ssl_full\progressive_r5_rho100 ===
+2026-06-16 08:40:26,717 [INFO] 
+Summary:
+2026-06-16 08:40:26,717 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-16 08:40:26,717 [INFO] ------------------------------------------------------------
+2026-06-16 08:40:26,717 [INFO] adaptive_gap_entropy       0.2988   0.0000                   
+2026-06-16 08:40:26,717 [INFO] class_aware_entropy        0.2635   0.0000                   
+2026-06-16 08:40:26,717 [INFO] entropy                    0.2825   0.0000                   
+2026-06-16 08:40:26,717 [INFO] gap_aware_entropy          0.2745   0.0000                   
+2026-06-16 08:40:26,717 [INFO] Full Supervised            0.5815

@@ -1,0 +1,84 @@
+2026-06-14 03:18:36,111 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar100 ===
+2026-06-14 03:18:36,111 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 03:18:36,111 [INFO] Strategies: ['entropy']
+2026-06-14 03:18:36,111 [INFO] Seeds: [42]
+2026-06-14 03:18:36,111 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 03:18:36,111 [INFO] SSL: False, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 03:18:36,111 [INFO] Imbalance mode: max/min class count ratio = 50
+2026-06-14 03:18:36,138 [INFO] Device: cuda
+2026-06-14 03:18:44,987 [INFO] Imbalance filter (Exponential): 50000 -> 12608 training samples
+2026-06-14 03:18:44,996 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 03:18:45,079 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:18:47,490 [INFO]   [entropy] Seed=42 R1/10 F1=0.0038 Acc=0.0182 Labeled=200 QueryTime=0.0s GPU=75MB
+2026-06-14 03:18:47,490 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:18:49,516 [INFO]   [entropy] Seed=42 R2/10 F1=0.0089 Acc=0.0302 Labeled=300 QueryTime=0.0s GPU=119MB
+2026-06-14 03:18:49,517 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:18:51,502 [INFO]   [entropy] Seed=42 R3/10 F1=0.0121 Acc=0.0433 Labeled=400 QueryTime=0.0s GPU=140MB
+2026-06-14 03:18:51,502 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:18:53,353 [INFO]   [entropy] Seed=42 R4/10 F1=0.0159 Acc=0.0396 Labeled=500 QueryTime=0.0s GPU=140MB
+2026-06-14 03:18:53,353 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:18:55,577 [INFO]   [entropy] Seed=42 R5/10 F1=0.0167 Acc=0.0433 Labeled=600 QueryTime=0.0s GPU=140MB
+2026-06-14 03:18:55,577 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:18:58,287 [INFO]   [entropy] Seed=42 R6/10 F1=0.0218 Acc=0.0583 Labeled=700 QueryTime=0.0s GPU=140MB
+2026-06-14 03:18:58,287 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:19:01,023 [INFO]   [entropy] Seed=42 R7/10 F1=0.0260 Acc=0.0621 Labeled=800 QueryTime=0.0s GPU=140MB
+2026-06-14 03:19:01,023 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:19:04,126 [INFO]   [entropy] Seed=42 R8/10 F1=0.0355 Acc=0.0767 Labeled=900 QueryTime=0.0s GPU=140MB
+2026-06-14 03:19:04,127 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:19:07,057 [INFO]   [entropy] Seed=42 R9/10 F1=0.0407 Acc=0.0863 Labeled=1000 QueryTime=0.0s GPU=140MB
+2026-06-14 03:19:07,058 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:19:09,407 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-14 03:19:09,414 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:22:07,704 [INFO] Full Supervised: Acc=0.3301, F1=0.2830 (epochs=50, time=177.1s)
+2026-06-14 03:22:08,123 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\cb_focal_baseline\cifar100\rho50\focal ===
+2026-06-14 03:22:08,123 [INFO] 
+Summary:
+2026-06-14 03:22:08,123 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-14 03:22:08,123 [INFO] ------------------------------------------------------------
+2026-06-14 03:22:08,123 [INFO] entropy                    0.0469   0.0000                   
+2026-06-14 03:22:08,123 [INFO] Full Supervised            0.2830
+2026-06-14 03:22:13,076 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar100 ===
+2026-06-14 03:22:13,076 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 03:22:13,076 [INFO] Strategies: ['entropy']
+2026-06-14 03:22:13,076 [INFO] Seeds: [42]
+2026-06-14 03:22:13,076 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 03:22:13,076 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 03:22:13,076 [INFO] Imbalance mode: max/min class count ratio = 50
+2026-06-14 03:22:13,099 [INFO] Device: cuda
+2026-06-14 03:22:22,170 [INFO] Imbalance filter (Exponential): 50000 -> 12608 training samples
+2026-06-14 03:22:22,170 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 03:22:22,253 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:22:26,175 [INFO]   [entropy] Seed=42 R1/10 F1=0.0017 Acc=0.0195 Labeled=200 QueryTime=0.0s GPU=173MB SSL+0
+2026-06-14 03:22:26,175 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:22:29,122 [INFO]   [entropy] Seed=42 R2/10 F1=0.0098 Acc=0.0388 Labeled=300 QueryTime=0.0s GPU=218MB SSL+0
+2026-06-14 03:22:29,122 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:22:32,376 [INFO]   [entropy] Seed=42 R3/10 F1=0.0162 Acc=0.0536 Labeled=400 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 03:22:32,376 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:22:35,817 [INFO]   [entropy] Seed=42 R4/10 F1=0.0177 Acc=0.0535 Labeled=500 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 03:22:35,817 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:22:39,308 [INFO]   [entropy] Seed=42 R5/10 F1=0.0176 Acc=0.0545 Labeled=600 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 03:22:39,308 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:22:44,353 [INFO]   [entropy] Seed=42 R6/10 F1=0.0246 Acc=0.0649 Labeled=700 QueryTime=0.0s GPU=238MB SSL+0
+2026-06-14 03:22:44,354 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:22:49,394 [INFO]   [entropy] Seed=42 R7/10 F1=0.0297 Acc=0.0704 Labeled=800 QueryTime=0.0s GPU=238MB SSL+3
+2026-06-14 03:22:49,394 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:22:56,336 [INFO]   [entropy] Seed=42 R8/10 F1=0.0367 Acc=0.0758 Labeled=900 QueryTime=0.0s GPU=238MB SSL+10
+2026-06-14 03:22:56,337 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:23:03,783 [INFO]   [entropy] Seed=42 R9/10 F1=0.0468 Acc=0.0873 Labeled=1000 QueryTime=0.0s GPU=238MB SSL+4
+2026-06-14 03:23:03,783 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:23:10,283 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-14 03:23:10,292 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 03:27:09,873 [INFO] Full Supervised: Acc=0.3362, F1=0.2902 (epochs=50, time=237.9s)
+2026-06-14 03:27:10,389 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\cb_focal_baseline\cifar100\rho50\focal ===
+2026-06-14 03:27:10,389 [INFO] 
+Summary:
+2026-06-14 03:27:10,389 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-14 03:27:10,389 [INFO] ------------------------------------------------------------
+2026-06-14 03:27:10,389 [INFO] entropy                    0.0504   0.0000                   
+2026-06-14 03:27:10,389 [INFO] Full Supervised            0.2902

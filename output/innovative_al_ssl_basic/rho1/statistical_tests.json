@@ -1,0 +1,38 @@
+{
+  "paired_comparisons": [
+    {
+      "strategy_a": "adaptive_gap_entropy",
+      "strategy_b": "class_aware_entropy",
+      "mean_diff": 0.0172368901698939,
+      "t_statistic": 1.7494182955591155,
+      "p_value": 0.22232439044153904,
+      "cohens_d": 1.308541301523661,
+      "significant_005": false,
+      "significant_001": false,
+      "effect_size": "large"
+    },
+    {
+      "strategy_a": "adaptive_gap_entropy",
+      "strategy_b": "gap_aware_entropy",
+      "mean_diff": 0.007053624303615465,
+      "t_statistic": 1.0240199369863636,
+      "p_value": 0.41351488980826184,
+      "cohens_d": 0.7011174726265258,
+      "significant_005": false,
+      "significant_001": false,
+      "effect_size": "medium"
+    },
+    {
+      "strategy_a": "class_aware_entropy",
+      "strategy_b": "gap_aware_entropy",
+      "mean_diff": -0.010183265866278435,
+      "t_statistic": -0.6806834988096612,
+      "p_value": 0.5663054923095479,
+      "cohens_d": -0.6551528148789527,
+      "significant_005": false,
+      "significant_001": false,
+      "effect_size": "medium"
+    }
+  ],
+  "n_seeds": 3
+}

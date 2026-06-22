@@ -1,0 +1,12 @@
+{
+  "class_aware_entropy_ssl": {
+    "final_f1_mean": 0.4384602763930217,
+    "final_f1_std": 0.0020997425311160777,
+    "n_seeds": 3
+  },
+  "gap_aware_entropy_ssl": {
+    "final_f1_mean": 0.4454444661301498,
+    "final_f1_std": 0.014192934113582752,
+    "n_seeds": 3
+  }
+}

@@ -1,0 +1,216 @@
+2026-06-14 01:23:13,348 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 01:23:13,348 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 01:23:13,348 [INFO] Strategies: ['entropy']
+2026-06-14 01:23:13,348 [INFO] Seeds: [42, 123, 456]
+2026-06-14 01:23:13,348 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 01:23:13,348 [INFO] SSL: False, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 01:23:13,348 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-14 01:23:13,379 [INFO] Device: cuda
+2026-06-14 01:23:22,508 [INFO] Imbalance filter (Exponential): 50000 -> 50000 training samples
+2026-06-14 01:23:22,517 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 01:23:22,606 [ERROR]   ERROR [entropy] seed=42: cannot access local variable 'n_classes' where it is not associated with a value
+2026-06-14 01:23:22,613 [ERROR]   ERROR [entropy] seed=123: cannot access local variable 'n_classes' where it is not associated with a value
+2026-06-14 01:23:22,620 [ERROR]   ERROR [entropy] seed=456: cannot access local variable 'n_classes' where it is not associated with a value
+2026-06-14 01:23:27,102 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 01:23:27,102 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 01:23:27,102 [INFO] Strategies: ['entropy']
+2026-06-14 01:23:27,102 [INFO] Seeds: [42, 123, 456]
+2026-06-14 01:23:27,102 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 01:23:27,102 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 01:23:27,102 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-14 01:23:27,126 [INFO] Device: cuda
+2026-06-14 01:23:35,995 [INFO] Imbalance filter (Exponential): 50000 -> 50000 training samples
+2026-06-14 01:23:35,996 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 01:23:36,095 [ERROR]   ERROR [entropy] seed=42: cannot access local variable 'n_classes' where it is not associated with a value
+2026-06-14 01:23:36,107 [ERROR]   ERROR [entropy] seed=123: cannot access local variable 'n_classes' where it is not associated with a value
+2026-06-14 01:23:36,115 [ERROR]   ERROR [entropy] seed=456: cannot access local variable 'n_classes' where it is not associated with a value
+2026-06-14 09:11:57,454 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 09:11:57,454 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 09:11:57,454 [INFO] Strategies: ['entropy']
+2026-06-14 09:11:57,454 [INFO] Seeds: [42, 123, 456]
+2026-06-14 09:11:57,454 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 09:11:57,455 [INFO] SSL: False, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 09:11:57,455 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-14 09:11:57,491 [INFO] Device: cuda
+2026-06-14 09:12:07,524 [INFO] Imbalance filter (Exponential): 50000 -> 50000 training samples
+2026-06-14 09:12:07,524 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 09:12:07,664 [ERROR]   ERROR [entropy] seed=42: cannot access local variable 'n_classes' where it is not associated with a value
+2026-06-14 09:12:07,674 [ERROR]   ERROR [entropy] seed=123: cannot access local variable 'n_classes' where it is not associated with a value
+2026-06-14 09:12:13,305 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 09:12:13,305 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 09:12:13,305 [INFO] Strategies: ['entropy']
+2026-06-14 09:12:13,305 [INFO] Seeds: [42, 123, 456]
+2026-06-14 09:12:13,305 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 09:12:13,305 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 09:12:13,305 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-14 09:12:13,324 [INFO] Device: cuda
+2026-06-14 09:12:47,583 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 09:12:47,583 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 09:12:47,583 [INFO] Strategies: ['entropy']
+2026-06-14 09:12:47,583 [INFO] Seeds: [42, 123, 456]
+2026-06-14 09:12:47,583 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 09:12:47,583 [INFO] SSL: False, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 09:12:47,583 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-14 09:12:47,609 [INFO] Device: cuda
+2026-06-14 09:12:57,385 [INFO] Imbalance filter (Exponential): 50000 -> 50000 training samples
+2026-06-14 09:12:57,385 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 09:12:57,501 [ERROR]   ERROR [entropy] seed=42: 'Sequential' object has no attribute 'out_features'
+2026-06-14 09:12:57,513 [ERROR]   ERROR [entropy] seed=123: 'Sequential' object has no attribute 'out_features'
+2026-06-14 09:13:02,758 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 09:13:02,758 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 09:13:02,759 [INFO] Strategies: ['entropy']
+2026-06-14 09:13:02,759 [INFO] Seeds: [42, 123, 456]
+2026-06-14 09:13:02,759 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 09:13:02,759 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 09:13:02,759 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-14 09:13:02,781 [INFO] Device: cuda
+2026-06-14 09:13:12,454 [INFO] Imbalance filter (Exponential): 50000 -> 50000 training samples
+2026-06-14 09:13:12,454 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 09:13:12,555 [ERROR]   ERROR [entropy] seed=42: 'Sequential' object has no attribute 'out_features'
+2026-06-14 09:14:03,760 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 09:14:03,761 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 09:14:03,761 [INFO] Strategies: ['entropy']
+2026-06-14 09:14:03,761 [INFO] Seeds: [42, 123, 456]
+2026-06-14 09:14:03,761 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 09:14:03,761 [INFO] SSL: False, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 09:14:03,761 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-14 09:14:03,787 [INFO] Device: cuda
+2026-06-14 09:14:14,363 [INFO] Imbalance filter (Exponential): 50000 -> 50000 training samples
+2026-06-14 09:14:14,363 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 09:14:14,493 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.287 1.001 0.563 0.644 1.501 0.751 1.001 1.501 0.751 1.001]
+2026-06-14 09:14:18,435 [INFO]   [entropy] Seed=42 R1/10 F1=0.1390 Acc=0.1960 Labeled=200 QueryTime=0.0s GPU=74MB
+2026-06-14 09:14:18,436 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.257 1.257 0.725 0.754 1.109 0.992 0.725 1.109 1.346 0.725]
+2026-06-14 09:14:20,895 [INFO]   [entropy] Seed=42 R2/10 F1=0.1234 Acc=0.1829 Labeled=300 QueryTime=0.0s GPU=118MB
+2026-06-14 09:14:20,896 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.504 0.882 0.753 0.826 1.163 1.066 0.502 0.984 1.827 0.493]
+2026-06-14 09:14:23,895 [INFO]   [entropy] Seed=42 R3/10 F1=0.1450 Acc=0.2070 Labeled=400 QueryTime=0.0s GPU=139MB
+2026-06-14 09:14:23,896 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.776 0.504 0.817 0.84  1.313 1.119 0.56  0.864 1.887 0.319]
+2026-06-14 09:14:26,541 [INFO]   [entropy] Seed=42 R4/10 F1=0.1913 Acc=0.2159 Labeled=500 QueryTime=0.0s GPU=139MB
+2026-06-14 09:14:26,543 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.79  0.379 0.896 0.851 1.417 1.173 0.568 0.792 1.889 0.246]
+2026-06-14 09:14:29,134 [INFO]   [entropy] Seed=42 R5/10 F1=0.2496 Acc=0.2834 Labeled=600 QueryTime=0.0s GPU=139MB
+2026-06-14 09:14:29,136 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.921 0.317 0.916 0.895 1.478 1.282 0.611 0.687 1.671 0.221]
+2026-06-14 09:14:32,044 [INFO]   [entropy] Seed=42 R6/10 F1=0.2931 Acc=0.3136 Labeled=700 QueryTime=0.0s GPU=139MB
+2026-06-14 09:14:32,046 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.775 0.31  0.987 0.889 1.531 1.233 0.609 0.674 1.775 0.216]
+2026-06-14 09:14:34,984 [INFO]   [entropy] Seed=42 R7/10 F1=0.3441 Acc=0.3495 Labeled=800 QueryTime=0.0s GPU=139MB
+2026-06-14 09:14:34,986 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.603 0.309 1.092 0.901 1.466 1.316 0.612 0.714 1.769 0.218]
+2026-06-14 09:14:38,193 [INFO]   [entropy] Seed=42 R8/10 F1=0.3581 Acc=0.3594 Labeled=900 QueryTime=0.0s GPU=139MB
+2026-06-14 09:14:38,203 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.476 0.302 1.159 0.954 1.476 1.406 0.68  0.768 1.554 0.225]
+2026-06-14 09:14:41,415 [INFO]   [entropy] Seed=42 R9/10 F1=0.3827 Acc=0.3908 Labeled=1000 QueryTime=0.0s GPU=139MB
+2026-06-14 09:14:41,416 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.428 0.301 1.061 0.855 1.564 1.528 0.732 0.813 1.493 0.226]
+2026-06-14 09:14:43,998 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.154 1.538 0.71  0.839 0.543 1.026 0.923 0.923 1.318 1.026]
+2026-06-14 09:14:46,312 [INFO]   [entropy] Seed=123 R1/10 F1=0.1975 Acc=0.2316 Labeled=200 QueryTime=0.0s GPU=87MB
+2026-06-14 09:14:46,314 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [0.856 1.633 0.719 0.817 0.562 0.899 0.817 0.817 1.497 1.382]
+2026-06-14 09:14:48,769 [INFO]   [entropy] Seed=123 R2/10 F1=0.2739 Acc=0.2829 Labeled=300 QueryTime=0.0s GPU=131MB
+2026-06-14 09:14:48,771 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.013 1.049 0.89  0.864 0.816 0.979 1.049 0.839 1.277 1.224]
+2026-06-14 09:14:51,478 [INFO]   [entropy] Seed=123 R3/10 F1=0.2667 Acc=0.2877 Labeled=400 QueryTime=0.0s GPU=151MB
+2026-06-14 09:14:51,479 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.031 0.688 1.031 0.98  0.98  1.005 1.187 0.933 1.187 0.98 ]
+2026-06-14 09:14:54,187 [INFO]   [entropy] Seed=123 R4/10 F1=0.2594 Acc=0.2794 Labeled=500 QueryTime=0.0s GPU=151MB
+2026-06-14 09:14:54,188 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.089 0.6   1.114 1.041 1.14  0.978 1.26  0.904 1.089 0.786]
+2026-06-14 09:14:56,920 [INFO]   [entropy] Seed=123 R5/10 F1=0.3045 Acc=0.3087 Labeled=600 QueryTime=0.0s GPU=151MB
+2026-06-14 09:14:56,922 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.103 0.542 1.199 1.003 1.313 1.041 1.283 0.905 1.022 0.588]
+2026-06-14 09:14:59,914 [INFO]   [entropy] Seed=123 R6/10 F1=0.3006 Acc=0.3210 Labeled=700 QueryTime=0.0s GPU=151MB
+2026-06-14 09:14:59,916 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.156 0.523 1.115 0.978 1.324 1.025 1.199 0.963 1.177 0.54 ]
+2026-06-14 09:15:02,864 [INFO]   [entropy] Seed=123 R7/10 F1=0.3044 Acc=0.3232 Labeled=800 QueryTime=0.0s GPU=151MB
+2026-06-14 09:15:02,865 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.166 0.448 1.186 0.986 1.295 1.129 1.186 1.029 1.094 0.481]
+2026-06-14 09:15:06,104 [INFO]   [entropy] Seed=123 R8/10 F1=0.3390 Acc=0.3516 Labeled=900 QueryTime=0.0s GPU=151MB
+2026-06-14 09:15:06,108 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.167 0.439 1.203 0.966 1.261 1.203 1.167 1.003 1.117 0.473]
+2026-06-14 09:15:09,380 [INFO]   [entropy] Seed=123 R9/10 F1=0.3931 Acc=0.3942 Labeled=1000 QueryTime=0.0s GPU=151MB
+2026-06-14 09:15:09,382 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.194 0.48  1.28  0.82  1.245 1.119 1.133 0.994 1.227 0.508]
+2026-06-14 09:15:11,989 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [0.859 0.859 1.05  0.859 0.727 1.575 1.05  0.945 0.727 1.35 ]
+2026-06-14 09:15:14,409 [INFO]   [entropy] Seed=456 R1/10 F1=0.1620 Acc=0.2138 Labeled=200 QueryTime=0.0s GPU=100MB
+2026-06-14 09:15:14,411 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.226 0.575 1.533 0.968 0.836 0.968 1.415 0.682 0.876 0.92 ]
+2026-06-14 09:15:16,904 [INFO]   [entropy] Seed=456 R2/10 F1=0.1242 Acc=0.1960 Labeled=300 QueryTime=0.0s GPU=118MB
+2026-06-14 09:15:16,906 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.28  0.359 1.871 1.106 1.106 1.014 1.058 0.716 1.014 0.478]
+2026-06-14 09:15:19,483 [INFO]   [entropy] Seed=456 R3/10 F1=0.1285 Acc=0.1919 Labeled=400 QueryTime=0.0s GPU=139MB
+2026-06-14 09:15:19,485 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.486 0.323 1.418 1.007 1.3   0.976 1.076 0.822 1.2   0.391]
+2026-06-14 09:15:22,033 [INFO]   [entropy] Seed=456 R4/10 F1=0.1075 Acc=0.1927 Labeled=500 QueryTime=0.0s GPU=139MB
+2026-06-14 09:15:22,038 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.527 0.242 1.301 0.976 1.464 1.034 1.065 0.799 1.255 0.336]
+2026-06-14 09:15:24,562 [INFO]   [entropy] Seed=456 R5/10 F1=0.1776 Acc=0.2339 Labeled=600 QueryTime=0.0s GPU=139MB
+2026-06-14 09:15:24,563 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.569 0.245 1.317 1.021 1.632 0.972 0.869 0.757 1.317 0.302]
+2026-06-14 09:15:27,491 [INFO]   [entropy] Seed=456 R6/10 F1=0.2117 Acc=0.2557 Labeled=700 QueryTime=0.0s GPU=139MB
+2026-06-14 09:15:27,493 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.469 0.233 1.38  0.949 1.686 0.97  0.877 0.748 1.423 0.267]
+2026-06-14 14:15:50,835 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 14:15:50,836 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 14:15:50,836 [INFO] Strategies: ['entropy']
+2026-06-14 14:15:50,836 [INFO] Seeds: [42, 123, 456]
+2026-06-14 14:15:50,836 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 14:15:50,836 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 14:15:50,836 [INFO] Imbalance mode: max/min class count ratio = 1
+2026-06-14 14:15:50,862 [INFO] Device: cuda
+2026-06-14 14:16:10,667 [INFO] Imbalance filter (Exponential): 50000 -> 50000 training samples
+2026-06-14 14:16:10,667 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 14:16:10,806 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.287 1.001 0.563 0.644 1.501 0.751 1.001 1.501 0.751 1.001]
+2026-06-14 14:16:18,530 [INFO]   [entropy] Seed=42 R1/10 F1=0.1415 Acc=0.1759 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-14 14:16:18,532 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.108 0.554 0.771 0.657 1.772 1.108 1.108 1.266 1.043 0.612]
+2026-06-14 14:16:25,061 [INFO]   [entropy] Seed=42 R2/10 F1=0.2028 Acc=0.2271 Labeled=300 QueryTime=0.0s GPU=217MB SSL+0
+2026-06-14 14:16:25,062 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.217 0.488 0.936 0.696 1.872 1.106 1.281 0.812 1.217 0.375]
+2026-06-14 14:16:31,038 [INFO]   [entropy] Seed=42 R3/10 F1=0.2541 Acc=0.2606 Labeled=400 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 14:16:31,039 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.256 0.576 1.06  0.707 1.541 1.357 1.17  0.917 1.028 0.387]
+2026-06-14 14:16:36,994 [INFO]   [entropy] Seed=42 R4/10 F1=0.3145 Acc=0.3155 Labeled=500 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 14:16:36,996 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.315 0.604 0.987 0.701 1.4   1.4   1.356 0.905 0.887 0.444]
+2026-06-14 14:16:42,633 [INFO]   [entropy] Seed=42 R5/10 F1=0.3052 Acc=0.3130 Labeled=600 QueryTime=0.0s GPU=237MB SSL+1
+2026-06-14 14:16:42,635 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.329 0.611 1.017 0.711 1.364 1.481 1.329 0.895 0.824 0.437]
+2026-06-14 14:16:50,668 [INFO]   [entropy] Seed=42 R6/10 F1=0.3447 Acc=0.3417 Labeled=700 QueryTime=0.0s GPU=237MB SSL+5
+2026-06-14 14:16:50,670 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.221 0.549 1.106 0.772 1.395 1.465 1.429 0.946 0.725 0.393]
+2026-06-14 14:16:59,026 [INFO]   [entropy] Seed=42 R7/10 F1=0.3507 Acc=0.3538 Labeled=800 QueryTime=0.0s GPU=237MB SSL+24
+2026-06-14 14:16:59,028 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.253 0.596 1.169 0.785 1.253 1.498 1.351 0.896 0.776 0.423]
+2026-06-14 14:17:09,328 [INFO]   [entropy] Seed=42 R8/10 F1=0.3625 Acc=0.3712 Labeled=900 QueryTime=0.0s GPU=237MB SSL+86
+2026-06-14 14:17:09,331 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.352 0.586 1.223 0.765 1.284 1.376 1.329 0.877 0.796 0.413]
+2026-06-14 14:17:19,668 [INFO]   [entropy] Seed=42 R9/10 F1=0.3777 Acc=0.3883 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+101
+2026-06-14 14:17:19,670 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.366 0.617 1.213 0.784 1.248 1.411 1.285 0.845 0.821 0.409]
+2026-06-14 14:17:28,735 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.154 1.538 0.71  0.839 0.543 1.026 0.923 0.923 1.318 1.026]
+2026-06-14 14:17:34,532 [INFO]   [entropy] Seed=123 R1/10 F1=0.1902 Acc=0.2213 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-14 14:17:34,534 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.319 0.77  1.155 0.685 0.84  0.84  1.026 0.66  1.679 1.026]
+2026-06-14 14:17:40,493 [INFO]   [entropy] Seed=123 R2/10 F1=0.2158 Acc=0.2375 Labeled=300 QueryTime=0.0s GPU=230MB SSL+0
+2026-06-14 14:17:40,495 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.539 0.477 1.454 0.818 1.007 0.818 1.309 0.708 1.246 0.624]
+2026-06-14 14:17:46,386 [INFO]   [entropy] Seed=123 R3/10 F1=0.2270 Acc=0.2537 Labeled=400 QueryTime=0.0s GPU=250MB SSL+0
+2026-06-14 14:17:46,387 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.513 0.417 1.387 0.854 1.281 0.709 1.447 0.775 1.11  0.506]
+2026-06-14 14:17:52,440 [INFO]   [entropy] Seed=123 R4/10 F1=0.3132 Acc=0.3286 Labeled=500 QueryTime=0.0s GPU=249MB SSL+4
+2026-06-14 14:17:52,443 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.819 0.483 1.102 0.626 1.443 0.711 1.132 0.838 1.308 0.538]
+2026-06-14 14:17:58,358 [INFO]   [entropy] Seed=123 R5/10 F1=0.3016 Acc=0.3140 Labeled=600 QueryTime=0.0s GPU=249MB SSL+3
+2026-06-14 14:17:58,360 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.817 0.526 1.184 0.654 1.305 0.761 1.132 0.761 1.339 0.521]
+2026-06-14 14:18:06,632 [INFO]   [entropy] Seed=123 R6/10 F1=0.3406 Acc=0.3463 Labeled=700 QueryTime=0.0s GPU=249MB SSL+11
+2026-06-14 14:18:06,634 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.761 0.546 1.248 0.653 1.223 0.822 1.175 0.76  1.302 0.51 ]
+2026-06-14 14:18:14,883 [INFO]   [entropy] Seed=123 R7/10 F1=0.3637 Acc=0.3719 Labeled=800 QueryTime=0.0s GPU=249MB SSL+14
+2026-06-14 14:18:14,885 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.798 0.592 1.21  0.71  1.08  0.868 1.097 0.827 1.3   0.518]
+2026-06-14 14:18:25,356 [INFO]   [entropy] Seed=123 R8/10 F1=0.3763 Acc=0.3775 Labeled=900 QueryTime=0.0s GPU=249MB SSL+22
+2026-06-14 14:18:25,358 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.709 0.598 1.175 0.68  1.141 0.906 1.078 0.866 1.356 0.491]
+2026-06-14 14:18:35,755 [INFO]   [entropy] Seed=123 R9/10 F1=0.3987 Acc=0.4016 Labeled=1000 QueryTime=0.0s GPU=249MB SSL+29
+2026-06-14 14:18:35,757 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.804 0.608 1.156 0.654 1.084 0.877 1.098 0.827 1.397 0.495]
+2026-06-14 14:18:44,959 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [0.859 0.859 1.05  0.859 0.727 1.575 1.05  0.945 0.727 1.35 ]
+2026-06-14 14:18:50,983 [INFO]   [entropy] Seed=456 R1/10 F1=0.1419 Acc=0.2109 Labeled=200 QueryTime=0.0s GPU=199MB SSL+0
+2026-06-14 14:18:50,985 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [0.854 0.498 1.629 0.854 1.195 1.12  1.28  0.896 1.054 0.619]
+2026-06-14 14:18:56,901 [INFO]   [entropy] Seed=456 R2/10 F1=0.2202 Acc=0.2533 Labeled=300 QueryTime=0.0s GPU=217MB SSL+0
+2026-06-14 14:18:56,902 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.099 0.415 1.579 0.744 1.404 0.766 1.149 0.903 1.404 0.538]
+2026-06-14 14:19:02,909 [INFO]   [entropy] Seed=456 R3/10 F1=0.2152 Acc=0.2526 Labeled=400 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 14:19:02,911 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.042 0.384 1.389 0.758 1.666 0.834 1.042 0.878 1.449 0.557]
+2026-06-14 14:19:08,854 [INFO]   [entropy] Seed=456 R4/10 F1=0.2561 Acc=0.2822 Labeled=500 QueryTime=0.0s GPU=237MB SSL+0
+2026-06-14 14:19:08,856 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.089 0.404 1.343 0.776 1.831 0.673 0.84  0.747 1.751 0.546]
+2026-06-14 14:19:14,995 [INFO]   [entropy] Seed=456 R5/10 F1=0.2725 Acc=0.2937 Labeled=600 QueryTime=0.0s GPU=237MB SSL+4
+2026-06-14 14:19:14,997 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.26  0.429 1.367 0.715 1.84  0.648 0.826 0.685 1.709 0.522]
+2026-06-14 14:19:23,373 [INFO]   [entropy] Seed=456 R6/10 F1=0.3149 Acc=0.3246 Labeled=700 QueryTime=0.0s GPU=237MB SSL+21
+2026-06-14 14:19:23,374 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.284 0.43  1.315 0.7   1.839 0.659 0.891 0.691 1.725 0.466]
+2026-06-14 14:19:31,503 [INFO]   [entropy] Seed=456 R7/10 F1=0.3517 Acc=0.3713 Labeled=800 QueryTime=0.0s GPU=237MB SSL+41
+2026-06-14 14:19:31,505 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.238 0.426 1.345 0.646 1.933 0.667 0.911 0.674 1.718 0.441]
+2026-06-14 14:19:41,899 [INFO]   [entropy] Seed=456 R8/10 F1=0.3470 Acc=0.3660 Labeled=900 QueryTime=0.0s GPU=237MB SSL+49
+2026-06-14 14:19:41,901 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.191 0.436 1.254 0.658 1.896 0.697 0.95  0.683 1.799 0.436]
+2026-06-14 14:19:52,170 [INFO]   [entropy] Seed=456 R9/10 F1=0.3732 Acc=0.3830 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+99
+2026-06-14 14:19:52,172 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1.247 0.412 1.267 0.685 1.784 0.757 1.048 0.703 1.671 0.425]
+2026-06-14 14:20:01,484 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-14 14:20:01,509 [INFO]   Using Class-Balanced Loss (β=0.9999), weights: [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+2026-06-14 14:36:51,729 [INFO] Full Supervised: Acc=0.8463, F1=0.8458 (epochs=50, time=1007.4s)
+2026-06-14 14:36:52,576 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\cb_focal_baseline\cifar10\rho1\cb ===
+2026-06-14 14:36:52,576 [INFO] 
+Summary:
+2026-06-14 14:36:52,576 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-14 14:36:52,576 [INFO] ------------------------------------------------------------
+2026-06-14 14:36:52,576 [INFO] entropy                    0.4010   0.0122                   
+2026-06-14 14:36:52,576 [INFO] Full Supervised            0.8458

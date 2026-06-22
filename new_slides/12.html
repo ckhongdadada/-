@@ -1,0 +1,54 @@
+<!-- ai-slides: slot=slot-12 -->
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+@font-face{font-family:'Alibaba PuHuiTi 3.0';src:url('file:///C%3A/Users/28414/.qoderwork/assets/ai-slides/fonts/AlibabaPuHuiTi-3-55-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Alibaba PuHuiTi 3.0';src:url('file:///C%3A/Users/28414/.qoderwork/assets/ai-slides/fonts/AlibabaPuHuiTi-3-65-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Alibaba PuHuiTi 3.0';src:url('file:///C%3A/Users/28414/.qoderwork/assets/ai-slides/fonts/AlibabaPuHuiTi-3-85-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Alibaba PuHuiTi 3.0','Microsoft YaHei',sans-serif;background:#FFFFFF;color:#0F172A;width:1280px;height:720px;overflow:hidden;position:relative}
+.top-bar{position:absolute;top:0;left:0;width:100%;height:2.5px;background:#2563EB;z-index:10}
+.slide-root{position:absolute;top:2.5px;left:0;right:0;bottom:0;display:flex;flex-direction:column;padding:24px 56px 0 56px}
+.page-header{flex-shrink:0;margin-bottom:12px}
+.header-label{font-size:18px;font-weight:500;color:#2563EB;text-transform:uppercase;letter-spacing:0.13em;line-height:1.2;margin-bottom:8px}
+.header-divider{width:100%;height:0;border:none;border-top:0.5px solid #E2E8F0;margin-bottom:8px}
+.header-title{font-size:22px;font-weight:500;color:#0F172A;line-height:1.3}
+.main-content{flex:1;display:flex;gap:28px;min-height:0;padding-bottom:10px}
+.card{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:20px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#2563EB;color:#fff;padding:8px 10px;text-align:left;font-weight:500;font-size:12px}
+td{padding:6px 10px;border-bottom:1px solid #E2E8F0;font-size:12px}
+tr:nth-child(even) td{background:#F8FAFC}
+.highlight{background:#FEF3C7;font-weight:600}
+</style></head><body>
+<div class="top-bar"></div>
+<!-- Hexagon decorations -->
+<div style="position:absolute;bottom:0;right:0;pointer-events:none;opacity:0.25">
+<svg width="280" height="260" viewBox="0 0 280 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polygon points="140,10 245,50 245,130 140,170 35,130 35,50" stroke="#2563EB" stroke-width="1" fill="none"/>
+<polygon points="140,50 210,75 210,125 140,150 70,125 70,75" stroke="#2563EB" stroke-width="1" fill="none"/>
+<polygon points="140,90 175,105 175,135 140,150 105,135 105,105" stroke="#2563EB" stroke-width="1" fill="none"/>
+<polygon points="210,90 245,105 245,135 210,150 175,135 175,105" stroke="#2563EB" stroke-width="0.5" fill="none" opacity="0.5"/>
+<polygon points="70,90 105,105 105,135 70,150 35,135 35,105" stroke="#2563EB" stroke-width="0.5" fill="none" opacity="0.5"/>
+</svg>
+</div>
+<div class="slide-root"><div class="page-header">
+<div class="header-label">CROSS-DATASET</div>
+<hr class="header-divider">
+<div class="header-title">CIFAR-100 交叉验证</div>
+</div><div class="main-content">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<table>
+<tr><th>策略</th><th>ρ=1</th><th>ρ=10</th><th>ρ=50</th></tr>
+<tr><td>Random (标准AL)</td><td>0.0888</td><td>0.0756</td><td>0.0531</td></tr>
+<tr><td>Entropy (标准AL)</td><td>0.0634</td><td>0.0787</td><td>0.0474</td></tr>
+<tr><td>Margin (标准AL)</td><td>0.0943</td><td>0.0851</td><td>0.0620</td></tr>
+<tr><td>Class-Aware (创新)</td><td>0.0696</td><td>0.0687</td><td>0.0526</td></tr>
+<tr><td>Gap-Aware (创新)</td><td>0.0633</td><td>0.0596</td><td>0.0505</td></tr>
+<tr><td>Full Supervised</td><td>0.5652</td><td>0.4194</td><td>0.2829</td></tr>
+</table>
+<div style="margin-top:auto;padding:16px;background:#FEF3C7;border-radius:8px;border-left:4px solid #F59E0B">
+<p style="font-size:14px;color:#92400E"><b>结论</b>：100类+1000标注=每类仅~10样本，处于极度稀疏样本域。AL策略差异消失，需要从输出空间转向特征空间的分布估计。</p>
+</div></div>
+</div></div>
+</body></html>

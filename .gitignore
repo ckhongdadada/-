@@ -1,0 +1,17 @@
+# Data (too large)
+data/
+
+# Model checkpoints (too large)
+output/**/checkpoints/*_model.pt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+nul

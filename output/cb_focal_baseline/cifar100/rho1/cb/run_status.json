@@ -1,0 +1,10 @@
+{
+  "completed": false,
+  "failed_runs": [
+    {
+      "strategy": "entropy",
+      "seed": 42,
+      "error": "cannot access local variable 'n_classes' where it is not associated with a value"
+    }
+  ]
+}

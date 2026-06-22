@@ -1,0 +1,160 @@
+2026-06-14 02:35:05,821 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 02:35:05,821 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 02:35:05,821 [INFO] Strategies: ['entropy']
+2026-06-14 02:35:05,821 [INFO] Seeds: [42, 123, 456]
+2026-06-14 02:35:05,821 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 02:35:05,821 [INFO] SSL: False, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 02:35:05,821 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-14 02:35:05,846 [INFO] Device: cuda
+2026-06-14 02:35:14,657 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-14 02:35:14,667 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 02:35:14,766 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:17,230 [INFO]   [entropy] Seed=42 R1/10 F1=0.0764 Acc=0.1750 Labeled=200 QueryTime=0.0s GPU=74MB
+2026-06-14 02:35:17,230 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:19,437 [INFO]   [entropy] Seed=42 R2/10 F1=0.0839 Acc=0.1704 Labeled=300 QueryTime=0.0s GPU=118MB
+2026-06-14 02:35:19,437 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:21,637 [INFO]   [entropy] Seed=42 R3/10 F1=0.0936 Acc=0.1516 Labeled=400 QueryTime=0.0s GPU=139MB
+2026-06-14 02:35:21,637 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:23,682 [INFO]   [entropy] Seed=42 R4/10 F1=0.0478 Acc=0.1164 Labeled=500 QueryTime=0.0s GPU=139MB
+2026-06-14 02:35:23,682 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:26,119 [INFO]   [entropy] Seed=42 R5/10 F1=0.1404 Acc=0.1979 Labeled=600 QueryTime=0.0s GPU=139MB
+2026-06-14 02:35:26,119 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:28,938 [INFO]   [entropy] Seed=42 R6/10 F1=0.2054 Acc=0.2610 Labeled=700 QueryTime=0.0s GPU=139MB
+2026-06-14 02:35:28,939 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:31,846 [INFO]   [entropy] Seed=42 R7/10 F1=0.1995 Acc=0.2824 Labeled=800 QueryTime=0.0s GPU=139MB
+2026-06-14 02:35:31,846 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:35,038 [INFO]   [entropy] Seed=42 R8/10 F1=0.2247 Acc=0.3064 Labeled=900 QueryTime=0.0s GPU=139MB
+2026-06-14 02:35:35,038 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:38,059 [INFO]   [entropy] Seed=42 R9/10 F1=0.2570 Acc=0.3256 Labeled=1000 QueryTime=0.0s GPU=139MB
+2026-06-14 02:35:38,060 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:40,506 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:42,714 [INFO]   [entropy] Seed=123 R1/10 F1=0.0552 Acc=0.1626 Labeled=200 QueryTime=0.0s GPU=87MB
+2026-06-14 02:35:42,715 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:45,070 [INFO]   [entropy] Seed=123 R2/10 F1=0.0842 Acc=0.1723 Labeled=300 QueryTime=0.0s GPU=131MB
+2026-06-14 02:35:45,071 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:47,452 [INFO]   [entropy] Seed=123 R3/10 F1=0.0985 Acc=0.1906 Labeled=400 QueryTime=0.0s GPU=151MB
+2026-06-14 02:35:47,453 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:50,039 [INFO]   [entropy] Seed=123 R4/10 F1=0.0779 Acc=0.1678 Labeled=500 QueryTime=0.0s GPU=151MB
+2026-06-14 02:35:50,039 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:52,546 [INFO]   [entropy] Seed=123 R5/10 F1=0.0939 Acc=0.1865 Labeled=600 QueryTime=0.0s GPU=151MB
+2026-06-14 02:35:52,547 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:55,222 [INFO]   [entropy] Seed=123 R6/10 F1=0.0919 Acc=0.1857 Labeled=700 QueryTime=0.0s GPU=151MB
+2026-06-14 02:35:55,222 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:35:57,887 [INFO]   [entropy] Seed=123 R7/10 F1=0.1359 Acc=0.2283 Labeled=800 QueryTime=0.0s GPU=151MB
+2026-06-14 02:35:57,888 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:00,867 [INFO]   [entropy] Seed=123 R8/10 F1=0.1905 Acc=0.2748 Labeled=900 QueryTime=0.0s GPU=151MB
+2026-06-14 02:36:00,867 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:03,833 [INFO]   [entropy] Seed=123 R9/10 F1=0.2015 Acc=0.2858 Labeled=1000 QueryTime=0.0s GPU=151MB
+2026-06-14 02:36:03,834 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:06,183 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:08,361 [INFO]   [entropy] Seed=456 R1/10 F1=0.0704 Acc=0.1559 Labeled=200 QueryTime=0.0s GPU=100MB
+2026-06-14 02:36:08,362 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:10,524 [INFO]   [entropy] Seed=456 R2/10 F1=0.0926 Acc=0.1914 Labeled=300 QueryTime=0.0s GPU=118MB
+2026-06-14 02:36:10,524 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:12,936 [INFO]   [entropy] Seed=456 R3/10 F1=0.1166 Acc=0.2011 Labeled=400 QueryTime=0.0s GPU=139MB
+2026-06-14 02:36:12,937 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:15,355 [INFO]   [entropy] Seed=456 R4/10 F1=0.1292 Acc=0.2238 Labeled=500 QueryTime=0.0s GPU=139MB
+2026-06-14 02:36:15,355 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:17,775 [INFO]   [entropy] Seed=456 R5/10 F1=0.1334 Acc=0.2229 Labeled=600 QueryTime=0.0s GPU=139MB
+2026-06-14 02:36:17,776 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:20,722 [INFO]   [entropy] Seed=456 R6/10 F1=0.1573 Acc=0.2446 Labeled=700 QueryTime=0.0s GPU=139MB
+2026-06-14 02:36:20,722 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:23,450 [INFO]   [entropy] Seed=456 R7/10 F1=0.1883 Acc=0.2706 Labeled=800 QueryTime=0.0s GPU=139MB
+2026-06-14 02:36:23,450 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:26,654 [INFO]   [entropy] Seed=456 R8/10 F1=0.2025 Acc=0.2840 Labeled=900 QueryTime=0.0s GPU=139MB
+2026-06-14 02:36:26,655 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:29,868 [INFO]   [entropy] Seed=456 R9/10 F1=0.2013 Acc=0.2808 Labeled=1000 QueryTime=0.0s GPU=139MB
+2026-06-14 02:36:29,869 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:36:32,417 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-14 02:36:32,423 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:37:48,657 [INFO] Full Supervised: Acc=0.5349, F1=0.4836 (epochs=50, time=74.8s)
+2026-06-14 02:37:49,044 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\cb_focal_baseline\cifar10\rho100\focal ===
+2026-06-14 02:37:49,044 [INFO] 
+Summary:
+2026-06-14 02:37:49,044 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-14 02:37:49,044 [INFO] ------------------------------------------------------------
+2026-06-14 02:37:49,044 [INFO] entropy                    0.2593   0.0079                   
+2026-06-14 02:37:49,044 [INFO] Full Supervised            0.4836
+2026-06-14 02:37:53,738 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-14 02:37:53,738 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-14 02:37:53,738 [INFO] Strategies: ['entropy']
+2026-06-14 02:37:53,738 [INFO] Seeds: [42, 123, 456]
+2026-06-14 02:37:53,738 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-14 02:37:53,738 [INFO] SSL: True, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-14 02:37:53,738 [INFO] Imbalance mode: max/min class count ratio = 100
+2026-06-14 02:37:53,759 [INFO] Device: cuda
+2026-06-14 02:38:02,948 [INFO] Imbalance filter (Exponential): 50000 -> 12406 training samples
+2026-06-14 02:38:02,948 [INFO] 
+--- Strategy: entropy ---
+2026-06-14 02:38:03,048 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:07,172 [INFO]   [entropy] Seed=42 R1/10 F1=0.0701 Acc=0.1379 Labeled=200 QueryTime=0.0s GPU=172MB SSL+0
+2026-06-14 02:38:07,172 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:10,551 [INFO]   [entropy] Seed=42 R2/10 F1=0.1042 Acc=0.1872 Labeled=300 QueryTime=0.0s GPU=217MB SSL+0
+2026-06-14 02:38:10,552 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:14,287 [INFO]   [entropy] Seed=42 R3/10 F1=0.0734 Acc=0.1681 Labeled=400 QueryTime=0.0s GPU=237MB SSL+6
+2026-06-14 02:38:14,288 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:18,117 [INFO]   [entropy] Seed=42 R4/10 F1=0.0731 Acc=0.1770 Labeled=500 QueryTime=0.0s GPU=237MB SSL+22
+2026-06-14 02:38:18,118 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:21,871 [INFO]   [entropy] Seed=42 R5/10 F1=0.1084 Acc=0.1992 Labeled=600 QueryTime=0.0s GPU=237MB SSL+20
+2026-06-14 02:38:21,871 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:27,185 [INFO]   [entropy] Seed=42 R6/10 F1=0.1649 Acc=0.2494 Labeled=700 QueryTime=0.0s GPU=237MB SSL+16
+2026-06-14 02:38:27,186 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:32,799 [INFO]   [entropy] Seed=42 R7/10 F1=0.2071 Acc=0.2808 Labeled=800 QueryTime=0.0s GPU=237MB SSL+5
+2026-06-14 02:38:32,800 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:40,206 [INFO]   [entropy] Seed=42 R8/10 F1=0.2093 Acc=0.2844 Labeled=900 QueryTime=0.0s GPU=237MB SSL+66
+2026-06-14 02:38:40,207 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:47,557 [INFO]   [entropy] Seed=42 R9/10 F1=0.2582 Acc=0.3351 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+45
+2026-06-14 02:38:47,558 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:54,330 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:38:57,953 [INFO]   [entropy] Seed=123 R1/10 F1=0.0559 Acc=0.1600 Labeled=200 QueryTime=0.0s GPU=185MB SSL+0
+2026-06-14 02:38:57,954 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:01,701 [INFO]   [entropy] Seed=123 R2/10 F1=0.0895 Acc=0.1817 Labeled=300 QueryTime=0.0s GPU=230MB SSL+0
+2026-06-14 02:39:01,702 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:05,554 [INFO]   [entropy] Seed=123 R3/10 F1=0.0946 Acc=0.1917 Labeled=400 QueryTime=0.0s GPU=250MB SSL+0
+2026-06-14 02:39:05,554 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:09,255 [INFO]   [entropy] Seed=123 R4/10 F1=0.0816 Acc=0.1863 Labeled=500 QueryTime=0.0s GPU=249MB SSL+10
+2026-06-14 02:39:09,256 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:13,027 [INFO]   [entropy] Seed=123 R5/10 F1=0.0907 Acc=0.1993 Labeled=600 QueryTime=0.0s GPU=249MB SSL+7
+2026-06-14 02:39:13,027 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:18,766 [INFO]   [entropy] Seed=123 R6/10 F1=0.1181 Acc=0.2135 Labeled=700 QueryTime=0.0s GPU=249MB SSL+6
+2026-06-14 02:39:18,767 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:24,246 [INFO]   [entropy] Seed=123 R7/10 F1=0.1443 Acc=0.2336 Labeled=800 QueryTime=0.0s GPU=249MB SSL+0
+2026-06-14 02:39:24,246 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:31,641 [INFO]   [entropy] Seed=123 R8/10 F1=0.1789 Acc=0.2676 Labeled=900 QueryTime=0.0s GPU=249MB SSL+78
+2026-06-14 02:39:31,641 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:38,991 [INFO]   [entropy] Seed=123 R9/10 F1=0.1665 Acc=0.2654 Labeled=1000 QueryTime=0.0s GPU=249MB SSL+96
+2026-06-14 02:39:38,991 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:45,920 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:49,698 [INFO]   [entropy] Seed=456 R1/10 F1=0.0867 Acc=0.1798 Labeled=200 QueryTime=0.0s GPU=199MB SSL+0
+2026-06-14 02:39:49,698 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:53,392 [INFO]   [entropy] Seed=456 R2/10 F1=0.1128 Acc=0.2046 Labeled=300 QueryTime=0.0s GPU=217MB SSL+6
+2026-06-14 02:39:53,393 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:39:57,144 [INFO]   [entropy] Seed=456 R3/10 F1=0.1212 Acc=0.2179 Labeled=400 QueryTime=0.0s GPU=237MB SSL+21
+2026-06-14 02:39:57,145 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:40:00,837 [INFO]   [entropy] Seed=456 R4/10 F1=0.1290 Acc=0.2251 Labeled=500 QueryTime=0.0s GPU=237MB SSL+43
+2026-06-14 02:40:00,837 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:40:04,517 [INFO]   [entropy] Seed=456 R5/10 F1=0.1351 Acc=0.2261 Labeled=600 QueryTime=0.0s GPU=237MB SSL+37
+2026-06-14 02:40:04,518 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:40:09,973 [INFO]   [entropy] Seed=456 R6/10 F1=0.1494 Acc=0.2474 Labeled=700 QueryTime=0.0s GPU=237MB SSL+56
+2026-06-14 02:40:09,973 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:40:15,426 [INFO]   [entropy] Seed=456 R7/10 F1=0.1953 Acc=0.2638 Labeled=800 QueryTime=0.0s GPU=237MB SSL+17
+2026-06-14 02:40:15,426 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:40:22,668 [INFO]   [entropy] Seed=456 R8/10 F1=0.2302 Acc=0.3018 Labeled=900 QueryTime=0.0s GPU=237MB SSL+14
+2026-06-14 02:40:22,669 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:40:30,067 [INFO]   [entropy] Seed=456 R9/10 F1=0.2554 Acc=0.3283 Labeled=1000 QueryTime=0.0s GPU=237MB SSL+39
+2026-06-14 02:40:30,068 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:40:36,747 [INFO] 
+--- Full Supervised Baseline ---
+2026-06-14 02:40:36,753 [INFO]   Using Focal Loss (γ=2.0)
+2026-06-14 02:43:27,179 [INFO] Full Supervised: Acc=0.6288, F1=0.5980 (epochs=50, time=169.3s)
+2026-06-14 02:43:27,535 [INFO] 
+=== Results saved to C:\Users\28414\Desktop\机器学习—图像分类-期末汇报\output\cb_focal_baseline\cifar10\rho100\focal ===
+2026-06-14 02:43:27,535 [INFO] 
+Summary:
+2026-06-14 02:43:27,535 [INFO] Strategy                 Final F1     ±std   p<0.05 vs Random
+2026-06-14 02:43:27,535 [INFO] ------------------------------------------------------------
+2026-06-14 02:43:27,535 [INFO] entropy                    0.2391   0.0185                   
+2026-06-14 02:43:27,535 [INFO] Full Supervised            0.5980

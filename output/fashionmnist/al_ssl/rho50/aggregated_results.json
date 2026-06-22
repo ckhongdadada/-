@@ -1,0 +1,32 @@
+{
+  "random": {
+    "final_f1_mean": 0.5043565678469443,
+    "final_f1_std": 0.006098349508181621,
+    "n_seeds": 3
+  },
+  "entropy": {
+    "final_f1_mean": 0.4839667238630674,
+    "final_f1_std": 0.007622913546713942,
+    "n_seeds": 3
+  },
+  "margin": {
+    "final_f1_mean": 0.567646432749095,
+    "final_f1_std": 0.0316734773769782,
+    "n_seeds": 3
+  },
+  "class_aware_entropy": {
+    "final_f1_mean": 0.6120028032704459,
+    "final_f1_std": 0.011138268482453953,
+    "n_seeds": 3
+  },
+  "gap_aware_entropy": {
+    "final_f1_mean": 0.5031893604267363,
+    "final_f1_std": 0.03618937319903454,
+    "n_seeds": 3
+  },
+  "adaptive_gap_entropy": {
+    "final_f1_mean": 0.5076239900660446,
+    "final_f1_std": 0.038694836621803924,
+    "n_seeds": 3
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "class_aware_entropy": {
+    "final_f1_mean": 0.6718411025670159,
+    "final_f1_std": 0.018636926282829844
+  },
+  "gap_aware_entropy": {
+    "final_f1_mean": 0.6859503400984158,
+    "final_f1_std": 0.013585825601610165
+  },
+  "adaptive_gap_entropy": {
+    "final_f1_mean": 0.6681837808589517,
+    "final_f1_std": 0.004457126234748477
+  }
+}
