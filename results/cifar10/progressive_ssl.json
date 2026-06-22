@@ -1,0 +1,5 @@
+{
+  "dataset": "cifar10",
+  "experiment": "progressive_ssl",
+  "results": {}
+}

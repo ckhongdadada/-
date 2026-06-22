@@ -1,0 +1,102 @@
+{
+  "dataset": "fashionmnist",
+  "seeds": 3,
+  "results": {
+    "std_al/rho=1": {
+      "random": 0.7637,
+      "entropy": 0.7471,
+      "margin": 0.7639,
+      "class_aware_entropy": 0.6965,
+      "gap_aware_entropy": 0.7487,
+      "adaptive_gap_entropy": 0.7505
+    },
+    "std_al/rho=5": {
+      "random": 0.6738,
+      "entropy": 0.656,
+      "margin": 0.6978,
+      "class_aware_entropy": 0.6944,
+      "gap_aware_entropy": 0.7121,
+      "adaptive_gap_entropy": 0.6953
+    },
+    "std_al/rho=10": {
+      "random": 0.6752,
+      "entropy": 0.6252,
+      "margin": 0.6953,
+      "class_aware_entropy": 0.6747,
+      "gap_aware_entropy": 0.7002,
+      "adaptive_gap_entropy": 0.6804
+    },
+    "std_al/rho=20": {
+      "random": 0.6036,
+      "entropy": 0.6119,
+      "margin": 0.5866,
+      "class_aware_entropy": 0.6241,
+      "gap_aware_entropy": 0.637,
+      "adaptive_gap_entropy": 0.6562
+    },
+    "std_al/rho=50": {
+      "random": 0.5359,
+      "entropy": 0.5226,
+      "margin": 0.5178,
+      "class_aware_entropy": 0.607,
+      "gap_aware_entropy": 0.5473,
+      "adaptive_gap_entropy": 0.5596
+    },
+    "std_al/rho=100": {
+      "random": 0.5139,
+      "entropy": 0.4796,
+      "margin": 0.4682,
+      "class_aware_entropy": 0.5511,
+      "gap_aware_entropy": 0.5103,
+      "adaptive_gap_entropy": 0.4901
+    },
+    "al_ssl/rho=1": {
+      "random": 0.7437,
+      "entropy": 0.6747,
+      "margin": 0.7126,
+      "class_aware_entropy": 0.6776,
+      "gap_aware_entropy": 0.6948,
+      "adaptive_gap_entropy": 0.6849
+    },
+    "al_ssl/rho=5": {
+      "random": 0.6564,
+      "entropy": 0.5882,
+      "margin": 0.7018,
+      "class_aware_entropy": 0.6828,
+      "gap_aware_entropy": 0.6761,
+      "adaptive_gap_entropy": 0.6716
+    },
+    "al_ssl/rho=10": {
+      "random": 0.6401,
+      "entropy": 0.594,
+      "margin": 0.6199,
+      "class_aware_entropy": 0.571,
+      "gap_aware_entropy": 0.6631,
+      "adaptive_gap_entropy": 0.6548
+    },
+    "al_ssl/rho=20": {
+      "random": 0.5617,
+      "entropy": 0.581,
+      "margin": 0.584,
+      "class_aware_entropy": 0.6061,
+      "gap_aware_entropy": 0.6137,
+      "adaptive_gap_entropy": 0.6128
+    },
+    "al_ssl/rho=50": {
+      "random": 0.5044,
+      "entropy": 0.484,
+      "margin": 0.5676,
+      "class_aware_entropy": 0.612,
+      "gap_aware_entropy": 0.5032,
+      "adaptive_gap_entropy": 0.5076
+    },
+    "al_ssl/rho=100": {
+      "random": 0.4827,
+      "entropy": 0.4648,
+      "margin": 0.4532,
+      "class_aware_entropy": 0.4928,
+      "gap_aware_entropy": 0.4545,
+      "adaptive_gap_entropy": 0.4905
+    }
+  }
+}

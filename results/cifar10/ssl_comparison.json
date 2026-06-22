@@ -1,0 +1,54 @@
+{
+  "dataset": "cifar10",
+  "experiment": "ssl_comparison",
+  "results": {
+    "no_ssl/rho=1": {
+      "entropy": 0.4025
+    },
+    "no_ssl/rho=10": {
+      "entropy": 0.3285
+    },
+    "no_ssl/rho=50": {
+      "entropy": 0.2624
+    },
+    "no_ssl/rho=100": {
+      "entropy": 0.2571
+    },
+    "self_training/rho=1": {
+      "entropy": 0.4545
+    },
+    "self_training/rho=5": {
+      "entropy": 0.4267
+    },
+    "self_training/rho=10": {
+      "entropy": 0.3567
+    },
+    "self_training/rho=20": {
+      "entropy": 0.3484
+    },
+    "self_training/rho=50": {
+      "entropy": 0.3051
+    },
+    "self_training/rho=100": {
+      "entropy": 0.2679
+    },
+    "flexmatch/rho=1": {
+      "entropy": 0.4085
+    },
+    "flexmatch/rho=5": {
+      "entropy": 0.3823
+    },
+    "flexmatch/rho=10": {
+      "entropy": 0.3565
+    },
+    "flexmatch/rho=20": {
+      "entropy": 0.3328
+    },
+    "flexmatch/rho=50": {
+      "entropy": 0.3014
+    },
+    "flexmatch/rho=100": {
+      "entropy": 0.273
+    }
+  }
+}

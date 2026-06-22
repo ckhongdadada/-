@@ -1,0 +1,30 @@
+{
+  "dataset": "cifar10",
+  "experiment": "ldam",
+  "results": {
+    "ce_full_rho10": {
+      "f1": 0.7341,
+      "std": 0.0028
+    },
+    "ldam_full_rho10": {
+      "f1": 0.7365,
+      "std": 0.0016
+    },
+    "ce_full_rho50": {
+      "f1": 0.5831,
+      "std": 0.0016
+    },
+    "ldam_full_rho50": {
+      "f1": 0.6049,
+      "std": 0.0028
+    },
+    "ce_full_rho100": {
+      "f1": 0.5114,
+      "std": 0.0071
+    },
+    "ldam_full_rho100": {
+      "f1": 0.5401,
+      "std": 0.0071
+    }
+  }
+}

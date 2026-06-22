@@ -1,0 +1,46 @@
+{
+  "dataset": "cifar10",
+  "experiment": "ablation",
+  "results": {
+    "rho=10": {
+      "baseline/badge": 0.3361,
+      "baseline/coreset": 0.3299,
+      "baseline/entropy": 0.3438,
+      "baseline/margin": 0.3445,
+      "baseline/qbc": 0.3769,
+      "baseline/random": 0.3559,
+      "innov_al_base_ssl/adaptive_gap_entropy": 0.4132,
+      "innov_al_base_ssl/class_aware_entropy": 0.4017,
+      "innov_al_base_ssl/gap_aware_entropy": 0.41,
+      "base_al_innov_ssl/badge": 0.3769,
+      "base_al_innov_ssl/coreset": 0.3217,
+      "base_al_innov_ssl/entropy": 0.3351,
+      "base_al_innov_ssl/margin": 0.3383,
+      "base_al_innov_ssl/qbc": 0.3626,
+      "base_al_innov_ssl/random": 0.3519,
+      "innov_al_innov_ssl/adaptive_gap_entropy": 0.3556,
+      "innov_al_innov_ssl/class_aware_entropy": 0.3729,
+      "innov_al_innov_ssl/gap_aware_entropy": 0.3618
+    },
+    "rho=50": {
+      "baseline/badge": 0.2539,
+      "baseline/coreset": 0.251,
+      "baseline/entropy": 0.2585,
+      "baseline/margin": 0.268,
+      "baseline/qbc": 0.2554,
+      "baseline/random": 0.2475,
+      "innov_al_base_ssl/adaptive_gap_entropy": 0.298,
+      "innov_al_base_ssl/class_aware_entropy": 0.2917,
+      "innov_al_base_ssl/gap_aware_entropy": 0.2847,
+      "base_al_innov_ssl/badge": 0.2565,
+      "base_al_innov_ssl/coreset": 0.2866,
+      "base_al_innov_ssl/entropy": 0.3058,
+      "base_al_innov_ssl/margin": 0.2789,
+      "base_al_innov_ssl/qbc": 0.2885,
+      "base_al_innov_ssl/random": 0.2518,
+      "innov_al_innov_ssl/adaptive_gap_entropy": 0.2991,
+      "innov_al_innov_ssl/class_aware_entropy": 0.3129,
+      "innov_al_innov_ssl/gap_aware_entropy": 0.2969
+    }
+  }
+}

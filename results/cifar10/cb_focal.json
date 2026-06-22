@@ -1,0 +1,42 @@
+{
+  "dataset": "cifar10",
+  "experiment": "cb_focal",
+  "results": {
+    "rho=1/cb": {
+      "entropy": 0.401
+    },
+    "rho=1/focal": {
+      "entropy": 0.4203
+    },
+    "rho=5/cb": {
+      "entropy": 0.4039
+    },
+    "rho=5/focal": {
+      "entropy": 0.4153
+    },
+    "rho=10/cb": {
+      "entropy": 0.3693
+    },
+    "rho=10/focal": {
+      "entropy": 0.4
+    },
+    "rho=20/cb": {
+      "entropy": 0.3298
+    },
+    "rho=20/focal": {
+      "entropy": 0.3386
+    },
+    "rho=50/cb": {
+      "entropy": 0.3347
+    },
+    "rho=50/focal": {
+      "entropy": 0.2977
+    },
+    "rho=100/cb": {
+      "entropy": 0.3084
+    },
+    "rho=100/focal": {
+      "entropy": 0.2391
+    }
+  }
+}

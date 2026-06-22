@@ -1,0 +1,19 @@
+{
+  "generated": "2026-06-22",
+  "project": "低标注预算下面向不平衡图像分类的主动学习与半监督学习联合策略研究",
+  "datasets": [
+    "cifar10",
+    "cifar100",
+    "fashionmnist"
+  ],
+  "key_findings": {
+    "best_std_al_rho50": "margin 0.2680",
+    "best_innovative_rho50": "class_aware_entropy 0.3129 (+21.0%)",
+    "best_joint_rho50": "joint_r5/gap_aware_entropy_ssl 0.3126",
+    "ablation_al_contribution": "+16.8% (innov_al_base_ssl vs baseline)",
+    "ablation_ssl_contribution": "-2.5% (base_al_innov_ssl vs baseline)",
+    "progressive_ssl_rho100": "+20.5% vs base SSL",
+    "resnet18_entropy_rho50": 0.4737,
+    "ldam_full_rho50": 0.6049
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "results": {
+    "rho=1": {
+      "adaptive_gap_entropy": {
+        "f1": 0.5533,
+        "std": 0.0029
+      },
+      "badge": {
+        "f1": 0.5702,
+        "std": 0.0052
+      },
+      "class_aware_entropy": {
+        "f1": 0.5268,
+        "std": 0.006
+      },
+      "coreset": {
+        "f1": 0.5412,
+        "std": 0.0116
+      },
+      "entropy": {
+        "f1": 0.5255,
+        "std": 0.0152
+      },
+      "gap_aware_entropy": {
+        "f1": 0.5603,
+        "std": 0.0098
+      },
+      "margin": {
+        "f1": 0.5686,
+        "std": 0.0073
+      },
+      "qbc": {
+        "f1": 0.568,
+        "std": 0.0054
+      },
+      "random": {
+        "f1": 0.566,
+        "std": 0.0043
+      }
+    },
+    "rho=5": {
+      "adaptive_gap_entropy": {
+        "f1": 0.5445,
+        "std": 0.0197
+      },
+      "badge": {
+        "f1": 0.5407,
+        "std": 0.0135
+      },
+      "class_aware_entropy": {
+        "f1": 0.5524,
+        "std": 0.0094
+      },
+      "coreset": {
+        "f1": 0.5159,
+        "std": 0.0321
+      },
+      "entropy": {
+        "f1": 0.5385,
+        "std": 0.0248
+      },
+      "gap_aware_entropy": {
+        "f1": 0.5541,
+        "std": 0.012
+      },
+      "margin": {
+        "f1": 0.5625,
+        "std": 0.011
+      },
+      "qbc": {
+        "f1": 0.5432,
+        "std": 0.0132
+      },
+      "random": {
+        "f1": 0.5462,
+        "std": 0.0116
+      }
+    },
+    "rho=10": {
+      "adaptive_gap_entropy": {
+        "f1": 0.5442,
+        "std": 0.0119
+      },
+      "badge": {
+        "f1": 0.536,
+        "std": 0.0165
+      },
+      "class_aware_entropy": {
+        "f1": 0.5092,
+        "std": 0.0261
+      },
+      "coreset": {
+        "f1": 0.5137,
+        "std": 0.0078
+      },
+      "entropy": {
+        "f1": 0.5305,
+        "std": 0.0033
+      },
+      "gap_aware_entropy": {
+        "f1": 0.5368,
+        "std": 0.0174
+      },
+      "margin": {
+        "f1": 0.5253,
+        "std": 0.009
+      },
+      "qbc": {
+        "f1": 0.5239,
+        "std": 0.0176
+      },
+      "random": {
+        "f1": 0.5282,
+        "std": 0.0089
+      }
+    },
+    "rho=20": {
+      "adaptive_gap_entropy": {
+        "f1": 0.5233,
+        "std": 0.0155
+      },
+      "badge": {
+        "f1": 0.4949,
+        "std": 0.0199
+      },
+      "class_aware_entropy": {
+        "f1": 0.5055,
+        "std": 0.0211
+      },
+      "coreset": {
+        "f1": 0.5212,
+        "std": 0.0169
+      },
+      "entropy": {
+        "f1": 0.4911,
+        "std": 0.0267
+      },
+      "gap_aware_entropy": {
+        "f1": 0.5193,
+        "std": 0.0159
+      },
+      "margin": {
+        "f1": 0.4998,
+        "std": 0.0059
+      },
+      "qbc": {
+        "f1": 0.5149,
+        "std": 0.0096
+      },
+      "random": {
+        "f1": 0.4792,
+        "std": 0.0149
+      }
+    },
+    "rho=50": {
+      "adaptive_gap_entropy": {
+        "f1": 0.4807,
+        "std": 0.0361
+      },
+      "badge": {
+        "f1": 0.4624,
+        "std": 0.0012
+      },
+      "class_aware_entropy": {
+        "f1": 0.4439,
+        "std": 0.0152
+      },
+      "coreset": {
+        "f1": 0.4482,
+        "std": 0.0206
+      },
+      "entropy": {
+        "f1": 0.4737,
+        "std": 0.017
+      },
+      "gap_aware_entropy": {
+        "f1": 0.4562,
+        "std": 0.0146
+      },
+      "margin": {
+        "f1": 0.4567,
+        "std": 0.0158
+      },
+      "qbc": {
+        "f1": 0.4401,
+        "std": 0.0103
+      },
+      "random": {
+        "f1": 0.4043,
+        "std": 0.0204
+      }
+    },
+    "rho=100": {
+      "adaptive_gap_entropy": {
+        "f1": 0.409,
+        "std": 0.0079
+      },
+      "badge": {
+        "f1": 0.4083,
+        "std": 0.0068
+      },
+      "class_aware_entropy": {
+        "f1": 0.4122,
+        "std": 0.0303
+      },
+      "coreset": {
+        "f1": 0.4124,
+        "std": 0.0176
+      },
+      "entropy": {
+        "f1": 0.4064,
+        "std": 0.016
+      },
+      "gap_aware_entropy": {
+        "f1": 0.4072,
+        "std": 0.0225
+      },
+      "margin": {
+        "f1": 0.4145,
+        "std": 0.0124
+      },
+      "qbc": {
+        "f1": 0.3956,
+        "std": 0.0416
+      },
+      "random": {
+        "f1": 0.3599,
+        "std": 0.0097
+      }
+    }
+  },
+  "full_supervised": {
+    "rho=1": 0.883,
+    "rho=5": 0.8049,
+    "rho=10": 0.7875,
+    "rho=20": 0.7437,
+    "rho=50": 0.6676,
+    "rho=100": 0.6448
+  },
+  "strategies": [
+    "adaptive_gap_entropy",
+    "badge",
+    "class_aware_entropy",
+    "coreset",
+    "entropy",
+    "gap_aware_entropy",
+    "margin",
+    "qbc",
+    "random"
+  ],
+  "seeds": 3,
+  "dataset": "cifar10",
+  "experiment": "resnet18"
+}
