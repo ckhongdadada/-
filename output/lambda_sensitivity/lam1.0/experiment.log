@@ -1,0 +1,22 @@
+2026-06-22 20:57:45,917 [INFO] === v8 Controlled-Fast AL+SSL Analysis: cifar10 ===
+2026-06-22 20:57:45,917 [INFO] Budget: ultra_low, Model: simplecnn, Scheduler: True
+2026-06-22 20:57:45,917 [INFO] Strategies: ['class_aware_entropy']
+2026-06-22 20:57:45,917 [INFO] Seeds: [42]
+2026-06-22 20:57:45,917 [INFO] Rounds: 10, Initial: 100, Query: 100
+2026-06-22 20:57:45,917 [INFO] SSL: False, Method: flexmatch, t-SNE: False, Resume: False
+2026-06-22 20:57:45,917 [INFO] Imbalance mode: max/min class count ratio = 50
+2026-06-22 20:57:45,956 [INFO] Device: cuda
+2026-06-22 20:57:57,626 [INFO] Imbalance filter (Exponential): 50000 -> 13996 training samples
+2026-06-22 20:57:57,635 [INFO] 
+--- Strategy: class_aware_entropy ---
+2026-06-22 20:58:00,761 [INFO]   [class_aware_entropy] Seed=42 R1/10 F1=0.0773 Acc=0.1768 Labeled=200 QueryTime=0.0s GPU=74MB
+2026-06-22 20:58:03,263 [INFO]   [class_aware_entropy] Seed=42 R2/10 F1=0.0942 Acc=0.1756 Labeled=300 QueryTime=0.0s GPU=111MB
+2026-06-22 20:58:06,228 [INFO]   [class_aware_entropy] Seed=42 R3/10 F1=0.0949 Acc=0.1666 Labeled=400 QueryTime=0.1s GPU=131MB
+2026-06-22 20:58:08,372 [INFO]   [class_aware_entropy] Seed=42 R4/10 F1=0.0957 Acc=0.1535 Labeled=500 QueryTime=0.1s GPU=131MB
+2026-06-22 20:58:11,167 [INFO]   [class_aware_entropy] Seed=42 R5/10 F1=0.1268 Acc=0.1990 Labeled=600 QueryTime=0.1s GPU=131MB
+2026-06-22 20:58:13,654 [INFO]   [class_aware_entropy] Seed=42 R6/10 F1=0.1808 Acc=0.2525 Labeled=700 QueryTime=0.1s GPU=131MB
+2026-06-22 20:58:16,841 [INFO]   [class_aware_entropy] Seed=42 R7/10 F1=0.2191 Acc=0.2922 Labeled=800 QueryTime=0.1s GPU=131MB
+2026-06-22 20:58:19,673 [INFO]   [class_aware_entropy] Seed=42 R8/10 F1=0.2144 Acc=0.2903 Labeled=900 QueryTime=0.2s GPU=131MB
+2026-06-22 20:58:22,769 [INFO]   [class_aware_entropy] Seed=42 R9/10 F1=0.2451 Acc=0.3200 Labeled=1000 QueryTime=0.2s GPU=131MB
+2026-06-22 20:58:25,171 [INFO] 
+--- Full Supervised Baseline ---

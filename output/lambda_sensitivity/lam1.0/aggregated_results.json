@@ -1,0 +1,7 @@
+{
+  "class_aware_entropy": {
+    "final_f1_mean": 0.30663688494666286,
+    "final_f1_std": 0,
+    "n_seeds": 1
+  }
+}

@@ -2570,7 +2570,7 @@ def run_full_supervised(train_dataset, test_dataset, test_idx, device, train_idx
     all_idx = list(range(len(train_dataset))) if train_idx_all is None else list(train_idx_all)
     model = create_model(CFG.dataset, device)
     torch.manual_seed(42)
-    train_t, gpu_mem, _, _, _ = train_model(
+    train_t, gpu_mem, _, _, _, _ = train_model(
         model, train_dataset, all_idx, device,
         n_epochs=CFG.full_supervised_epochs,
         early_stopping=True,
